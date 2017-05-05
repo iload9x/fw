@@ -46,6 +46,7 @@ class categoryController extends InitController
 			} else {
 				$this->categoryModel->name = Input::post('name');
 				$this->categoryModel->uid = $req->globals['infoUser']['id'];
+				$this->categoryModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->categoryModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->categoryModel->save();
 				return $res->redirect('admin/cart/categories/add')->with(array('success' => 'Thêm thành công!'));
@@ -90,6 +91,7 @@ class categoryController extends InitController
 			} else {
 				$this->categoryModel->name = Input::post('name');
 				$this->categoryModel->uid_updated = $req->globals['infoUser']['id'];
+				$this->categoryModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->categoryModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->categoryModel->save();
 				return $res->redirect('admin/cart/categories/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));

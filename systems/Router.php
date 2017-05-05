@@ -132,36 +132,57 @@ class Router
 		$this->Request->createReq($reqArr);
 	}
 
-	public function processRouteHasParam($route) {
-		foreach (self::$RoutesHasParam as $v) {
-			if (strpos($route, $v[0]) === 0) {
-				$this->hasRoute = true;// check
-				$id = 1;
-				$route = str_replace($v[0], '', $route);
-				$arr = array();
-				while ($v[$id]) {
-					$c = explode('}', $v[$id]);
-					if ($c[1] != null) {
-						if(!strpos($route, $c[1])) {
-							$this->processRoute('404');
-							return;
+	public function processRouteHasParam($route2) {
+		$containRouteTrue = array();
+		foreach (self::$RoutesHasParam as $v) { 
+			//VD: $v = ['products/', 'name}'] #Route đã tạo : products/{name} đã được explore 
+			$route = $route2; // VD URI trên URL : products/iload9x
+			$error = false;// khởi tạo không có lỗi
+			if (strpos($route, $v[0]) === 0) { // kiểm tra $v[0] = 'products/' có nằm ở vị trí đầu tiền của $route = products/iload9x hay không
+				$this->hasRoute = true; // check
+				$id = 1; 
+				$route = str_replace($v[0], '', $route);// xóa bỏ phần đầu trùng khớp của $route [products/]
+				$params = array();
+				while (isset($v[$id])) { // nếu tồn tại tiếp theo $v[1] = 'name}'
+					$c = explode('}', $v[$id]); // tách chuôi explore } từ $v[1]
+					if ($c[1] != null) { // sau '}' còn ký tự
+						if(!strpos($route, $c[1])) {// kiểm tra xem ký từ sau '}' có tồn tại trong $route hay không
+							$error = true; // nếu không tồn tại
+							break;
+						} else {
+							// $vlue : lấy giá trị của của dấu {}
+							$vlue = substr($route, 0, strpos($route, $c[1]));
+							$route = str_replace($vlue . $c[1], '', $route);// xóa bỏ phần đầu đã xử lý xong
+							$params[$c[0]] = $vlue; // $c[0] = name
 						}
-						$vlue = substr($route, 0, strpos($route, $c[1]));
-						$route = str_replace($vlue . $c[1], '', $route);
-						$arr[$c[0]] = $vlue;
-					} else {
-						$vlue = $route;
-						$arr[$c[0]] = $vlue;
+						
+					} else { // còn nếu sau '}' không còn ký tự
+						$vlue = $route; // giá trị của params bằng $route luôn
+						$params[$c[0]] = $vlue; // $c[0] = name
 						break;
 					}
 					
-					$id++;
+					$id++; // lặp cho đến khi hết params thì thôi
 				}
-				$this->setReq($arr);
-				$this->processRoute(implode('{',$v));
-				break;
+				if (!$error) { // nếu không có lỗi
+					array_push($containRouteTrue, array( // đẩy vào 1 mảng chứ các Route thỏa mãn
+					 	'route' => implode('{',$v),
+					 	'params' => $params
+					));
+				}
+				 
 			}
+
 		}
+
+		if (@isset(self::$Routes["GET"]["{$containRouteTrue[0]['route']}"])) {
+			$this->setReq($containRouteTrue[0]['params']);
+			$this->processRoute($containRouteTrue[0]['route']);
+		} else {
+			$this->processRoute('404');
+			return;
+		}
+		
 	}
 
 	public function route($Routes, $RoutesHasSet, $route) {

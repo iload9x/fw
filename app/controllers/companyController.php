@@ -46,6 +46,7 @@ class companyController extends InitController
 			} else {
 				$this->companyModel->name = Input::post('name');
 				$this->companyModel->uid = $req->globals['infoUser']['id'];
+				$this->companyModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->companyModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->companyModel->save();
 				return $res->redirect('admin/cart/companies/add')->with(array('success' => 'Thêm thành công!'));
@@ -90,6 +91,7 @@ class companyController extends InitController
 			} else {
 				$this->companyModel->name = Input::post('name');
 				$this->companyModel->uid_updated = $req->globals['infoUser']['id'];
+				$this->companyModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->companyModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->companyModel->save();
 				return $res->redirect('admin/cart/companies/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));

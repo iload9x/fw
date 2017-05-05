@@ -42,7 +42,22 @@ Router::get('404', function($req, $res) {
 Router::post('404', function() {
 	echo '404';
 });
+
+
 //=================APP=====================
+Router::get('a/{category}/{company}/{id}.html', function($req, $res) {
+	echo $req->category . '=' . $req->company. '=' . $req->id;
+});
+Router::get('a/{category}/{company}.html', function($req, $res) {
+	echo $req->category . '+' . $req->company;
+});
+Router::get('a/{category}.html', function($req, $res) {
+	echo $req->category;
+});
+
+
+
+
 Router::get("admin", "admin@index");
 Router::group('admin', function() {
 	Router::get("login", "admin@login");
