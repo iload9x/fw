@@ -11,12 +11,21 @@ class productModel extends InitModel
 			$this->typeModel = new typeModel();
 			$this->categoryModel = new categoryModel();
 			$this->userModel = new userModel();
+			$this->companyModel = new companyModel();
 			foreach ($data as $k => $v) {
 				$this->categoryModel->find($v['categoryId']);
-				$this->typeModel->find($v['typeId']);
+				
 				$this->userModel->find($v['uId']);
+				$this->companyModel->find($v['companyId']);
 				$data[$k]['categoryName'] = $this->categoryModel->name;
-				$data[$k]['typeName'] = $this->typeModel->name;
+				//print_r($data[$k]['typeId']);
+				$data[$k]['typeName'] = array();
+				foreach ((array)json_decode($data[$k]['typeId']) as $value) {
+					$this->typeModel->find($value);
+					array_push($data[$k]['typeName'], $this->typeModel->name);
+				}
+				$data[$k]['typeName'] = implode(', ', $data[$k]['typeName']);
+				$data[$k]['companyName'] = $this->companyModel->name;
 				$data[$k]['uName'] = $this->userModel->username;
 				if ($v['status'] == 1) {
 					$data[$k]['status'] = 'Còn hàng';
@@ -24,6 +33,7 @@ class productModel extends InitModel
 					$data[$k]['status'] = 'Hết hàng';
 				}
 				$data[$k]['avatar'] = json_decode($data[$k]['avatar']);
+
 
 			}
 			return $data;

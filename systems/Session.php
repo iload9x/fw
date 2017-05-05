@@ -3,7 +3,6 @@
 class Session
 {
 	
-
 	public static function set($nameSession, $valueSession) {
 		$_SESSION[$nameSession] = $valueSession;
 	}

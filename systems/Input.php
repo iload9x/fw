@@ -4,6 +4,10 @@ class Input
 	function __construct() {
 	}
 
+	public static function setPost($name, $value) {
+		$_POST[$name] = $value;
+		return true;
+	}
 	public static function get($name = null) {
 		if (isset($name)) {
 			return isset($_GET[$name]) ? $_GET[$name] : false;

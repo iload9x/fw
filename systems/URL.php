@@ -41,7 +41,10 @@ class URL
 	}
 
 	public static function base_path($url = '') {
-		return self::http_host() . self::directory() . $url;
+		if (!Session::get('base_url')) {
+			Session::set('base_url', self::http_host() . self::directory());
+		}
+		return Session::get('base_url')  . $url;
 	}
 
 	public static function base_url($url = '') {
