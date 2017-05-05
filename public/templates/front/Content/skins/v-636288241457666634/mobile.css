@@ -1,0 +1,70 @@
+/* Edit by DTM for Mobile*/
+/* Medium Devices, Desktops ex:Ipad Landscape; */
+@media only screen and (min-width:1200px){
+}
+@media only screen and (max-width:1199px){
+}
+@media only screen and (max-width:1122px){
+	
+}
+
+@media only screen and (max-width:991px){
+	.logo-mobile img{max-width:200px}
+	.header-desktop{
+		display: none;
+	}
+	.header-mobile{
+		display: block;
+	}
+	.modal-video{
+		margin: 5px 0;
+	}
+	.detail-product-page-bottom .bottom-picture-video .list-video ul li img,.detail-product-page-bottom .bottom-picture-video .list-picture ul li img{
+		height:auto;
+	}
+	footer > div.footer-top.all > div > div > div:nth-child(4) > div > img{display:none}
+}
+@media only screen and (max-width:768px){
+	.banner-slide img{
+		height:auto;
+	}
+	.detail-product-page-bottom{
+		margin: 0;
+	}
+	.big-picture,.big-video{
+		padding:15px;
+	}
+	.manufacturer-index-main ul li{
+	    width: 50%;
+	}
+	#mm-0 > div.wrapper > footer > div.footer-top.all > div > div > div:nth-child(1) > div > p:nth-child(2) > img{max-width:200px;}
+}
+@media only screen and (max-width: 640px){ 
+	.block-inner{
+		display: none;
+	}
+	
+}
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width: 480px){
+	.list-new-bottom-main-left-main-ul-li .left img {
+	    width: 110px;
+	    margin: 0px 10px 10px 0;
+	}
+	
+}
+/* Custom, iPhone Retina 4inch */
+@media only screen and (max-width: 414px){ 
+
+}
+@media only screen and (max-width: 375px) and (min-width: 320px){ 
+	
+}
+@media only screen and (max-width: 320px){
+	.product-page-left .col-xs-6{
+		width:100%;
+	}
+	.Index-product-main .col-xs-6{
+	    width: 100%;
+	}
+}

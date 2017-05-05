@@ -89,3 +89,15 @@
 .btnXem:hover {
   background: #189069;
 }
+
+.css1{
+  border: 1px dashed #ccc;
+  padding-top: 16px;
+  margin-bottom: 5px;
+}
+
+.css2 {
+  padding: 0px;
+}
+
+.rowItem {display: inline-block;}

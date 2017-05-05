@@ -105,7 +105,7 @@
 								{{# isset($v['name']) ? $v['name'] : 'N/A'}}
 								</h2>
 								<small>
-								{{# strip_tags(substr($v['detail'],0,250)) }}...
+								{{# trim(substr(strip_tags($v['detail']),0,250)) }}...
 								</small>
 							</div>
 						</div>

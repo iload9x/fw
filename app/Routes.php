@@ -34,10 +34,7 @@ Router::getUse(array('group' => array('admin/blog')), function($req) {
 		Redirect::to('admin/login?backtourl=' . URL::thisRoute());
 	}
 });
-Router::get('/', function($req, $res) {
-	$data['title'] = 'Trang chu';
-	$res->render('home', 'admin/layout',$data);
-});
+Router::get('/', 'home@homeGet');
 Router::get('404', function($req, $res) {
 	$data['seo']['title'] = "Error: 404";
 	return $res->render('404','admin-flat/layout/register.layout', $data);
@@ -103,7 +100,7 @@ Router::post("ajax/convertUrl", function($req, $res) {
 	}
 });
 Router::post("ajax/uploadImages", function($req, $res) {
-	//if ($req->csrf) {
+	if ($req->csrf) {
 		$FileUploader = new FileUploaderLib('files', array(
 	'limit' => null,
 	'maxSize' => null,
@@ -127,7 +124,7 @@ Router::post("ajax/uploadImages", function($req, $res) {
 		array_push($imagesArray['imageUrls'], $v['name']);
 	}
 	die(json_encode($imagesArray));
-	//} else {
-//die(json_encode(array('errors' => 'Lỗi token!')));
-	//}
+	} else {
+		die(json_encode(array('errors' => 'Lỗi token!')));
+	}
 });
