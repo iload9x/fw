@@ -113,7 +113,7 @@ class productController extends InitController
 
 			if ($this->validate->errors) {
 
-				return $res->redirect('admin/cart/products/add')->with(array(
+				return $res->redirect('/admin/cart/products/add')->with(array(
 					'errors' => $this->validate->errors,
 					'callback' => Input::post()
 					));
@@ -121,7 +121,7 @@ class productController extends InitController
 				$files = $FileUploader->upload();
 				if ($files['hasWarnings']) {
 					$warnings = $files['warnings'];
-					return $res->redirect('admin/cart/products/add')->with(array(
+					return $res->redirect('/admin/cart/products/add')->with(array(
 						'errors' => $warnings,
 						'callback' => Input::post()
 						));
@@ -169,7 +169,7 @@ class productController extends InitController
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();
-				return $res->redirect('admin/cart/products/add')->with(array(
+				return $res->redirect('/admin/cart/products/add')->with(array(
 					'success' => 'Thêm thành công!'
 					));
 			}
@@ -182,13 +182,13 @@ class productController extends InitController
 	{
 		$id = $req->id;
 		if (!$id || !is_numeric($id)) {
-			return $res->redirect('admin/cart/products')->with(array(
+			return $res->redirect('/admin/cart/products')->with(array(
 				'errors' => array(
 					'Có lỗi xảy ra!'
 					)
 				));
 		} else if (!$this->productModel->find($id)) {
-			return $res->redirect('admin/cart/products')->with(array(
+			return $res->redirect('/admin/cart/products')->with(array(
 				'errors' => array(
 					'Sản phẩm không tồn tại!'
 					)
@@ -258,14 +258,14 @@ class productController extends InitController
 				array_push($this->validate->errors, 'ID sản phẩm không tồn tại!');
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('admin/cart/products/edit-' . $id)->with(array(
+				return $res->redirect('/admin/cart/products/edit-' . $id)->with(array(
 					'errors' => $this->validate->errors
 					));
 			} else {
 				$files = $FileUploader->upload();
 				if ($files['hasWarnings']) {
 					$warnings = $files['warnings'];
-					return $res->redirect('admin/cart/products/edit-' . $id)->with(array(
+					return $res->redirect('/admin/cart/products/edit-' . $id)->with(array(
 						'errors' => $warnings,
 						'callback' => Input::post()
 						));
@@ -313,7 +313,7 @@ class productController extends InitController
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();
-				return $res->redirect('admin/cart/products/edit-' . $id)->with(array(
+				return $res->redirect('/admin/cart/products/edit-' . $id)->with(array(
 					'success' => 'Cập nhật thành công!'
 					));
 			}

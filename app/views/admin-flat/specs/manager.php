@@ -5,7 +5,7 @@
       <div class="panel-heading">
         <div class="panel-tools">
 	        <a style="text-decoration: none;border: #1bbf89 1px solid;color: #fff;padding: 4px 6px;">{{# isset($count_all_member) ? $count_all_member : 0}} thành viên </i></a>
-	        <a href="{{# URL::base_path('admin/cart/specs/add')}}" style="text-decoration: none;border: #1bbf89 1px solid;color: #fff;padding: 4px 6px;">Thêm <i class="fa fa-plus"></i></a>
+	        <a href="{{# URL::base_path('/admin/cart/specs/add')}}" style="text-decoration: none;border: #1bbf89 1px solid;color: #fff;padding: 4px 6px;">Thêm <i class="fa fa-plus"></i></a>
 	        <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
 	        <a class="panel-close"><i class="fa fa-times"></i></a>
         </div>
@@ -42,7 +42,7 @@
 			    {{foreach($dsCategory as $v):}}
 			      <tr>
 			        <th scope="row">{{# $id}}</th>
-			        <td><a href="{{# URL::base_path('admin/cart/specs/edit?id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/cart/specs/edit?id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
 			        <td>{{# isset($v['operatingSystem']) ? $v['operatingSystem'] : 'N/A'}}</td>
 			        <td>{{# isset($v['processor']) ? $v['processor'] : 'N/A'}}</td>
 			        <td>{{# isset($v['RAM']) ? $v['RAM'] : 'N/A'}}</td>

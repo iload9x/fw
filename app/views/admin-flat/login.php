@@ -1,7 +1,7 @@
  <!-- Main content-->
     <section class="content">
         <div class="back-link">
-            <a href="{{# URL::base_path('admin'); }}" class="btn btn-accent">Back to Dashboard</a>
+            <a href="{{# URL::base_path('/admin'); }}" class="btn btn-accent">Back to Dashboard</a>
         </div>
 
         <div class="container-center animated slideInDown">
@@ -42,7 +42,7 @@
                         </div>
                         <div>
                             <button class="btn btn-accent">Đăng nhập</button>
-                            <a class="btn btn-default" href="{{# URL::base_path('admin/register'); }}">Đăng ký</a>
+                            <a class="btn btn-default" href="{{# URL::base_path('/admin/register'); }}">Đăng ký</a>
                         </div>
                     </form>
                 </div>

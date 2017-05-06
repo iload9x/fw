@@ -26,11 +26,11 @@
     <link href="{{# URL::base_path() }}/public/templates/plugins/uploader/css/jquery.fileuploader-theme-thumbnails.css" media="all" rel="stylesheet">
     {{if(isset($styles)):}}
     {{foreach($styles as $v):}}
-    <link href="{{# URL::base_path() }}{{# $v}}" media="all" rel="stylesheet">
+    <link href="{{# URL::base_path('/') }}{{# $v}}" media="all" rel="stylesheet">
     {{endforeach}}
     {{endif}}
     <script type="text/javascript">
-        var base_url = '{{# URL::base_path() }}';
+        var base_url = '{{# URL::base_path("/") }}';
     </script>
 
 </head>
@@ -92,7 +92,7 @@
 <script src="{{# URL::base_path() }}/public/templates/plugins/uploader/js/custom.js"></script>
 {{if(isset($scripts)):}}
 {{foreach($scripts as $v):}}
-<script src="{{# URL::base_path() }}{{# $v}}"></script>
+<script src="{{# URL::base_path('/') }}{{# $v}}"></script>
 {{endforeach}}
 {{endif}}
 </body>

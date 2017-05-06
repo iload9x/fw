@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-3 col-xs-6 text-center">
               <h2 class="no-margins">
-							<a href="{{# URL::base_path('admin/cart/products/add')}}" class="btn btn-primary btn-rounded" style="padding: 10px 18px;    font-size: 21px;"><i class="fa fa-plus"></i></a>
+							<a href="{{# URL::base_path('/admin/cart/products/add')}}" class="btn btn-primary btn-rounded" style="padding: 10px 18px;    font-size: 21px;"><i class="fa fa-plus"></i></a>
 							</h2>
               <span class="c-white">Thêm</span> mới
             </div>
@@ -90,7 +90,7 @@
             <div class="col-md-5">
               <div class="media">
                 {{if(isset($v['avatar'])):}} {{ $id2 = 0;}} {{foreach($v['avatar'] as $vImage):}} {{if($id2
-                < 3):}} <img src="{{# URL::base_path('public/uploads/') . $vImage}}" width="70px" height="70px">
+                < 3):}} <img src="{{# URL::base_path('/public/uploads/') . $vImage}}" width="70px" height="70px">
                   {{endif}} {{ $id2 ++;}} {{endforeach}} {{endif}}
                   <h2 class="m-t-xs m-b-none font-size-20 color-fce2b4">
 								{{# isset($v['name']) ? $v['name'] : 'N/A'}}
@@ -134,8 +134,8 @@
               Người tạo: <span class="c-white"> Administrator</span>
               <br> Ngày tạo: <span class="c-white"> {{# isset($v['time_created']) ? $v['time_created'] : 'N/A'}}</span>
               <div class="btn-group m-t-sm">
-                <a href="{{# URL::base_path('admin/cart/products/edit-'.$v['id'])}}" class="btn btn-default btn-sm"><i class="fa fa-envelope"></i> Sửa</a>
-                <a href="{{# URL::base_path('admin/cart/products/delete-'.$v['id'])}}" class="btn btn-default btn-sm"><i class="fa fa-check"></i> Xóa</a>
+                <a href="{{# URL::base_path('/admin/cart/products/edit-'.$v['id'])}}" class="btn btn-default btn-sm"><i class="fa fa-envelope"></i> Sửa</a>
+                <a href="{{# URL::base_path('/admin/cart/products/delete-'.$v['id'])}}" class="btn btn-default btn-sm"><i class="fa fa-check"></i> Xóa</a>
               </div>
             </div>
           </div>

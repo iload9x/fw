@@ -8,7 +8,7 @@
                         </a>
                     </div>
                 </div>
-                <a class="navbar-brand" href="{{# URL::base_path('admin') }}">
+                <a class="navbar-brand" href="{{# URL::base_path('/admin') }}">
                     NGOAN
                     <span>v.1.0</span>
                 </a>
@@ -24,10 +24,10 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="{{# URL::base_path('admin/logout'); }}" >Logout <span class="pe-7s-angle-right-circle"></span></a>
+                        <a href="{{# URL::base_path('/admin/logout'); }}" >Logout <span class="pe-7s-angle-right-circle"></span></a>
                     </li>
                     <li class=" profil-link">
-                        <a href="{{# URL::base_path('admin/profile'); }}">
+                        <a href="{{# URL::base_path('/admin/profile'); }}">
                             <span class="profile-address">{{# $globals['infoUser']['nickname'] }}</span>
                             <img src="{{# URL::base_path($globals['infoUser']['avatar']); }}" class="img-circle" alt="">
                         </a>

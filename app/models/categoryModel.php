@@ -17,4 +17,5 @@ class categoryModel extends InitModel
 		}
 		return $data;
 	}
+
 }

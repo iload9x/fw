@@ -24,6 +24,14 @@
 			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
 			  </div>
 			</div>
+			<div class="form-group">
+			  <label for="exampleInputName">Mã màu:</label>
+			  <div class="input-group">
+			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>
+			    <input type="text" value="{{# isset($infoCategory['color'])?$infoCategory['color']: null }}" name="color" class="form-control" placeholder="">
+			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
+			  </div>
+			</div>
 	    </div>
 	    <div class="panel-footer">
 			<div class="form-group">

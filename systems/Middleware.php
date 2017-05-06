@@ -9,7 +9,7 @@ class Middleware
 
 	public function auth($req) {
 		if (!Auth::isAuth()) {
-			Redirect::to('test/login');
+			Redirect::to('/test/login');
 		}
 
 		return true;

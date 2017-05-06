@@ -46,7 +46,7 @@ class specsController extends InitController
 				if (Input::post('type') == 'ajax') {
 					die(json_encode(array('errors' => $this->validate->errors)));
 				}
-				return $res->redirect('admin/cart/specs/add')->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/cart/specs/add')->with(array('errors' => $this->validate->errors));
 			} else {
 				$data = Input::post('specs');
 				$this->specsModel->name = Input::post('name');
@@ -57,7 +57,7 @@ class specsController extends InitController
 				if (Input::post('type') == 'ajax') {
 					die(json_encode(array('success' => 'Thêm thành công!')));
 				}
-				return $res->redirect('admin/cart/specs/add')->with(array('success' => 'Thêm thành công!'));
+				return $res->redirect('/admin/cart/specs/add')->with(array('success' => 'Thêm thành công!'));
 			}
 		}else {
 			if (Input::post('type') == 'ajax') {
@@ -70,9 +70,9 @@ class specsController extends InitController
 	public function editGet($req, $res) {
 		$id = Input::get('id');
 		if (!$id || !is_numeric($id)) {
-			return $res->redirect('admin/cart/specs')->with(array('errors' => array('Có lỗi xảy ra!')));
+			return $res->redirect('/admin/cart/specs')->with(array('errors' => array('Có lỗi xảy ra!')));
 		} else if(!$this->specsModel->find($id)){
-			return $res->redirect('admin/cart/specs')->with(array('errors' => array('Thông số kỹ thuật không tồn tại!')));
+			return $res->redirect('/admin/cart/specs')->with(array('errors' => array('Thông số kỹ thuật không tồn tại!')));
 		}
 		$data['infoSpecs'] = $this->specsModel->getInfo($id);
 		$data['seo']['title'] = 'Chỉnh sửa thông tin kỹ thuật';
@@ -96,7 +96,7 @@ class specsController extends InitController
 				array_push($this->validate->errors, 'ID không tồn tại!');
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('admin/cart/specs/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/cart/specs/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
 			} else {
 				$data = Input::post('data');
 				$this->specsModel->name = Input::post('name');
@@ -104,7 +104,7 @@ class specsController extends InitController
 					$this->specsModel->{$key} = trim($value);
 				}
 				$this->specsModel->save();
-				return $res->redirect('admin/cart/specs/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));
+				return $res->redirect('/admin/cart/specs/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));
 			}
 		}else {
 			die('Loi Token!');

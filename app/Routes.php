@@ -44,29 +44,20 @@ Router::post('404', function() {
 });
 
 
-//=================APP=====================
-Router::get('a/{category}/{company}/{id}.html', function($req, $res) {
-	echo $req->category . '=' . $req->company. '=' . $req->id;
-});
-Router::get('a/{category}/{company}.html', function($req, $res) {
-	echo $req->category . '+' . $req->company;
-});
-Router::get('a/{category}.html', function($req, $res) {
-	echo $req->category;
-});
+//=================FRONT-END=====================
+Router::get('/{category}/{company}/{name}-prd{id}.html', 'home@detailGet');
+Router::get('/{category}/{company}.html', 'home@companyGet');
+Router::get('/{category}.html', 'home@categoryGet');
 
-
-
-
-Router::get("admin", "admin@index");
-Router::group('admin', function() {
+Router::get("/admin", "admin@index");
+Router::group('/admin', function() {
 	Router::get("login", "admin@login");
 	Router::post("login", "admin@loginPost");
 	Router::get("register", "admin@register");
 	Router::post("register", "admin@registerPost");
 	Router::get("logout", function() {
 		Auth::logout();
-		Redirect::to('admin/login');
+		Redirect::to('/admin/login');
 	});
 	Router::get("profile", "admin@profile");
 	Router::get("blog", "blog@manager");
@@ -109,12 +100,12 @@ Router::group('admin', function() {
 	Router::get("cart/products/delete", "product@deleteGet");
 });
 //==========AJAX============
-Router::post("ajax/convertUrl", function($req, $res) {
+Router::post("/ajax/convertUrl", function($req, $res) {
 	if (Input::post('input_url')) {
 		echo StringLib::convertUrl(Input::post('input_url'));
 	}
 });
-Router::post("ajax/uploadImages", function($req, $res) {
+Router::post("/ajax/uploadImages", function($req, $res) {
 	if ($req->csrf) {
 		$FileUploader = new FileUploaderLib('files', array(
 	'limit' => null,

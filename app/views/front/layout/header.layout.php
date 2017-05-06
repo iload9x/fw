@@ -17,7 +17,7 @@
     <nav id="menu" class=" clearfix">
       <ul>
         <li>
-          <a href="dien-thoai/index.html">
+          <a href="{{# URL::base_path()}}/dien-thoai.html">
             <div class="all_icon clearfix icon_dienthoai"></div>
             <p>Điện thoại</p>
           </a>
@@ -27,11 +27,11 @@
                 <p>Hãng sản xuất</p>
               </div>
               <ul>
-                <li><a href="dien-thoai-apple/index.html">Apple (iPhone)</a></li>
-                <li><a href="dien-thoai-xiaomi/index.html">Xiaomi</a></li>
-                <li><a href="dien-thoai-samsung/index.html">Samsung</a></li>
-                <li><a href="dien-thoai-w-mobile/index.html">W-Mobile</a></li>
-                <li><a href="dien-thoai-sony/index.html">Sony</a></li>
+                {{if(isset($dsCompany)):}}
+                  {{foreach($dsCompany as $company):}}
+                    <li><a href="{{# URL::base_path()}}/dien-thoai/{{# $company['slug']}}.html">{{# $company['name']}}</a></li>
+                  {{endforeach}}
+                {{endif}}
               </ul>
             </div>
             <div class="right_menu clearfix">

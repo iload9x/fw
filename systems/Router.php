@@ -135,13 +135,15 @@ class Router
 	public function processRouteHasParam($route2) {
 		$containRouteTrue = array();
 		foreach (self::$RoutesHasParam as $v) { 
+
 			//VD: $v = ['products/', 'name}'] #Route đã tạo : products/{name} đã được explore 
 			$route = $route2; // VD URI trên URL : products/iload9x
 			$error = false;// khởi tạo không có lỗi
 			if (strpos($route, $v[0]) === 0) { // kiểm tra $v[0] = 'products/' có nằm ở vị trí đầu tiền của $route = products/iload9x hay không
 				$this->hasRoute = true; // check
 				$id = 1; 
-				$route = str_replace($v[0], '', $route);// xóa bỏ phần đầu trùng khớp của $route [products/]
+				$route = substr($route, strlen($v[0])); // xóa bỏ phần đầu trùng khớp của $route [products/]
+				//$route = str_replace($v[0], '', $route);
 				$params = array();
 				while (isset($v[$id])) { // nếu tồn tại tiếp theo $v[1] = 'name}'
 					$c = explode('}', $v[$id]); // tách chuôi explore } từ $v[1]
@@ -169,6 +171,7 @@ class Router
 					 	'route' => implode('{',$v),
 					 	'params' => $params
 					));
+					break;
 				}
 				 
 			}

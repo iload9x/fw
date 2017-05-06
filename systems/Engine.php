@@ -29,7 +29,7 @@
 <div class="wrapper">
 <section class="content">
   <div class="back-link">
-    <a href="<?php echo URL::base_path('admin') ?>" class="btn btn-accent">Back to Dashboard</a>
+    <a href="<?php echo URL::base_path('/admin') ?>" class="btn btn-accent">Back to Dashboard</a>
   </div>
 
   <div class="container-center md animated slideInDown">

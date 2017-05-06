@@ -5,7 +5,7 @@
       <li class="icon icon-arrow-left">
         <a href="javascript:;">Điện thoại</a>
         <div class="mp-level">
-          <a class="prmp" href="dien-thoai/index.html">Điện thoại</a>
+          <a class="prmp" href="">Điện thoại</a>
           <a class="mp-back" href="javascript:;">Quay Lại</a>
           <ul>
             <li class=""><a class="" href="dien-thoai-apple/index.html">Apple (iPhone)</a></li>

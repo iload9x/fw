@@ -1,6 +1,6 @@
 <section class="content">
     <div class="back-link">
-      <a href="{{# URL::base_path('admin'); }}" class="btn btn-accent">Back to Dashboard</a>
+      <a href="{{# URL::base_path('/admin'); }}" class="btn btn-accent">Back to Dashboard</a>
     </div>
 
     <div class="container-center lg animated slideInDown">
@@ -53,7 +53,7 @@
             </div>
             <div>
               <button type="submit" class="btn btn-accent">Đăng ký</button>
-              <a class="btn btn-default" href="{{# URL::base_path('admin/login'); }}">Đăng nhập</a>
+              <a class="btn btn-default" href="{{# URL::base_path('/admin/login'); }}">Đăng nhập</a>
             </div>
           </form>
         </div>

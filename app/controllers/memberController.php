@@ -39,7 +39,7 @@ class memberController extends InitController
 
 	public function edit($req, $res) {
 		if (!Input::get('id') or !$this->memberModel->find(Input::get('id'))) {
-			return $res->redirect('admin/member')->with(array('errors' => array("Thành viên không hợp lệ!")));
+			return $res->redirect('/admin/member')->with(array('errors' => array("Thành viên không hợp lệ!")));
 		}
 		$id = Input::get('id');
 		$data['infoMember']['id'] = $this->memberModel->id;
@@ -68,12 +68,12 @@ class memberController extends InitController
 			$this->validate->checkBody('email','Email không được bỏ trống!')->notEmpty();
 			$this->validate->checkBody('level','Chức vụ không hợp lệ!')->notNumeric();
 			if (!Input::post('id') || !is_numeric(Input::post('id'))) {
-				return $res->redirect('admin/member')->with(array('errors' => array("Thành viên không hợp lệ!")));
+				return $res->redirect('/admin/member')->with(array('errors' => array("Thành viên không hợp lệ!")));
 			} else if(!$this->memberModel->find(Input::post('id'))) {
-				return $res->redirect('admin/member')->with(array('errors' => array("Thành viên không không tồn tại!")));
+				return $res->redirect('/admin/member')->with(array('errors' => array("Thành viên không không tồn tại!")));
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('admin/member/edit?id=' . Input::post('id'))->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/member/edit?id=' . Input::post('id'))->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->memberModel->id = Input::post('id');
 				$this->memberModel->nickname = Input::post('nickname');
@@ -83,7 +83,7 @@ class memberController extends InitController
 				$this->memberModel->level = Input::post('level');
 				$this->memberModel->status = Input::post('status');
 				$this->memberModel->save();
-				return $res->redirect('admin/member/edit?id=' . Input::post('id'))->with(array('success' => "Cập nhật thành công!"));
+				return $res->redirect('/admin/member/edit?id=' . Input::post('id'))->with(array('success' => "Cập nhật thành công!"));
 			}
 		} else {
 			die('Sai Token!');

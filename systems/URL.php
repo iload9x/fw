@@ -21,7 +21,7 @@ class URL
 			$id++;
 			$strRequestUriElement = $strRequestUriElement . '\\' .$requestUriElement[$id];
 		}
-		return $directorys;
+		return substr($directorys, 0, strlen($directorys) - 1);
 	}
 
 	public function requestUri() {

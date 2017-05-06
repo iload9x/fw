@@ -60,7 +60,7 @@ class blogController extends InitController
 
 	public function create($req, $res) {
 		if (Input::get('type')!= 'cat' && Input::get('type') != 'post') {
-			return $res->redirect('admin/blog');
+			return $res->redirect('/admin/blog');
 		}
 
 		$data['type'] = Input::get('type');
@@ -88,7 +88,7 @@ class blogController extends InitController
 			$this->validate->checkBody('parent','Vui lòng chọn thư mục!')->notEmpty();
 			$this->validate->checkBody('parent','Thư mục phải là số!')->notNumeric();
 			if ($this->validate->errors) {
-				return $res->redirect('admin/blog/create?type=' . Input::post('type'))->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/blog/create?type=' . Input::post('type'))->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->blogModel->name = Input::post('name');
 				$this->blogModel->title = Input::post('title');
@@ -109,7 +109,7 @@ class blogController extends InitController
 				$this->blogModel->keyword = Input::post('keyword');
 				$this->blogModel->time_created = date("Y-m-d H:i:s",time());
 				$this->blogModel->save();
-				return $res->redirect('admin/blog/create?type=' . Input::post('type'))->with(array('success' => "Thêm thành công!"));
+				return $res->redirect('/admin/blog/create?type=' . Input::post('type'))->with(array('success' => "Thêm thành công!"));
 			}
 		} else {
 			die("Sai ToKen!");
@@ -118,13 +118,13 @@ class blogController extends InitController
 
 	public function edit($req, $res) {
 		if (Input::get('type') != 'cat' && Input::get('type') != 'post') {
-			return $res->redirect('admin/blog');
+			return $res->redirect('/admin/blog');
 		} else if (!Input::get('id')) {
-			return $res->redirect('admin/blog');
+			return $res->redirect('/admin/blog');
 		} else if(!$this->blogModel->find(Input::get('id'))) {
-			return $res->redirect('admin/blog');
+			return $res->redirect('/admin/blog');
 		} else if(!$this->blogModel->whereAnd(array('type' => Input::get('type'), 'id' => Input::get('id')))->get()->countAll()) {
-			return $res->redirect('admin/blog');
+			return $res->redirect('/admin/blog');
 		}
 		$data['infoBlog'] = $this->blogModel->whereAnd(array('type' => Input::get('type'), 'id' => Input::get('id')))->get()->rowArray();
 		$data['type'] = Input::get('type');
@@ -162,7 +162,7 @@ class blogController extends InitController
 				array_push($this->validate->errors, "ID không tại trong hệ thống!");
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->blogModel->name = Input::post('name');
 				$this->blogModel->title = Input::post('title');
@@ -184,9 +184,9 @@ class blogController extends InitController
 				$this->blogModel->time_updated = date("Y-m-d H:i:s",time());
 				$this->blogModel->save();
 				if ($this->blogModel->save()) {
-					return $res->redirect('admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('success' => "Chỉnh sửa thành công!"));
+					return $res->redirect('/admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('success' => "Chỉnh sửa thành công!"));
 				} else {
-					return $res->redirect('admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('errors' => array("Có lỗi xảy ra!")));
+					return $res->redirect('/admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('errors' => array("Có lỗi xảy ra!")));
 				}
 				
 			}

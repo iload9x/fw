@@ -27,7 +27,7 @@ class testController extends InitController
 
 	function logout($req, $res) {
 		Auth::logout();
-		return $res->redirect('test/login');
+		return $res->redirect('/test/login');
 	}
 
 

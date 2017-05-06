@@ -42,13 +42,14 @@ public function __construct() {
 		if ($req->csrf) {
 			$this->validate->checkBody('name', 'Tên loại SP không được bỏ trống!')->notEmpty();
 			if ($this->validate->errors) {
-				return $res->redirect('admin/cart/types/add')->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/cart/types/add')->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->typeModel->name = Input::post('name');
+				$this->typeModel->color = Input::post('color');
 				$this->typeModel->uid = $req->globals['infoUser']['id'];
 				$this->typeModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->typeModel->save();
-				return $res->redirect('admin/cart/types/add')->with(array('success' => 'Thêm thành công!'));
+				return $res->redirect('/admin/cart/types/add')->with(array('success' => 'Thêm thành công!'));
 			}
 		}else {
 			die('Loi Token!');
@@ -58,11 +59,12 @@ public function __construct() {
 	public function editGet($req, $res) {
 		$id = Input::get('id');
 		if (!$id || !is_numeric($id)) {
-			return $res->redirect('admin/cart/types')->with(array('errors' => array('Vui lòng chọn chuyên mục!')));
+			return $res->redirect('/admin/cart/types')->with(array('errors' => array('Vui lòng chọn chuyên mục!')));
 		} else if(!$this->typeModel->find($id)){
-			return $res->redirect('admin/cart/types')->with(array('errors' => array('Chuyên mục không tồn tại!')));
+			return $res->redirect('/admin/cart/types')->with(array('errors' => array('Chuyên mục không tồn tại!')));
 		}
 		$data['infoCategory']['name'] = $this->typeModel->name;
+		$data['infoCategory']['color'] = $this->typeModel->color;
 		$data['seo']['title'] = 'Chỉnh sửa loại sản phẩm';
 		$data['globals'] = $req->globals;
 		$data['name'] = "Chỉnh sửa loại sản phẩm";
@@ -78,21 +80,22 @@ public function __construct() {
 
 	public function editPost($req, $res) {
 		if ($req->csrf) {
-			$this->validate->checkBody('name', 'Tên chuyên mục không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('id', 'ID không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('id', 'ID phải là số!')->notNumeric();
+			$this->validate->checkBody('name', 'Tên chuyên mục!')->notEmpty();
+			$this->validate->checkBody('color', 'Mã màu!')->notEmpty();
+			$this->validate->checkBody('id', 'ID!')->notEmpty()->notNumeric();
 			$id = Input::post('id');
 			if(!$this->typeModel->find($id)) {
 				array_push($this->validate->errors, 'Loại sản phẩm không tồn tại!');
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('admin/cart/types/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/cart/types/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->typeModel->name = Input::post('name');
+				$this->typeModel->color = Input::post('color');
 				$this->typeModel->uid_updated = $req->globals['infoUser']['id'];
 				$this->typeModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->typeModel->save();
-				return $res->redirect('admin/cart/types/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));
+				return $res->redirect('/admin/cart/types/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));
 			}
 		}else {
 			die('Loi Token!');
@@ -102,15 +105,15 @@ public function __construct() {
 	public function deleteGet($req, $res) {
 		$id = Input::get('id');
 		if (!$id || !is_numeric($id)) {
-			return $res->redirect('admin/cart/types')->with(array('errors' => array('Vui lòng chọn Loại sản phẩm!')));
+			return $res->redirect('/admin/cart/types')->with(array('errors' => array('Vui lòng chọn Loại sản phẩm!')));
 		} else if(!$this->typeModel->find($id)){
-			return $res->redirect('admin/cart/types')->with(array('errors' => array('Loại sản phẩm không tồn tại!')));
+			return $res->redirect('/admin/cart/types')->with(array('errors' => array('Loại sản phẩm không tồn tại!')));
 		}
 		$this->typeModel->reduce($id);
 		if ($this->typeModel->reduce($id)) {
-			return $res->redirect('admin/cart/types')->with(array('success' => 'Xóa thành công!'));
+			return $res->redirect('/admin/cart/types')->with(array('success' => 'Xóa thành công!'));
 		} else {
-			return $res->redirect('admin/cart/types')->with(array('errors' => 'Loại sản phâm không tồn tại hoặc vẫn tồn tại sản phẩm !'));
+			return $res->redirect('/admin/cart/types')->with(array('errors' => 'Loại sản phâm không tồn tại hoặc vẫn tồn tại sản phẩm !'));
 		}
 
 	}

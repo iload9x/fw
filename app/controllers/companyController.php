@@ -42,14 +42,14 @@ class companyController extends InitController
 		if ($req->csrf) {
 			$this->validate->checkBody('name', 'Tên hãng không được bỏ trống!')->notEmpty();
 			if ($this->validate->errors) {
-				return $res->redirect('admin/cart/companies/add')->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/cart/companies/add')->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->companyModel->name = Input::post('name');
 				$this->companyModel->uid = $req->globals['infoUser']['id'];
 				$this->companyModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->companyModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->companyModel->save();
-				return $res->redirect('admin/cart/companies/add')->with(array('success' => 'Thêm thành công!'));
+				return $res->redirect('/admin/cart/companies/add')->with(array('success' => 'Thêm thành công!'));
 			}
 		}else {
 			die('Loi Token!');
@@ -59,9 +59,9 @@ class companyController extends InitController
 	public function editGet($req, $res) {
 		$id = Input::get('id');
 		if (!$id || !is_numeric($id)) {
-			return $res->redirect('admin/cart/companies')->with(array('errors' => array('Vui lòng chọn chuyên mục!')));
+			return $res->redirect('/admin/cart/companies')->with(array('errors' => array('Vui lòng chọn chuyên mục!')));
 		} else if(!$this->companyModel->find($id)){
-			return $res->redirect('admin/cart/companies')->with(array('errors' => array('Chuyên mục không tồn tại!')));
+			return $res->redirect('/admin/cart/companies')->with(array('errors' => array('Chuyên mục không tồn tại!')));
 		}
 		$data['infoCategory']['name'] = $this->companyModel->name;
 		$data['seo']['title'] = 'Chỉnh sửa chuyên mục sản phẩm';
@@ -87,14 +87,14 @@ class companyController extends InitController
 				array_push($this->validate->errors, 'Chuyên mục không tồn tại!');
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('admin/cart/companies/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/cart/companies/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->companyModel->name = Input::post('name');
 				$this->companyModel->uid_updated = $req->globals['infoUser']['id'];
 				$this->companyModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->companyModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->companyModel->save();
-				return $res->redirect('admin/cart/companies/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));
+				return $res->redirect('/admin/cart/companies/edit?id=' . $id)->with(array('success' => 'Chỉnh sửa thành công!'));
 			}
 		}else {
 			die('Loi Token!');
@@ -104,15 +104,15 @@ class companyController extends InitController
 	public function deleteGet($req, $res) {
 		$id = Input::get('id');
 		if (!$id || !is_numeric($id)) {
-			return $res->redirect('admin/cart/companies')->with(array('errors' => array('Vui lòng chọn Hãng sản xuất!')));
+			return $res->redirect('/admin/cart/companies')->with(array('errors' => array('Vui lòng chọn Hãng sản xuất!')));
 		} else if(!$this->companyModel->find($id)){
-			return $res->redirect('admin/cart/companies')->with(array('errors' => array('Hãng sản xuất không tồn tại!')));
+			return $res->redirect('/admin/cart/companies')->with(array('errors' => array('Hãng sản xuất không tồn tại!')));
 		}
 		$this->companyModel->reduce($id);
 		if ($this->companyModel->reduce($id)) {
-			return $res->redirect('admin/cart/companies')->with(array('success' => 'Xóa thành công!'));
+			return $res->redirect('/admin/cart/companies')->with(array('success' => 'Xóa thành công!'));
 		} else {
-			return $res->redirect('admin/cart/companies')->with(array('errors' => 'Hãng sản xuất không tồn tại hoặc vẫn tồn tại sản phẩm !'));
+			return $res->redirect('/admin/cart/companies')->with(array('errors' => 'Hãng sản xuất không tồn tại hoặc vẫn tồn tại sản phẩm !'));
 		}
 
 	}

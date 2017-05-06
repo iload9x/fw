@@ -1,0 +1,155 @@
+#map{
+    width: 100%;
+    position: relative;
+    height: 400px;
+}
+.map_chung iframe,.map_chung{
+    width: 100%;
+    height: 100%;
+}
+.box_na{
+    display: block;
+    width: 95px;
+    float: left;
+}
+.contact{
+    width: 70%;
+    margin: -61px auto 40px auto;
+    background: white;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+}
+.bgslider{margin: 45px 0 0 0}
+.contact-left{width:48%;float: left;margin: 0 0 0 15px}
+.contact-right{width:45%;float: left;margin: 0 0 0 5%}
+.title_contact{
+    font-size: 16px;
+     color:#c69a39;
+     line-height: 50px;
+     border-bottom:1px solid #eeeeee;
+     margin: 10px 10px 0 0;
+}
+.detail{width: 100%;}
+.phone-detail{width: 100%;height: 65px;margin:40px 0 0 0;}
+.phone-detail img{float: left;margin: 0 5px 0 100px}
+.name{font-size: 12.05px;color: #797979}
+.number{font-size: 31.66px;color: #2a3b88;font-weight: bold;}
+.from input{
+    width: 97%;
+    height:31px;
+    border:1px solid #d9d9d9;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin: 15px 0 0 0;
+    padding:4px 0 4px 10px;
+}
+.from textarea{
+    width: 97%;
+    height:101px;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin: 17px 0 20px 0;
+    padding:10px 0 0 10px;
+    font-size: 15px;
+    line-height:1.5em;
+}
+.button{width:137px;height:35px;background: #c69a39;color: white;border: none;border-radius: 8px;margin: 30px 0 0 0;}
+.title-congty{font-size: 16px;color: #1f1f1f;font-weight: bold;margin:20px 0 0 0;}
+.contact-right li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 -5px 0 0;
+    color: white;
+    background: #c69a39;
+    transition: 0.4s all ease;
+    padding: 0 16.5px;
+    border-left:1px solid #ecc773;
+    cursor: pointer;
+}
+.contact-right ul{width: 380px;height: 28px;line-height: 28px;border-radius: 5px}
+.contact-right li a{text-decoration: none;color: white;font-size: 13px;display: block;}
+.contact-right li:first-child{border-radius: 5px 0 0 5px;border: none}
+.contact-right li:last-child{border-radius:0 5px 5px 0;}
+.contact-right li:hover{background: #e2a620}
+.map_chung{display:none;}
+.active_map{display: block;}
+.contact-right h6{margin:15px 0 !important}
+.cskh{min-height:310px}
+#contact{width: 100%}
+.contact_chung{height: 28px;float: left;}
+.active_content_contact{display: block !important;}
+.contact_chung a:hover,.active_title{background: #e2a620 !important;color: white}
+.contact_chung a{
+    border-left: 1px solid #4db4fc;
+    font-size: 13px;
+    padding: 0 14px;
+    text-decoration: none;
+    color: white;
+    background: #0094fb;
+    height: 28px;
+    line-height: 27px;
+    display: block;
+    float: left;
+        -webkit-box-shadow: 0px -1px 11px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 11px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 11px -4px rgba(0,0,0,0.75);
+}
+.add_chung{
+    display: none;
+}
+.active_add{
+    display: block;
+}
+.content_contact_chung{display: none;position: relative;}
+#contact_tab{position: relative;}
+.contact-right h6{font-size: 12px}
+.contact_title{
+    height: 28px;
+    width: 89%}
+.contact_chung:first-child a{border-radius: 10px 0 0 10px;border: none}
+.contact_chung:last-child a{border-radius: 0 10px 10px 0}
+.boc_map{width:100%}
+#contact-tab a{text-decoration: none;color:black}
+.add_chung i {
+    font-size: 19px;
+    color: #c69a39;
+    width: 20px;
+    text-align: center;
+    margin:0 10px 0 0;
+}
+.add_chung{
+    margin:20px 0;
+}
+.add_chung p{
+    font-size: 15px;
+    display: block;
+    height: 30px;
+}
+@media only screen and (max-width: 1024px){
+    .contact-left{
+        width: 47%;
+    }
+}
+@media only screen and (max-width: 980px){
+
+}
+@media only screen and (max-width: 768px) {
+    .contact{
+        width: 100%;
+        margin: 0 auto;
+    }
+@media only screen and (max-width: 480px){
+    .contact-left,.contact-right{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 479px){
+    .contact-left,.contact-right{
+        width: 92%;
+    }
+}

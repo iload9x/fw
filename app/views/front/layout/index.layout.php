@@ -11,19 +11,21 @@
   <meta content="Điện thoại xách tay giá rẻ nhất Hà Nội, chuyên hàng xách tay và chính hãng iPhone, Sony, LG, HTC, SamSung, Lenovo, Oppo, Xiaomi, Asus, Sky... bảo hành 12 tháng" name="description" />
   <meta content="Mobilecity, điện thoại xách, điện thoại giá rẻ, điện thoại" name="keywords" />
   <link rel="canonical" href="index.html" />
-  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/main.css" />
-  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/home.css" />
-  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/lightslider.css" />
-  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/owl.carousel.css" />
-  <link rel="stylesheet" href="{{# URL::base_path('public/templates/front/')}}themes/css/responsive.css" />
+  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/main.css" />
+  {{if(isset($styles)):}}
+    {{foreach($styles as $style):}}
+      <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/') . $style }}" />
+    {{endforeach}}
+  {{endif}}
+  <link rel="stylesheet" href="{{# URL::base_path('/public/templates/front/')}}themes/css/responsive.css" />
 </head>
 
 <body>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/jquery-3.1.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/icons.css" />
-  <link rel="stylesheet" href="{{# URL::base_path('public/templates/front/')}}themes/css/component.css" />
-  <link rel="stylesheet" href="{{# URL::base_path('public/templates/front/')}}themes/css/cAlert.css" />
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/icons.css" />
+  <link rel="stylesheet" href="{{# URL::base_path('/public/templates/front/')}}themes/css/component.css" />
+  <link rel="stylesheet" href="{{# URL::base_path('/public/templates/front/')}}themes/css/cAlert.css" />
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
   <script>
   $(document).ready(function() {
@@ -82,97 +84,7 @@
           <main class="clearfix bocnoidung">
             {{{body}}}
           </main>
-          <footer>
-            <div class="bocnoidung clearfix">
-              <div class="footer_chia_3 footerc1 clearfix">
-                <div class="title_chia_3 chudam clearfix">
-                  <div class="all_icon clearfix icon_hethong"></div>
-                  <p>Hệ thống cửa hàng</p>
-                </div>
-                <div class="address_group">
-                  <div class="title">Hà Nội</div>
-                  <div class="main">
-                    <div class="address_item">
-                      <address>120 Thái Hà, Q. Đống Đa | <a class="fot_map_1" href="lien-he/index9be8.html?cs=1">Xem bản đồ</a></address>
-                      <p>Điện thoại: <a href="tel:0971206688">097.120.6688</a> - <a href="tel:0969120120">0969.120.120</a></p>
-                    </div>
-                    <div class="address_item">
-                      <address>398 Cầu Giấy, Q. Cầu Giấy | <a class="fot_map_2" href="lien-he/index04e8.html?cs=2">Xem bản đồ</a></address>
-                      <p>Điện thoại: <a href="tel:0961111398">096.1111.398</a> - <a href="tel:0962222398">096.2222.398</a></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="address_group">
-                  <div class="title">TP.Hồ Chí Minh</div>
-                  <div class="main">
-                    <div class="address_item">
-                      <address>123 Trần Quang Khải, Q.1 | <a class="fot_map_3" href="lien-he/index83e0.html?cs=3">Xem bản đồ</a></address>
-                      <p>Điện thoại: <a href="tel:0965123123">0965.123.123</a> - <a href="tel:0822300600">0822.300.600</a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="footer_chia_3 footerc2 clearfix">
-                <div class="title_chia_3 clearfix chudam">
-                  <div class="all_icon clearfix icon_chinhsach"></div>
-                  <p>quy định - chính sách</p>
-                </div>
-                <ul>
-                  <li><a href="page/chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
-                  <li><a href="page/chinh-sach-van-chuyen.html">Chính sách vận chuyển</a></li>
-                  <li><a href="page/chinh-sach-doi-tra-hang.html">Chính sách đổi trả hàng</a></li>
-                  <li><a href="page/chinh-sach-bao-mat-thong-tin.html">Chính sách bảo mật thông tin</a></li>
-                  <li><a href="page/huong-dan-thanh-toan.html">Hướng dẫn thanh toán</a></li>
-                  <li><a href="page/huong-dan-mua-hang-online.html">Hướng dẫn mua hàng Online</a></li>
-                  <li><a href="page/dich-vu-van-chuyen-hang-thu-tien-tan-noi-mobilecity.html">Dịch vụ Ship COD Toàn quốc</a></li>
-                </ul>
-              </div>
-              <div class="footer_chia_3 footerc3 clearfix">
-                <div class="title_chia_3 clearfix chudam">
-                  <div class="all_icon clearfix icon_nhan"></div>
-                  <p>Đăng ký nhận bảng tin</p>
-                </div>
-                <div class="form_nhan clearfix" id="subscribe-form">
-                  <input id="subscribe-email" type="text" name="" value="" placeholder="Nhập email của bạn . . ." />
-                  <button id="subscribe-btn" class="btn_nhan">Gửi</button>
-                </div>
-                <div class="lienket clearfix">
-                  <div class="title_chia_3 clearfix chudam">
-                    <div class="all_icon clearfix icon_lienket"></div>
-                    <p>Liên kết</p>
-                  </div>
-                  <div class="lienket_con clearfix">
-                    <div class="all_icon clearfix icon_face"></div>
-                    <a target="_blank" href="https://www.facebook.com/MobileCity.vn">
-                      <p>Facebook</p>
-                    </a>
-                  </div>
-                  <div class="lienket_con clearfix">
-                    <div class="all_icon clearfix icon_you"></div>
-                    <a target="_blank" href="https://www.youtube.com/channel/UCsFilrMH2u0mjbu0Cw2HTkQ">
-                      <p>Youtube</p>
-                    </a>
-                  </div>
-                  <div class="lienket_con clearfix">
-                    <div class="all_icon clearfix icon_ins"></div>
-                    <a target="_blank" href="https://plus.google.com/u/0/+MobileCityvn">
-                      <p>Google +</p>
-                    </a>
-                  </div>
-                  <div class="lienket_con clearfix">
-                    <div class="all_icon clearfix icon_forum"></div>
-                    <a target="_blank" href="http://forum.mobilecity.vn/">
-                      <p>Diễn đàn hỗ trợ</p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="icon_footer footerc4 clearfix">
-                <div class="all_icon icon_norton clearfix"></div>
-                <div class="all_icon icon_thongbao clearfix"></div>
-              </div>
-            </div>
-          </footer>
+         {{{include front/layout/footer.layout}}}
           <section class="footer_bottom clearfix">
             <div class="bocnoidung clearfix">
               <div class="footer_bottom_left clearfix">
@@ -187,7 +99,7 @@
               </div>
             </div>
           </section>
-          <link rel="stylesheet" type="text/css" href="{{# URL::base_path('public/templates/front/')}}themes/css/popup.css" />
+          <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/popup.css" />
           <div id="popup-login" class="sudo-popup">
             <div class="popup-close" onclick="closebPopup('popup-login')"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="popup-title">Đăng nhập</div>
@@ -414,16 +326,16 @@ Main components
     <!-- /pusher -->
   </div>
   <!-- /container -->
-  <script src="{{# URL::base_path('public/templates/front/')}}themes/js/cAlert.js"></script>
-  <script src="{{# URL::base_path('public/templates/front/')}}themes/js/mlpushmenu.js"></script>
-  <script src="{{# URL::base_path('public/templates/front/')}}themes/js/modernizr-custom.js"></script>
-  <script src="{{# URL::base_path('public/templates/front/')}}themes/js/classie.js"></script>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/lightslider.min.js"></script>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/owl.carousel.min.js"></script>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/jquery.bpopup.min.js"></script>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/jquery.lazyload.min.js"></script>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/functions.js"></script>
-  <script type="text/javascript" src="{{# URL::base_path('public/templates/front/')}}themes/js/script.js"></script>
+  <script src="{{# URL::base_path('/public/templates/front/')}}themes/js/cAlert.js"></script>
+  <script src="{{# URL::base_path('/public/templates/front/')}}themes/js/mlpushmenu.js"></script>
+  <script src="{{# URL::base_path('/public/templates/front/')}}themes/js/modernizr-custom.js"></script>
+  <script src="{{# URL::base_path('/public/templates/front/')}}themes/js/classie.js"></script>
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/lightslider.min.js"></script>
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/jquery.bpopup.min.js"></script>
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/functions.js"></script>
+  <script type="text/javascript" src="{{# URL::base_path('/public/templates/front/')}}themes/js/script.js"></script>
   <script type="text/javascript">
   $(function() {
     $("img.lazy").lazyload({

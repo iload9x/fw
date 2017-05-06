@@ -21,7 +21,7 @@
             {{endif}} {{if(isset($validate['success'])):}}
             <div class="alert alert-success" role="alert" style="border-color:#3d6f5f;background:#3d6f5f">{{# $validate['success']; }}</div>
             {{endif}}
-            <form action="{{# URL::base_path('admin/cart/products/edit')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{# URL::base_path('/admin/cart/products/edit')}}" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_csrfToken" value="{{# $csrf_token}}">
               <input type="hidden" name="id" value="{{# $infoProduct['id']}}">
               <div class="col-md-8">
@@ -434,7 +434,7 @@
                 <div class="panel-body listImageUploaded">
                   {{if(isset($dsImages)):}} {{foreach($dsImages as $v):}}
                   <div class="col-md-3" style="position: relative; margin-bottom:5px;">
-                    <img src="{{# URL::base_path('public/uploads/')}}{{# $v}}" width="100%">
+                    <img src="{{# URL::base_path('/public/uploads/')}}{{# $v}}" width="100%">
                     <div class="lg-image">
                       <button class="btn btn-default btn-xs btnXem">Xem</button>
                       <button class="btn btn-default btn-xs btnCopy">Copy</button>

@@ -45,7 +45,7 @@ class adminController extends InitController
 				}
 			}
 			if ($this->validate->errors) {
-				return $res->redirect("admin/login")->with(array('errors' => $this->validate->errors));
+				return $res->redirect("/admin/login")->with(array('errors' => $this->validate->errors));
 			} else {
 				Auth::useTable('ngoan_cms_users');
 				$a = Auth::attempt(array(
@@ -55,7 +55,7 @@ class adminController extends InitController
 				if (Input::get('backtourl')) {
 					return $res->redirect(Input::get('backtourl'));
 				}
-				return $res->redirect("admin");
+				return $res->redirect("/admin");
 			}
 
 
@@ -79,7 +79,7 @@ class adminController extends InitController
 				array_push($this->validate->errors, "Tài khoản đã được đăng ký");
 			}
 			if ($this->validate->errors) {
-				return $res->redirect("admin/register")->with(array('errors' => $this->validate->errors));
+				return $res->redirect("/admin/register")->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->userModel->username = Input::post('username');
 				$this->userModel->password = Input::post('password');
@@ -88,7 +88,7 @@ class adminController extends InitController
 				$this->userModel->time_reg = date("Y-m-d H:i:s",time());
 				$this->userModel->avatar = 'public/templates/admin-flat/images/profile.jpg';
 				$this->userModel->save();
-				return $res->redirect("admin/login");
+				return $res->redirect("/admin/login");
 			}
 		} else {
 			echo "Sai Token!!";

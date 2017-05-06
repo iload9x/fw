@@ -39,7 +39,7 @@
 			    {{foreach($dsMember as $v):}}
 			      <tr>
 			        <th scope="row">{{# $id}}</th>
-			        <td><a href="{{# URL::base_path('admin/member/edit?id='.$v['id'])}}">{{# isset($v['username']) ? $v['username'] : 'N/A'}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/member/edit?id='.$v['id'])}}">{{# isset($v['username']) ? $v['username'] : 'N/A'}}</a></td>
 			        <td>{{# isset($v['nickname']) ? $v['nickname'] : 'N/A'}}</td>
 			        <td>{{# isset($v['levelName']) ? $v['levelName'] : 'N/A'}}</td>
 			        <td>{{# isset($v['time_reg']) ? $v['time_reg'] : 'N/A'}}</td>

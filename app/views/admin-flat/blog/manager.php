@@ -5,7 +5,7 @@
       <div class="panel-heading">
         <div class="panel-tools">
 	        <a style="text-decoration: none;border: #1bbf89 1px solid;color: #fff;padding: 4px 6px;">{{# isset($blog['countAllPost']) ? $blog['countAllPost'] : 0}} bài </i></a>
-	        <a href="{{# URL::base_path('admin/blog/create?type=post') }}" style="text-decoration: none;border: #1bbf89 1px solid;color: #fff;padding: 4px 6px;">Thêm <i class="fa fa-plus"></i></a>
+	        <a href="{{# URL::base_path('/admin/blog/create?type=post') }}" style="text-decoration: none;border: #1bbf89 1px solid;color: #fff;padding: 4px 6px;">Thêm <i class="fa fa-plus"></i></a>
 	        <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
 	        <a class="panel-close"><i class="fa fa-times"></i></a>
         </div>
@@ -31,9 +31,9 @@
 			    {{foreach($blog['dsPost'] as $v):}}
 			      <tr>
 			        <th scope="row">{{# $id}}</th>
-			        <td><a href="{{# URL::base_path('admin/blog/edit?type=post&id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/blog/edit?type=post&id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
 			        <td>{{# isset($v['parentName']) ? $v['parentName'] : 'N/A'}}</td>
-			        <td><a href="{{# URL::base_path('admin/members/edit?id='.$v['uid'])}}">{{# $v['nickname']}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/members/edit?id='.$v['uid'])}}">{{# $v['nickname']}}</a></td>
 			        <td>{{# $v['time_created']}}</td>
 			        <td>
 			        {{if($v['status'] != 1):}}
@@ -68,7 +68,7 @@
       <div class="panel-heading">
         <div class="panel-tools">
 	        <a style="text-decoration: none;border: #f7af3e 1px solid;color: #fff;padding: 4px 6px;">{{# isset($blog['countAllCat']) ? $blog['countAllCat'] : 0 }} thư mục </i></a>
-	        <a href="{{# URL::base_path('admin/blog/create?type=cat') }}" style="text-decoration: none;border: #f7af3e 1px solid;color: #fff;padding: 4px 6px;">Thêm <i class="fa fa-plus"></i></a>
+	        <a href="{{# URL::base_path('/admin/blog/create?type=cat') }}" style="text-decoration: none;border: #f7af3e 1px solid;color: #fff;padding: 4px 6px;">Thêm <i class="fa fa-plus"></i></a>
           <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
           <a class="panel-close"><i class="fa fa-times"></i></a>
         </div>
@@ -93,9 +93,9 @@
 			    {{foreach($blog['dsCat'] as $v):}}
 			      <tr>
 			        <th scope="row">{{# $id}}</th>
-			        <td><a href="{{# URL::base_path('admin/blog/edit?type=post&id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/blog/edit?type=post&id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
 			        <td>{{# isset($v['parentName']) ? $v['parentName'] : 'N/A'}}</td>
-			        <td><a href="{{# URL::base_path('admin/members/edit?id='.$v['uid'])}}">{{# $v['nickname']}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/members/edit?id='.$v['uid'])}}">{{# $v['nickname']}}</a></td>
 			        <td>{{# $v['time_created']}}</td>
 			        <td>
 			        {{if($v['status'] != 1):}}

@@ -75,19 +75,22 @@
   <!-- bat dau san pham -->
   <div class="product clearfix">
     <!-- lap san pham -->
-    {{if(isset($productList)):}} {{foreach($productList as $kProduct => $vProduct):}}
+    {{if(isset($diDongList)):}} {{foreach($diDongList as $kProduct => $vProduct):}}
     <div class="pro_con clearfix">
-      <a href="apple/iphone-6-cu-xach-tay-q-te-prd693.html">
+      <a href="{{# isset($vProduct['categorySlug']) ? $vProduct['categorySlug'] : null }}/{{# isset($vProduct['companySlug']) ? $vProduct['companySlug'] : null }}/{{# isset($vProduct['name']) ? StringLib::convertUrl($vProduct['name']) : null }}-prd{{# $vProduct['id'] }}.html">
         <div class="pro_con_image clearfix">
+        {{if(isset($vProduct['type'])):}}
           <div class="bre">
-            <span class="moi">Mới</span>
-            <span class="hot">Hot</span>
+            {{foreach($vProduct['type'] as $v):}}
+            <span class="moi" style="background:{{# $v['color']}}">{{# $v['name']}}</span>
+            {{endforeach}}
           </div>
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_path('public/uploads/')}}{{# isset($vProduct['avatar'][0]) ? $vProduct['avatar'][0] :''}}" alt="iPhone 6 Cũ - Fullbox" />
+        {{endif}}
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_path('/public/uploads/')}}{{# isset($vProduct['avatar'][0]) ? $vProduct['avatar'][0] :''}}" alt="iPhone 6 Cũ - Fullbox" />
           <div class="mask">
             <div class="mask-title">
               <div class="icon"></div>
-              <div class="text">MobileCity Care</div>
+              <div class="text">TáoĐộc Care</div>
             </div>
             <ul class="mask-list">
               <li>BH 12 tháng nguồn, màn hình</li>
@@ -95,13 +98,13 @@
               <li>Tặng ốp lưng, dán cường lực</li>
               <li>Hỗ trợ phần mềm trọn đời máy</li>
             </ul>
-            <a class="mask-link" target="_blank" title="Xem chi tiết chính sách bảo hành tại MobileCity" href="page/chinh-sach-bao-hanh.html">Bảo hành vàng</a>
+            <a class="mask-link" target="_blank" title="Xem chi tiết chính sách bảo hành tại MobileCity" href="#">Bảo hành vàng</a>
           </div>
         </div>
       </a>
       <div class="thongtin_pro clearfix">
         <div class="thongtin_pro_left clearfix">
-          <p class="name_pro"><a href="apple/iphone-6-cu-xach-tay-q-te-prd693.html">{{# isset($vProduct['name']) ? $vProduct['name'] : 'N/A'}}</a></p>
+          <p class="name_pro"><a href="{{# isset($vProduct['categorySlug']) ? $vProduct['categorySlug'] : null }}/{{# isset($vProduct['companySlug']) ? $vProduct['companySlug'] : null }}/{{# isset($vProduct['name']) ? StringLib::convertUrl($vProduct['name']) : null }}-prd{{# $vProduct['id'] }}.html">{{# isset($vProduct['name']) ? $vProduct['name'] : 'N/A'}}</a></p>
           <p class="gia_pro">{{# isset($vProduct['price']) && is_numeric($vProduct['price']) ? number_format($vProduct['price']) : 0}} ₫</p>
           <ul>
             <li class='clearfix'>
@@ -114,21 +117,21 @@
         </div>
         <div class="thongtin_pro_right clearfix">
           <div class="all_icon icon_khuyenmai"></div>
-          <a href="apple/iphone-6-cu-xach-tay-q-te-prd693.html" class="btn_mua">Mua</a>
+          <a href="{{# isset($vProduct['categorySlug']) ? $vProduct['categorySlug'] : null }}/{{# isset($vProduct['companySlug']) ? $vProduct['companySlug'] : null }}/{{# isset($vProduct['name']) ? StringLib::convertUrl($vProduct['name']) : null }}-prd{{# $vProduct['id'] }}.html" class="btn_mua">Mua</a>
         </div>
       </div>
     </div>
     {{endforeach}} {{endif}}
   </div>
-  <div class="phone"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" alt="icon loading video" /></div>
+  <div class="phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" alt="icon loading video" /></div>
   <div class="btn_them clearfix"><a data-type="phone" data-execute="318,658,485,716,717,600,610,701,710,693,697,606,688,714,193" class="more_pro" href="javascript:;">Xem thêm điện thoại</a></div>
 </section>
 <section class="banner_ngang clearfix">
   <div class="banner_ngang_left clearfix">
-    <a href="samsung/index.html"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/01/samsung.gif" alt="MobileCity Banner Hot 1" /></a>
+    <a href="samsung/index.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/01/samsung.gif" alt="MobileCity Banner Hot 1" /></a>
   </div>
   <div class="banner_ngang_right clearfix">
-    <a href="tin-tuc/tuyen-nhan-vien-ban-hang-dien-thoai-ki-thuat-sua-chua-dtdd.html"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/tuyen-dung.jpg" alt="MobileCity Banner Hot 2" /></a>
+    <a href="tin-tuc/tuyen-nhan-vien-ban-hang-dien-thoai-ki-thuat-sua-chua-dtdd.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/tuyen-dung.jpg" alt="MobileCity Banner Hot 2" /></a>
   </div>
 </section>
 <section class="pro clearfix">
@@ -157,7 +160,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/tai-nghe-xiaomi-in-ear-headphones-basic-2016-2148.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Xiaomi-In-Ear-headphones-Basic-2016.jpg" alt="Tai nghe Xiaomi In-Ear headphones Basic 2016" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Xiaomi-In-Ear-headphones-Basic-2016.jpg" alt="Tai nghe Xiaomi In-Ear headphones Basic 2016" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/tai-nghe-xiaomi-in-ear-headphones-basic-2016-2148.html">Tai nghe Xiaomi In-Ear headphones Basic 2016</a></p>
@@ -169,7 +172,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/dan-cuong-luc-xiaomi-redmi-3s-plus-2140.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-xiaomi-redmi-3s-Plus-chinh-hang.jpg" alt="Dán cường lực Xiaomi Redmi 3S Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-xiaomi-redmi-3s-Plus-chinh-hang.jpg" alt="Dán cường lực Xiaomi Redmi 3S Plus" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-redmi-3s-plus-2140.html">Dán cường lực Xiaomi Redmi 3S Plus</a></p>
@@ -181,7 +184,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/op-lung-xiaomi-redmi-3s-plus-2139.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-redmi-3-plus-chinh-hang-001.jpg" alt="Ốp lưng Xiaomi Redmi 3S Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-redmi-3-plus-chinh-hang-001.jpg" alt="Ốp lưng Xiaomi Redmi 3S Plus" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/op-lung-xiaomi-redmi-3s-plus-2139.html">Ốp lưng Xiaomi Redmi 3S Plus</a></p>
@@ -193,7 +196,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/dan-cuong-luc-xiaomi-mi5s-plus-2138.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Dan-cuong-luc-Xiaomi-Mi5S-Plus.jpg" alt="Dán cường lực Xiaomi Mi5S Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Dan-cuong-luc-Xiaomi-Mi5S-Plus.jpg" alt="Dán cường lực Xiaomi Mi5S Plus" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-mi5s-plus-2138.html">Dán cường lực Xiaomi Mi5S Plus</a></p>
@@ -205,7 +208,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/op-lung-blackberry-passport-2135.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-black-berry-passport-trong-suo-imak-phu-nano-.jpg" alt="Ốp lưng BlackBerry Passport" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-black-berry-passport-trong-suo-imak-phu-nano-.jpg" alt="Ốp lưng BlackBerry Passport" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/op-lung-blackberry-passport-2135.html">Ốp lưng BlackBerry Passport</a></p>
@@ -217,7 +220,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/op-lung-xiaomi-mi5s-plus-2134.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-xiaomi-mi5s-plus-xach-tay-gia-re-Mobilecity.jpg" alt="Ốp lưng Xiaomi Mi5S Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-xiaomi-mi5s-plus-xach-tay-gia-re-Mobilecity.jpg" alt="Ốp lưng Xiaomi Mi5S Plus" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/op-lung-xiaomi-mi5s-plus-2134.html">Ốp lưng Xiaomi Mi5S Plus</a></p>
@@ -229,7 +232,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/op-lung-xiaomi-mi5s-2132.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-xiaomi-mi5s-mobilecity-001.jpg" alt="Ốp lưng Xiaomi Mi5S" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-xiaomi-mi5s-mobilecity-001.jpg" alt="Ốp lưng Xiaomi Mi5S" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/op-lung-xiaomi-mi5s-2132.html">Ốp lưng Xiaomi Mi5S</a></p>
@@ -241,7 +244,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/dan-cuong-luc-blackberry-passport-2130.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-blackberry-passsport-mobilecity.jpg" alt="Dán cường lực BlackBerry Passport" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-blackberry-passsport-mobilecity.jpg" alt="Dán cường lực BlackBerry Passport" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-blackberry-passport-2130.html">Dán cường lực BlackBerry Passport</a></p>
@@ -253,7 +256,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/dan-cuong-luc-xiaomi-redmi-note-4-2081.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-xiaomi-redmi-note-4.jpg" alt="Dán cường lực Xiaomi Redmi Note 4" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-xiaomi-redmi-note-4.jpg" alt="Dán cường lực Xiaomi Redmi Note 4" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-redmi-note-4-2081.html">Dán cường lực Xiaomi Redmi Note 4</a></p>
@@ -265,7 +268,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/vidonn-a6-2076.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dong-ho-Vidonn-A6.jpg" alt="Vidonn A6" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dong-ho-Vidonn-A6.jpg" alt="Vidonn A6" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/vidonn-a6-2076.html">Vidonn A6</a></p>
@@ -277,7 +280,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/miband-1s-pulse-2075.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dong-ho-MiBand-1s-Pulse.jpg" alt="MiBand 1s Pulse" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dong-ho-MiBand-1s-Pulse.jpg" alt="MiBand 1s Pulse" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/miband-1s-pulse-2075.html">MiBand 1s Pulse</a></p>
@@ -289,7 +292,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/tat-mo-khong-day-chuong-cua-xiaomi-2074.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Tat-mo-khong-day-chuong-cua-Xiaomi.jpg" alt="Tắt mở không dây (Chuông cửa) Xiaomi" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Tat-mo-khong-day-chuong-cua-Xiaomi.jpg" alt="Tắt mở không dây (Chuông cửa) Xiaomi" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/tat-mo-khong-day-chuong-cua-xiaomi-2074.html">Tắt mở không dây (Chuông cửa) Xiaomi</a></p>
@@ -301,7 +304,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/xiaomi-router-2-with-1tb-2073.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Xiaomi-Router-2-with-1TB.jpg" alt="Xiaomi Router 2 with 1TB" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Xiaomi-Router-2-with-1TB.jpg" alt="Xiaomi Router 2 with 1TB" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/xiaomi-router-2-with-1tb-2073.html">Xiaomi Router 2 with 1TB</a></p>
@@ -313,7 +316,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/o-cam-thong-minh-xiaomi-zigbee-2072.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-O-cam-thong-minh-Xiaomi-ZigBee.jpg" alt="Ổ cắm thông minh Xiaomi ZigBee" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-O-cam-thong-minh-Xiaomi-ZigBee.jpg" alt="Ổ cắm thông minh Xiaomi ZigBee" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/o-cam-thong-minh-xiaomi-zigbee-2072.html">Ổ cắm thông minh Xiaomi ZigBee</a></p>
@@ -325,7 +328,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/phim-chuot-ukb-500-2071.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Phim-chuot-UKB-500.jpg" alt="Phím chuột UKB 500" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Phim-chuot-UKB-500.jpg" alt="Phím chuột UKB 500" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/phim-chuot-ukb-500-2071.html">Phím chuột UKB 500</a></p>
@@ -337,7 +340,7 @@
     <div class="phukien_con clearfix">
       <a href="phu-kien/bo-phat-wifi-kiem-pin-sac-du-phong-zmi-mf855-2070.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Bo-phat-wifi-kiem-pin-sac-du-phong-ZMI-MF855.jpg" alt="Bộ phát wifi kiêm pin sạc dự phòng ZMI MF855" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Bo-phat-wifi-kiem-pin-sac-du-phong-ZMI-MF855.jpg" alt="Bộ phát wifi kiêm pin sạc dự phòng ZMI MF855" />
         </div>
       </a>
       <p class="name_pk clearfix"><a href="phu-kien/bo-phat-wifi-kiem-pin-sac-du-phong-zmi-mf855-2070.html">Bộ phát wifi kiêm pin sạc dự phòng ZMI MF855</a></p>
@@ -347,15 +350,15 @@
       <div class="right_pk clearfix"><a href="phu-kien/bo-phat-wifi-kiem-pin-sac-du-phong-zmi-mf855-2070.html" class="btn_pk">Mua</a></div>
     </div>
   </div>
-  <div class="fittings"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" /></div>
+  <div class="fittings"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" /></div>
   <div class="btn_them clearfix"><a data-type="fittings" class="more_pro" href="javascript:;">Xem thêm phụ kiện</a></div>
 </section>
 <section class="banner_ngang clearfix">
   <div class="banner_ngang_left clearfix">
-    <a href="samsung/samsung-galaxy-s7-cu-prd1031.html"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/slide-2.jpg" alt="MobileCity Banner Hot 3" /></a>
+    <a href="samsung/samsung-galaxy-s7-cu-prd1031.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/slide-2.jpg" alt="MobileCity Banner Hot 3" /></a>
   </div>
   <div class="banner_ngang_right clearfix">
-    <a href="dien-thoai-xiaomi/index.html"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/ship-COD.jpg" alt="MobileCity Banner Hot 4" /></a>
+    <a href="dien-thoai-xiaomi/index.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/ship-COD.jpg" alt="MobileCity Banner Hot 4" /></a>
   </div>
 </section>
 <!-- dich vu -->
@@ -381,7 +384,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-mat-kinh-cam-ung-iphone-5s-iphone-5-5c-679.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-iphone-5s-iphone-5-5c.jpg" alt="Thay mặt kính iPhone 5, iPhone 5S, iPhone 5C" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-iphone-5s-iphone-5-5c.jpg" alt="Thay mặt kính iPhone 5, iPhone 5S, iPhone 5C" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -400,7 +403,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus-446.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus.jpg" alt="Thay mặt kính iPhone 6, 6 Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus.jpg" alt="Thay mặt kính iPhone 6, 6 Plus" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -419,7 +422,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-mat-kinh-iphone-7-7-plus-1028.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-iphone-7-7-plus.jpg" alt="Thay mặt kính iPhone 7, 7 Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-iphone-7-7-plus.jpg" alt="Thay mặt kính iPhone 7, 7 Plus" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -438,7 +441,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-man-hinh-iphone-5-5s-726.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-iphone-5-5s.jpg" alt="Thay màn hình iPhone 5, 5S, 5C" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-iphone-5-5s.jpg" alt="Thay màn hình iPhone 5, 5S, 5C" />
           <div class="mask1 mask">
             <p class="clearfix">Tặng tấm dán màn hình cao cấp</p>
             <p class="clearfix">Miễn phí kiểm tra máy (không sửa không sao)</p>
@@ -459,7 +462,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-man-hinh-iphone-6-6-plus-694.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-iphone-6-6-plus.jpg" alt="Thay màn hình iPhone 6, 6 Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-iphone-6-6-plus.jpg" alt="Thay màn hình iPhone 6, 6 Plus" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -478,7 +481,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-mat-kinh-cam-ung-sony-xperia-z3v-1003.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-sony-xperia-z3v.jpg" alt="Thay mặt kính cảm ứng Sony Xperia Z3v" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-sony-xperia-z3v.jpg" alt="Thay mặt kính cảm ứng Sony Xperia Z3v" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -497,7 +500,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-2129.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-1.jpg" alt="Thay bàn phím Qwerty cho Blackberry Passport bản Pháp" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-1.jpg" alt="Thay bàn phím Qwerty cho Blackberry Passport bản Pháp" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -516,7 +519,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-mat-kinh-man-hinh-cam-ung-sony-xperia-z3-352.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-man-hinh-cam-ung-sony-xperia.jpg" alt="Thay mặt kính, màn hình cảm ứng Sony Xperia Z3" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-man-hinh-cam-ung-sony-xperia.jpg" alt="Thay mặt kính, màn hình cảm ứng Sony Xperia Z3" />
           <div class="mask1 mask">
             <p class="clearfix">Giá Mặt kính Sony Xperia Z3: 250.000 BH 03 Tháng 1 đổi 1</p>
             <p class="clearfix">Giá cả bộ Màn hình Sony Xperia Z3: 850.000 BH 03 Tháng 1 đổi 1</p>
@@ -534,7 +537,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-1035.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-cam-ung-iphone-7-chinh-hang.jpg" alt="Thay màn hình cảm ứng iPhone 7" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-cam-ung-iphone-7-chinh-hang.jpg" alt="Thay màn hình cảm ứng iPhone 7" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -553,7 +556,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-plus-2125.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/12/small-thay-man-hinh-cam-ung-iphone-7-plus-2125.jpg" alt="Thay màn hình cảm ứng iPhone 7 Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/12/small-thay-man-hinh-cam-ung-iphone-7-plus-2125.jpg" alt="Thay màn hình cảm ứng iPhone 7 Plus" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -572,7 +575,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-man-hinh-xiaomi-redmi-4.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-mat-kinh-cam-ung-xiaomi-redmi-note-4-1.jpg" alt="Thay màn hình Xiaomi Redmi 4" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-mat-kinh-cam-ung-xiaomi-redmi-note-4-1.jpg" alt="Thay màn hình Xiaomi Redmi 4" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -591,7 +594,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-wifi-cho-blackberry-passport-2157.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-wifi-cho-blackberry-passport.jpg" alt="Thay wifi cho Blackberry Passport" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-wifi-cho-blackberry-passport.jpg" alt="Thay wifi cho Blackberry Passport" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -610,7 +613,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/thay-man-hinh-cam-ung-xiaomi-mi5s-plus-2160.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-cam-ung-xiaomi-mi5s-plus.jpg" alt="Thay màn hình, cảm ứng Xiaomi Mi5s Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-cam-ung-xiaomi-mi5s-plus.jpg" alt="Thay màn hình, cảm ứng Xiaomi Mi5s Plus" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -629,7 +632,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/sua-blackberry-passport-mat-song-2166.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-sua-blackberry-passport-mat-song.jpg" alt="Sửa Blackberry Passport bị mất sóng" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-sua-blackberry-passport-mat-song.jpg" alt="Sửa Blackberry Passport bị mất sóng" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -648,7 +651,7 @@
     <div class="ser_con clearfix">
       <a href="dich-vu/sim-ghep-iphone-7-iphone-7-plus-2137.html">
         <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-sim-ghep.jpg" alt="Sim ghép iPhone 7 / iPhone 7 Plus" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-sim-ghep.jpg" alt="Sim ghép iPhone 7 / iPhone 7 Plus" />
           <div class="mask1 mask">
             <p class="clearfix">Miễn phí cài đặt phần mềm</p>
             <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
@@ -665,7 +668,7 @@
       </div>
     </div>
   </div>
-  <div class="fix_phone"><img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" /></div>
+  <div class="fix_phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" /></div>
   <div class="btn_them clearfix"><a data-type="fix_phone" class="more_pro" href="javascript:;">Xem thêm dịch vụ sửa chữa</a></div>
 </section>
 <!-- tin tuc -->
@@ -675,7 +678,7 @@
     <article class="new_con clearfix">
       <a href="tin-tuc/mobilecity-tuyen-nhan-vien-call-center-cham-soc-khach-hang.html">
         <div class="news_img clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/small-mobilecity-tuyen-dung.jpg" alt="MobileCity tuyển nhân viên Call Center - Chăm sóc Khách hàng" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/small-mobilecity-tuyen-dung.jpg" alt="MobileCity tuyển nhân viên Call Center - Chăm sóc Khách hàng" />
         </div>
       </a>
       <div class="right_new_home clearfix">
@@ -686,7 +689,7 @@
     <article class="new_con clearfix">
       <a href="tin-tuc/mobilecity-tuyen-dung-vi-tri-ban-hang-full-time-part-time.html">
         <div class="news_img clearfix">
-          <img src="{{# URL::base_path('public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/05/small-can-tuyen.jpg" alt="MobileCity tuyển dụng vị trí Bán hàng (Full Time, Part Time)" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/05/small-can-tuyen.jpg" alt="MobileCity tuyển dụng vị trí Bán hàng (Full Time, Part Time)" />
         </div>
       </a>
       <div class="right_new_home clearfix">

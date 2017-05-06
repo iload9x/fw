@@ -9,8 +9,8 @@
                         Menu nhanh<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
                     <ul id="menuNhanh" class="nav nav-second collapse">
-                        <li><a href="{{# URL::base_path('admin/blog/create?type=post')}}"> Viết bài</a></li>
-                        <li><a href="{{# URL::base_path('admin/blog')}}"> Quản lý blogs</a></li>
+                        <li><a href="{{# URL::base_path('/admin/blog/create?type=post')}}"> Viết bài</a></li>
+                        <li><a href="{{# URL::base_path('/admin/blog')}}"> Quản lý blogs</a></li>
                     </ul>
                 </li>
                 <li class="nav-category">
@@ -30,7 +30,7 @@
                         Thành viên<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
                     <ul id="tables" class="nav nav-second collapse">
-                        <li><a href="{{# URL::base_path('admin/member')}}">Danh sách</a></li>
+                        <li><a href="{{# URL::base_path('/admin/member')}}">Danh sách</a></li>
                         <li><a href="dataTables.html">Cài đặt đăng ký</a></li>
                     </ul>
                 </li>
@@ -39,10 +39,10 @@
                         Cài đặt <span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
                     <ul id="forms" class="nav nav-second collapse">
-                        <li><a href="{{# URL::base_path('admin/manager/blogConfigs')}}"> Cấu hình Blogs</a></li>
-                        <li><a href="{{# URL::base_path('admin/manager/templates')}}"> Quản lý templates</a></li>
-                        <li><a href="{{# URL::base_path('admin/manager/modules')}}"> Quản lý modules</a></li>
-                        <li><a href="{{# URL::base_path('admin/manager/access')}}"> Quản lý quyền truy cập</a></li>
+                        <li><a href="{{# URL::base_path('/admin/manager/blogConfigs')}}"> Cấu hình Blogs</a></li>
+                        <li><a href="{{# URL::base_path('/admin/manager/templates')}}"> Quản lý templates</a></li>
+                        <li><a href="{{# URL::base_path('/admin/manager/modules')}}"> Quản lý modules</a></li>
+                        <li><a href="{{# URL::base_path('/admin/manager/access')}}"> Quản lý quyền truy cập</a></li>
                     </ul>
                 </li>
                 <li class="nav-category">
@@ -53,25 +53,25 @@
                         Sản phẩm<span class="sub-nav-icon"> <i class="stroke-arrow"></i> </span>
                     </a>
                     <ul id="products" class="nav nav-second collapse">
-                        <li><a href="{{# URL::base_path('admin/cart/products')}}">Danh sách</a></li>
-                        <li><a href="{{# URL::base_path('admin/cart/products/add')}}">Thêm sản phẩm</a></li>
+                        <li><a href="{{# URL::base_path('/admin/cart/products')}}">Danh sách</a></li>
+                        <li><a href="{{# URL::base_path('/admin/cart/products/add')}}">Thêm sản phẩm</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="{{# URL::base_path('admin/cart/categories')}}">
+                    <a href="{{# URL::base_path('/admin/cart/categories')}}">
                     Chuyên mục sản phẩm</a>
                 </li>
                 <li>
-                    <a href="{{# URL::base_path('admin/cart/companies')}}">
+                    <a href="{{# URL::base_path('/admin/cart/companies')}}">
                     Hãng sản xuất</a>
                 </li>
                 <li>
-                    <a href="{{# URL::base_path('admin/cart/types')}}">
+                    <a href="{{# URL::base_path('/admin/cart/types')}}">
                     Loại sản phẩm</a>
                 </li>
 
                 <li>
-                    <a href="{{# URL::base_path('admin/cart/specs')}}">
+                    <a href="{{# URL::base_path('/admin/cart/specs')}}">
                     Thông số kỹ thuật</a>
                 </li>
                
