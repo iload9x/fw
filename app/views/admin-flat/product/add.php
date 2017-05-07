@@ -36,7 +36,7 @@
                   <label for="exampleInputName">Tiêu đề:</label>
                   <div class="input-group">
                     <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-pencil"></i></div>
-                    <input type="text"  name="title" value="{{# isset($callback['title'])  ? $callback['title'] : null }}" class="form-control" id="" placeholder="">
+                    <input type="text" name="title" value="{{# isset($callback['title'])  ? $callback['title'] : null }}" class="form-control" id="" placeholder="">
                     <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
                   </div>
                 </div>
@@ -78,9 +78,7 @@
                         </div>
                       </div>
                     </div>
-                    {{if(isset($callback['storage']) && is_array($callback['storage'])):}}
-                    {{foreach($callback['storage'] as $k => $v):}}
-                    {{if(!empty($v)):}}
+                    {{if(isset($callback['storage']) && is_array($callback['storage'])):}} {{foreach($callback['storage'] as $k => $v):}} {{if(!empty($v)):}}
                     <div class="rowItem">
                       <div class="form-group col-md-12">
                         <div class="input-group col-md-12  col-xs-12 col-sm-12">
@@ -91,9 +89,7 @@
                         </div>
                       </div>
                     </div>
-                    {{endif}}
-                    {{endforeach}}
-                    {{endif}}
+                    {{endif}} {{endforeach}} {{endif}}
                   </div>
                   <div class="col-md-6 css1">
                     <div class="rowItem">
@@ -116,9 +112,7 @@
                         </div>
                       </div>
                     </div>
-                    {{if(isset($callback['color']) && is_array($callback['color'])):}}
-                    {{foreach($callback['color'] as $k => $v):}}
-                    {{if(!empty($v)):}}
+                    {{if(isset($callback['color']) && is_array($callback['color'])):}} {{foreach($callback['color'] as $k => $v):}} {{if(!empty($v)):}}
                     <div class="rowItem">
                       <div class="form-group col-md-12">
                         <div class="input-group col-md-12  col-xs-12 col-sm-12">
@@ -129,9 +123,7 @@
                         </div>
                       </div>
                     </div>
-                    {{endif}}
-                    {{endforeach}}
-                    {{endif}}
+                    {{endif}} {{endforeach}} {{endif}}
                   </div>
                 </div>
                 <div class="col-md-12 css2">
@@ -150,12 +142,12 @@
                         <div class="input-group col-md-12">
                           <div class="input-group-addon" style="background:#52555f; color:#fff; border:none">Bảo hành: </div>
                           <select class="form-control select2_demo_2" name="guarantee" style="width: 100%">
-                            <option value="0" {{# isset($callback['guarantee']) && $callback['guarantee']==0 ? "selected" : null }}>Không có bảo hành</option>
-                            <option value="1" {{# isset($callback['guarantee']) && $callback['guarantee']==1 ? "selected" : null }}>1 tháng</option>
-                            <option value="3" {{# isset($callback['guarantee']) && $callback['guarantee']==3 ? "selected" : null }}>3 tháng</option>
-                            <option value="6" {{# isset($callback['guarantee']) && $callback['guarantee']==6 ? "selected" : null }}>6 tháng</option>
-                            <option value="12" {{# isset($callback['guarantee']) && $callback['guarantee']==12 ? "selected" : null }}>12 tháng</option>
-                            <option value="24" {{# isset($callback['guarantee']) && $callback['guarantee']==24 ? "selected" : null }}>24 tháng</option>
+                            <option value="0" {{# isset($callback[ 'guarantee']) && $callback[ 'guarantee']==0 ? "selected" : null }}>Không có bảo hành</option>
+                            <option value="1" {{# isset($callback[ 'guarantee']) && $callback[ 'guarantee']==1 ? "selected" : null }}>1 tháng</option>
+                            <option value="3" {{# isset($callback[ 'guarantee']) && $callback[ 'guarantee']==3 ? "selected" : null }}>3 tháng</option>
+                            <option value="6" {{# isset($callback[ 'guarantee']) && $callback[ 'guarantee']==6 ? "selected" : null }}>6 tháng</option>
+                            <option value="12" {{# isset($callback[ 'guarantee']) && $callback[ 'guarantee']==12 ? "selected" : null }}>12 tháng</option>
+                            <option value="24" {{# isset($callback[ 'guarantee']) && $callback[ 'guarantee']==24 ? "selected" : null }}>24 tháng</option>
                           </select>
                           <div class="input-group-addon" style="color:#fff"><i class="fa fa-plus" style="display:none"></i></div>
                         </div>
@@ -196,6 +188,30 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-md-12 css2">
+                  <div class="col-md-12 css1">
+                    {{if(isset($callback['videoLinks']) && is_array($callback['videoLinks']) ):}} {{foreach($callback['videoLinks'] as $v):}} {{if(!empty($v)):}}
+                    <div class="rowItem">
+                      <div class="form-group">
+                        <div class="input-group col-md-12">
+                          <div class="input-group-addon" style="background:#52555f; color:#fff; border:none">Link video: </div>
+                          <input type="text" name="videoLinks[]" data-checkvalue="btnAddItemCoupons" class="form-control" value="{{# $v}}" placeholder="">
+                          <div class="btnAddItemCoupons input-group-addon" style="color:#fff"><i class="fa fa-plus"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                    {{endif}} {{endforeach}} {{endif}}
+                    <div class="rowItem">
+                      <div class="form-group">
+                        <div class="input-group col-md-12">
+                          <div class="input-group-addon" style="background:#52555f; color:#fff; border:none">Link video: </div>
+                          <input type="text" name="videoLinks[]" data-checkvalue="btnAddItemCoupons" class="form-control" value="" placeholder="">
+                          <div class="btnAddItemCoupons input-group-addon" style="color:#fff"><i class="fa fa-plus"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label for="exampleInputName">Mô tả chỉ tiết sản phẩm:</label>
                   <textarea class="form-control txtContent summernote" name="detail">{{# isset($callback['detail']) ? $callback['detail'] : null }}</textarea>
@@ -210,7 +226,7 @@
                   <label for="exampleInputName">Danh mục:</label>
                   <select class="form-control select2_demo_2" name="categoryId" style="width: 100%">
                     {{if(isset($dsCategory)):}} {{foreach($dsCategory as $v):}}
-                    <option value="{{# $v['id']}}" {{# ($callback['categoryId']==$v['id']) ? "selected" : null}}>{{# $v['name']}}</option>
+                    <option value="{{# $v['id']}}" {{# ($callback[ 'categoryId']==$v[ 'id']) ? "selected" : null}}>{{# $v['name']}}</option>
                     {{endforeach}} {{endif}}
                   </select>
                 </div>
@@ -218,15 +234,16 @@
                   <label for="exampleInputName">Hãng sản xuất:</label>
                   <select class="form-control select2_demo_2" name="companyId" style="width: 100%">
                     {{if(isset($dsCompany)):}} {{foreach($dsCompany as $v):}}
-                    <option value="{{# $v['id']}}" {{# ($callback['companyId']==$v['id']) ? "selected" : null}}>{{# $v['name']}}</option>
+                    <option value="{{# $v['id']}}" {{# ($callback[ 'companyId']==$v[ 'id']) ? "selected" : null}}>{{# $v['name']}}</option>
                     {{endforeach}} {{endif}}
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName">Thông số kỹ thuật:</label>
                   <select class="form-control select2_demo_2" name="specsId" style="width: 100%">
+                    <option value="">Không có TSKT</option>
                     {{if(isset($dsSpecs)):}} {{foreach($dsSpecs as $v):}}
-                    <option value="{{# $v['id']}}" {{# ($callback['specsId']==$v['id']) ? "selected" : null}}>{{# $v['name']}}</option>
+                    <option value="{{# $v['id']}}" {{# ($callback[ 'specsId']==$v[ 'id']) ? "selected" : null}}>{{# $v['name']}}</option>
                     {{endforeach}} {{endif}}
                   </select>
                 </div>
@@ -235,7 +252,7 @@
                   <select class="form-control select2_demo_2" multiple="multiple" name="typeId[]" style="width: 100%">
                     <option value="">Vui lòng chọn</option>
                     {{if(isset($dsType)):}} {{foreach($dsType as $v):}}
-                    <option value="{{# $v['id']}}" {{# (is_array($callback['typeId']) && in_array($v['id'], $callback['typeId'])) ? 'selected' : null}}>{{# $v['name']}}</option>
+                    <option value="{{# $v['id']}}" {{# (is_array($callback[ 'typeId']) && in_array($v[ 'id'], $callback[ 'typeId'])) ? 'selected' : null}}>{{# $v['name']}}</option>
                     {{endforeach}} {{endif}}
                   </select>
                 </div>
@@ -243,11 +260,11 @@
                   <label for="exampleInputName">Trạng thái:</label>
                   <div class="input-group">
                     <div class="radio radio-success radio-inline">
-                      <input type="radio" value="1" name="status" {{# isset($callback['status']) && $callback['status']==1 ? "checked" : null}}>
+                      <input type="radio" value="1" name="status" {{# isset($callback[ 'status']) && $callback[ 'status']==1 ? "checked" : null}}>
                       <label for="inlineRadio1"> Còn hàng </label>
                     </div>
                     <div class="radio radio-inline">
-                      <input type="radio" value="0" name="status" {{# isset($callback['status']) && $callback['status'] !=1 ? "checked" : null}}>
+                      <input type="radio" value="0" name="status" {{# isset($callback[ 'status']) && $callback[ 'status'] !=1 ? "checked" : null}}>
                       <label for="inlineRadio2"> Hết hàng </label>
                     </div>
                   </div>

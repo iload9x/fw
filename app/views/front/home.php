@@ -43,24 +43,30 @@
 </section>
 <section class="pro clearfix">
   <div class="top_pro clearfix">
+    {{if(isset($dsCompanyDienThoai)):}}
     <div class="top_pro_left clearfix">
       <p class="text">Hãng: </p>
-      <a href="dien-thoai-apple/index.html">Apple (iPhone)</a>
-      <a href="dien-thoai-xiaomi/index.html">Xiaomi</a>
-      <a href="dien-thoai-samsung/index.html">Samsung</a>
-      <a href="dien-thoai-w-mobile/index.html">W-Mobile</a>
+      {{for($i = 0; $i < count($dsCompanyDienThoai); $i++):}}
+        <a href="{{# URL::base_url("/dien-thoai/{$dsCompanyDienThoai[$i]['slug']}")}}.html">{{# $dsCompanyDienThoai[$i]['name']}}</a>
+        {{if($i == 5):}}
+        {{break;}}
+        {{endif}}
+      {{endfor}}
+      {{if(count($dsCompanyDienThoai) > 6):}}
       <select id="go_phone_made">
         <option>Khác</option>
-        <option data-link='/dien-thoai-lenovo/'>Lenovo</option>
-        <option data-link='/dien-thoai-wiko/'>Wiko</option>
-        <option data-link='/dien-thoai-motorola/'>Motorola</option>
-        <option data-link='/dien-thoai-google/'>Google</option>
+        {{for($i = 5; $i < count($dsCompanyDienThoai); $i++):}}
+          <option data-link='{{# URL::base_url("/dien-thoai/{$dsCompanyDienThoai[$i]['slug']}")}}.html'>{{# $dsCompanyDienThoai[$i]['name']}}</option>
+        {{endfor}}
       </select>
+      {{endif}}
+      
       <!--<select>
                     <option>Tính năng</option>
                     <option>Việt teo</option>
                 </select>-->
     </div>
+    {{endif}}
     <div class="top_pro_right clearfix">
       <select style="float: left;" id="order_phone">
         <option data-link="/dien-thoai/?sx=gia-thap-den-cao">Giá từ cao đến thấp</option>

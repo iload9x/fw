@@ -90,6 +90,17 @@
   background: #189069;
 }
 
+.btnDelete {
+  background: #db524b;
+  color: #fff;
+  border: none;
+  padding: 2px 8px;
+}
+
+.btnDelete:hover {
+  background: #94302b;
+}
+
 .css1{
   border: 1px dashed #ccc;
   padding-top: 16px;

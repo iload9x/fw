@@ -88,13 +88,13 @@ class productController extends InitController
 
 	public function addPost($req, $res)
 	{
+
 		if ($req->csrf) {
 			$this->validate->checkBody('name', 'Tên sản phẩm')->notEmpty();
 			$this->validate->checkBody('title', 'Tiêu đề')->notEmpty();
 			$this->validate->checkBody('detail', 'Mô tả chi tiết')->notEmpty();
 			$this->validate->checkBody('categoryId', 'Chuyên mục')->notEmpty()->notNumeric();
 			$this->validate->checkBody('companyId', 'Hãng sản xuất')->notEmpty()->notNumeric();
-			$this->validate->checkBody('specsId', 'Thông số kỹ thuật')->notEmpty()->notNumeric();
 			$this->validate->checkBody('price', 'Giá sản phẩm')->notNumeric();
 			$this->validate->checkBody('status', 'Trạng thái')->notNumeric();
 
@@ -132,9 +132,6 @@ class productController extends InitController
 				foreach ($fileList as $v) {
 					array_push($imagesArray, $v['name']);
 				}
-				foreach ($fileList as $v) {
-					array_push($imagesArray, $v['name']);
-				}
 
 				$storage = array();
 				$storagePrice = Input::post('storagePrice');
@@ -168,6 +165,7 @@ class productController extends InitController
 				$this->productModel->inbox = Input::post('inbox');
 				$this->productModel->delivery = Input::post('delivery');
 				$this->productModel->counpons = mysql_real_escape_string(json_encode(Input::post('counpons')));
+				$this->productModel->videoLinks = mysql_real_escape_string(json_encode(Input::post('videoLinks')));
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();
@@ -226,6 +224,7 @@ class productController extends InitController
 		$data['infoProduct']['storage'] = (array)json_decode($data['infoProduct']['storage']);
 		$data['infoProduct']['color'] = (array)json_decode($data['infoProduct']['color']);
 		$data['infoProduct']['counpons'] = (array)json_decode($data['infoProduct']['counpons']);
+		$data['infoProduct']['videoLinks'] = (array)json_decode($data['infoProduct']['videoLinks']);
 		$data['infoProduct']['typeId'] = (array)json_decode($data['infoProduct']['typeId']);
 
 		return $res->render('admin-flat/product/edit', 'admin-flat/layout/admin.layout', $data);
@@ -233,13 +232,13 @@ class productController extends InitController
 
 	public function editPost($req, $res)
 	{
+
 		if ($req->csrf) {
 			$this->validate->checkBody('name', 'Tên sản phẩm')->notEmpty();
 			$this->validate->checkBody('title', 'Tiêu đề')->notEmpty();
 			$this->validate->checkBody('detail', 'Mô tả chi tiết')->notEmpty();
 			$this->validate->checkBody('categoryId', 'Chuyên mục')->notEmpty()->notNumeric();
 			$this->validate->checkBody('companyId', 'Hãng sản xuất')->notEmpty()->notNumeric();
-			$this->validate->checkBody('specsId', 'Thông số kỹ thuật')->notEmpty()->notNumeric();
 			$this->validate->checkBody('price', 'Giá sản phẩm')->notNumeric();
 			$this->validate->checkBody('status', 'Trạng thái')->notNumeric();
 
@@ -274,14 +273,14 @@ class productController extends InitController
 						));
 				}
 				$fileList    = $FileUploader->getFileList();
-				$imagesArray = array();
-				foreach ($fileList as $v) {
-					array_push($imagesArray, $v['name']);
-				}
-				foreach ($fileList as $v) {
-					array_push($imagesArray, $v['name']);
-				}
 
+				$imagesArray = array();
+				if (Input::post('old_avatar') && count(Input::post('old_avatar'))) {
+					$imagesArray = Input::post('old_avatar');
+				}
+				foreach ($fileList as $v) {
+					array_push($imagesArray, $v['name']);
+				}
 				$storage = array();
 				$storagePrice = Input::post('storagePrice');
 				foreach (Input::post('storage') as $k => $v) {
@@ -290,16 +289,17 @@ class productController extends InitController
 					}
 				}
 
-				$color = array();
 				$colorPrice = Input::post('colorPrice');
 				foreach (Input::post('color') as $k => $v) {
 					if (!empty($v)) {
 						$color[$v] = $colorPrice[$k];
 					}
 				}
-
 				$this->productModel->name					= Input::post('name');
 				$this->productModel->title		= Input::post('title');
+				$this->productModel->keywords		= Input::post('keyword');
+				$this->productModel->description		= Input::post('description');
+				$this->productModel->tags		= Input::post('tag');
 				$this->productModel->detail				= Input::post('detail');
 				$this->productModel->categoryId   = Input::post('categoryId');
 				$this->productModel->companyId    = Input::post('companyId');
@@ -311,6 +311,7 @@ class productController extends InitController
 				$this->productModel->storage      = json_encode($storage);
 				$this->productModel->color      = json_encode($color);
 				$this->productModel->guarantee = Input::post('guarantee');
+				$this->productModel->videoLinks = mysql_real_escape_string(json_encode(Input::post('videoLinks')));
 				$this->productModel->inbox = Input::post('inbox');
 				$this->productModel->delivery = Input::post('delivery');
 				$this->productModel->counpons = mysql_real_escape_string(json_encode(Input::post('counpons')));

@@ -38,8 +38,8 @@
           <p class="pro_instock_status"><i class="fa fa-check-square-o"></i>{{# isset($infoProduct['status']) && $infoProduct['status'] == 1 ? 'Còn hàng' : 'Hết hàng' }}</p>
         </div>
         <div class="bottom_thong clearfix">
-          {{if(isset($infoProduct['storage'])):}}
-          <div class="clearfix bonho">Bộ nhớ
+          {{if(!empty($infoProduct['storage'])):}}
+          <div class="clearfix bonho">Bộ nhớ 
             <select id="dungluong">
             {{foreach($infoProduct['storage'] as $storage => $price):}}
               <option value="{{# $price}}">{{# $storage}}GB</option>
@@ -59,7 +59,9 @@
           <ul>
           {{if(isset($infoProduct['counpons'])):}}
             {{foreach($infoProduct['counpons'] as $counpon):}}
-              <li class="clearfix">{{# $counpon}}</li>
+              {{if(!empty($counpon)):}}
+                <li class="clearfix">{{# $counpon}}</li>
+              {{endif}}
             {{endforeach}}
           {{endif}}
           </ul>
@@ -163,25 +165,23 @@
           <p>Xem thêm cấu hình chi tiết</p>
         </div>
       </div>
+      {{if(isset($infoProduct['videoLinks']) && is_array($infoProduct['videoLinks'])):}}
       <div class="detail_pro_right clearfix">
         <div class="clearfix title_main_content">
           <p>Video {{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
         </div>
         <ul id="slider_video">
-          <li id="video" data-iframe="https://www.youtube.com/watch?v=isF8YHZNhZc">
+          <li id="video" data-iframe="https://www.youtube.com/watch?v={{# isset($infoProduct['videoLinks'][0]) ? $infoProduct['videoLinks'][0] : ""}}">
             <iframe src="https://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
           </li>
-          <li data-iframe="https://www.youtube.com/watch?v=isF8YHZNhZc">
-            <img src="http://img.youtube.com/vi/isF8YHZNhZc/mqdefault.jpg" />
+          {{foreach($infoProduct['videoLinks'] as $link):}}
+          <li data-iframe="https://www.youtube.com/watch?v={{# $link}}">
+            <img src="http://img.youtube.com/vi/{{# $link}}/mqdefault.jpg" />
           </li>
-          <li data-iframe="https://www.youtube.com/watch?v=1xdLPFtR7nI">
-            <img src="http://img.youtube.com/vi/1xdLPFtR7nI/mqdefault.jpg" />
-          </li>
-          <li data-iframe="https://www.youtube.com/watch?v=ieJEXpWSaEk">
-            <img src="http://img.youtube.com/vi/ieJEXpWSaEk/mqdefault.jpg" />
-          </li>
+          {{endforeach}}
         </ul>
       </div>
+      {{endif}}
       <aside class="pro_cungloai clearfix">
         <div class="clearfix title_main_content">
           <p>Sản phẩm cùng phân khúc</p>
@@ -239,7 +239,7 @@
         <section class="plus_pro clearfix">
           <div class="thongtin_plus clearfix">
             <div class="anh_thongtin_plus clearfix">
-              <img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-iPhone-5C-cu-gia-re-nhat-Ha-Noi-TP-HCM-MobileCity-001.jpg" alt="{{# isset($infoProduct['name']) ? $infoProduct['name'] : "---"}}" />
+              <img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_path('/public/uploads/')}}{{# isset($infoProduct['avatar'][0]) ? $infoProduct['avatar'][0] : ""}}" alt="{{# isset($infoProduct['name']) ? $infoProduct['name'] : "---"}}" />
             </div>
             <p>{{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
             <p class="price_plus">{{# isset($infoProduct['price']) ? number_format($infoProduct['price']) . '₫': "Liên hệ"}}</p>

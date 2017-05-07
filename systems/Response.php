@@ -54,18 +54,24 @@ class Response
 				//=============/PARTIALS=============
 				$math = array(
 					'{{if',
+					'{{else',
 					'{{endif',
 					'{{foreach',
 					'{{endforeach',
+					'{{for',
+					'{{endfor',
 					'{{#',
 					'{{',
 					'}}'
 				);
 				$replace = array(
 					'<?php if',
+					'<?php else',
 					'<?php endif;',
 					'<?php foreach',
 					'<?php endforeach;',
+					'<?php for',
+					'<?php endfor;',
 					'<?php echo',
 					'<?php  ',
 					'?>'

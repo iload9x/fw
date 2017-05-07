@@ -193,10 +193,52 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-md-12 css2">
+                  <div class="col-md-12 css1">
+                    {{if(isset($infoProduct['videoLinks']) && is_array($infoProduct['videoLinks'])):}} {{foreach($infoProduct['videoLinks'] as $v):}} {{if(!empty($v)):}}
+                    <div class="rowItem">
+                      <div class="form-group">
+                        <div class="input-group col-md-12">
+                          <div class="input-group-addon" style="background:#52555f; color:#fff; border:none">Link Video: </div>
+                          <input type="text" name="videoLinks[]" data-checkvalue="btnAddItemCoupons" class="form-control" value="{{# $v}}" placeholder="">
+                          <div class="btnAddItemCoupons input-group-addon" style="color:#fff"><i class="fa fa-plus"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                    {{endif}} {{endforeach}} {{endif}}
+                    <div class="rowItem">
+                      <div class="form-group">
+                        <div class="input-group col-md-12">
+                          <div class="input-group-addon" style="background:#52555f; color:#fff; border:none">Link Video: </div>
+                          <input type="text" name="videoLinks[]" data-checkvalue="btnAddItemCoupons" class="form-control" value="" placeholder="">
+                          <div class="btnAddItemCoupons input-group-addon" style="color:#fff"><i class="fa fa-plus"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label for="exampleInputName">Mô tả chỉ tiết sản phẩm:</label>
                   <textarea class="form-control txtContent summernote" name="detail">{{# isset($infoProduct['detail']) ? $infoProduct['detail'] : null }}</textarea>
                 </div>
+                {{if(isset($infoProduct['avatar'])):}}
+                <div class="col-md-12 css2">
+                  <div class="col-md-12 css1">
+                    <div class="rowItem col-md-12">
+                    {{foreach($infoProduct['avatar'] as $avatar):}}
+                      <div class="col-md-3" style="position: relative; margin-bottom:5px;text-align: center;">
+                        <input type="hidden" name="old_avatar[]" value="{{# $avatar}}">
+                        <img src="{{# URL::base_path('/public/uploads/')}}{{# $avatar}}" style="max-width:100%;height:128px">
+                        <div class="lg-image">
+                          <button class="btn btn-default btn-xs btnXem">Xem</button>
+                          <button class="btn btn-danger btn-xs btnDelete">Xóa</button>
+                        </div>
+                      </div>
+                    {{endforeach}}
+                    </div>
+                  </div>
+                </div>
+                {{endif}}
                 <div class="form-group">
                   <label for="exampleInputName">Avatar:</label>
                   <input type="file" name="files">
@@ -222,6 +264,7 @@
                 <div class="form-group">
                   <label for="exampleInputName">Thông số kỹ thuật:</label>
                   <select class="form-control select2_demo_2" name="specsId" style="width: 100%">
+                    <option value="">Không có TSKT</option>
                     {{if(isset($dsSpecs)):}} {{foreach($dsSpecs as $v):}}
                     <option value="{{# $v['id']}}" {{# ($infoProduct['specsId']==$v['id']) ? "selected" : null}}>{{# $v['name']}}</option>
                     {{endforeach}} {{endif}}
@@ -441,8 +484,8 @@
                 <div class="panel-heading">Danh sách ảnh đã tải lên</div>
                 <div class="panel-body listImageUploaded">
                   {{if(isset($dsImages)):}} {{foreach($dsImages as $v):}}
-                  <div class="col-md-3" style="position: relative; margin-bottom:5px;">
-                    <img src="{{# URL::base_path('/public/uploads/')}}{{# $v}}" width="100%">
+                  <div class="col-md-3" style="position: relative; margin-bottom:5px;text-align: center;">
+                    <img src="{{# URL::base_path('/public/uploads/')}}{{# $v}}" style="max-width:100%;height:128px">
                     <div class="lg-image">
                       <button class="btn btn-default btn-xs btnXem">Xem</button>
                       <button class="btn btn-default btn-xs btnCopy">Copy</button>

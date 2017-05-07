@@ -35,7 +35,7 @@ Router::getUse(array('group' => array('/admin/blog','/admin/cart','/admin/member
 	}
 });
 Router::get('/', 'home@homeGet');
-Router::get('404', function($req, $res) {
+Router::get('/404', function($req, $res) {
 	$data['seo']['title'] = "Error: 404";
 	return $res->render('404','admin-flat/layout/register.layout', $data);
 });

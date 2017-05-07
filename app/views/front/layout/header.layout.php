@@ -27,8 +27,8 @@
                 <p>Hãng sản xuất</p>
               </div>
               <ul>
-                {{if(isset($dsCompany)):}}
-                  {{foreach($dsCompany as $company):}}
+                {{if(isset($dsCompanyDienThoai)):}}
+                  {{foreach($dsCompanyDienThoai as $company):}}
                     <li><a href="{{# URL::base_path()}}/dien-thoai/{{# $company['slug']}}.html">{{# $company['name']}}</a></li>
                   {{endforeach}}
                 {{endif}}

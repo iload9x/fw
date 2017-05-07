@@ -13,6 +13,7 @@
 		}
 
 		public function processUrl() {
+			
 			$directorys = $this->url->directory();
 			$requestUri = $this->url->requestUri();
 			if (strlen($directorys) > 1) {

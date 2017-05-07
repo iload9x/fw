@@ -2,6 +2,8 @@ $(document).ready(function() {
   $(".select2_demo_2").select2();
   $('.summernote').summernote();
 
+
+
   $("form").on('click', '.btnAddItemCoupons', function() {
     var html = '<div class="rowItem">' +$(this).parent().parent().parent().html()+ '</div>';
     $(this).parent().parent().parent().parent().append(html);
@@ -95,6 +97,10 @@ $(document).ready(function() {
     $temp.val(hrefData).select();
     document.execCommand("copy");
     $temp.remove();
+  });
+
+  $("#tab-1").on('click', '.btnDelete', function() {
+    $(this).parent().parent().remove();
   });
 
 
