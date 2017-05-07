@@ -5,7 +5,10 @@ class URL
 {
 	public function directory() {
 		$requestUri = $_SERVER['REQUEST_URI'];
-		
+
+		if (Session::get('directorys_system')) {
+			return Session::get('directorys_system');
+		}
 		if (strpos($requestUri, '?') !== false) {
 			$requestUri = substr($_SERVER['REQUEST_URI'], 0, strpos($requestUri, '?'));
 		} else {
@@ -21,7 +24,9 @@ class URL
 			$id++;
 			$strRequestUriElement = $strRequestUriElement . '\\' .$requestUriElement[$id];
 		}
-		return substr($directorys, 0, strlen($directorys) - 1);
+		$directorys = substr($directorys, 0, strlen($directorys) - 1);
+		Session::set('directorys_system', $directorys);
+		return $directorys;
 	}
 
 	public function requestUri() {
@@ -48,7 +53,10 @@ class URL
 	}
 
 	public static function base_url($url = '') {
-		return self::http_host() . self::directory() . $url;
+		if (!Session::get('base_url')) {
+			Session::set('base_url', self::http_host() . self::directory());
+		}
+		return Session::get('base_url')  . $url;
 	}
 
 	public static function clearHoiCham($requestUrl) {

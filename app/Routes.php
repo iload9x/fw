@@ -19,19 +19,19 @@ Router::globalVariables(function() {
 });
 Router::globalLibraries(function() {
 });
-Router::getUse(array('route' => array('admin/login', 'admin/register')), function($req) {
+Router::getUse(array('route' => array('/admin/login', 'admin/register')), function($req) {
 	if (Auth::isAuth()) {
-		Redirect::to('admin');
+		Redirect::to('/admin');
 	}
 });
-Router::getUse(array('route' => array('admin')), function($req) {
+Router::getUse(array('route' => array('/admin')), function($req) {
 	if (!Auth::isAuth()) {
-		Redirect::to('admin/login?backtourl=' . URL::thisRoute());
+		Redirect::to('/admin/login?backtourl=' . URL::thisRoute());
 	}
 });
-Router::getUse(array('group' => array('admin/blog')), function($req) {
+Router::getUse(array('group' => array('/admin/blog','/admin/cart','/admin/member',)), function($req) {
 	if (!Auth::isAuth()) {
-		Redirect::to('admin/login?backtourl=' . URL::thisRoute());
+		Redirect::to('/admin/login?backtourl=' . URL::thisRoute());
 	}
 });
 Router::get('/', 'home@homeGet');

@@ -90,6 +90,7 @@ class productController extends InitController
 	{
 		if ($req->csrf) {
 			$this->validate->checkBody('name', 'Tên sản phẩm')->notEmpty();
+			$this->validate->checkBody('title', 'Tiêu đề')->notEmpty();
 			$this->validate->checkBody('detail', 'Mô tả chi tiết')->notEmpty();
 			$this->validate->checkBody('categoryId', 'Chuyên mục')->notEmpty()->notNumeric();
 			$this->validate->checkBody('companyId', 'Hãng sản xuất')->notEmpty()->notNumeric();
@@ -151,8 +152,9 @@ class productController extends InitController
 					}
 				}
 
-				$this->productModel->name					= Input::post('name');
-				$this->productModel->detail				= Input::post('detail');
+				$this->productModel->name		= Input::post('name');
+				$this->productModel->title		= Input::post('title');
+				$this->productModel->detail		= Input::post('detail');
 				$this->productModel->categoryId   = Input::post('categoryId');
 				$this->productModel->companyId    = Input::post('companyId');
 				$this->productModel->typeId       = json_encode(Input::post('typeId'));
@@ -165,13 +167,13 @@ class productController extends InitController
 				$this->productModel->guarantee = Input::post('guarantee');
 				$this->productModel->inbox = Input::post('inbox');
 				$this->productModel->delivery = Input::post('delivery');
-				$this->productModel->counpons = json_encode(Input::post('counpons'));
+				$this->productModel->counpons = mysql_real_escape_string(json_encode(Input::post('counpons')));
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();
 				return $res->redirect('/admin/cart/products/add')->with(array(
 					'success' => 'Thêm thành công!'
-					));
+				));
 			}
 		} else {
 			die('Loi Token!');
@@ -233,6 +235,7 @@ class productController extends InitController
 	{
 		if ($req->csrf) {
 			$this->validate->checkBody('name', 'Tên sản phẩm')->notEmpty();
+			$this->validate->checkBody('title', 'Tiêu đề')->notEmpty();
 			$this->validate->checkBody('detail', 'Mô tả chi tiết')->notEmpty();
 			$this->validate->checkBody('categoryId', 'Chuyên mục')->notEmpty()->notNumeric();
 			$this->validate->checkBody('companyId', 'Hãng sản xuất')->notEmpty()->notNumeric();
@@ -296,6 +299,7 @@ class productController extends InitController
 				}
 
 				$this->productModel->name					= Input::post('name');
+				$this->productModel->title		= Input::post('title');
 				$this->productModel->detail				= Input::post('detail');
 				$this->productModel->categoryId   = Input::post('categoryId');
 				$this->productModel->companyId    = Input::post('companyId');
@@ -309,7 +313,7 @@ class productController extends InitController
 				$this->productModel->guarantee = Input::post('guarantee');
 				$this->productModel->inbox = Input::post('inbox');
 				$this->productModel->delivery = Input::post('delivery');
-				$this->productModel->counpons = json_encode(Input::post('counpons'));
+				$this->productModel->counpons = mysql_real_escape_string(json_encode(Input::post('counpons')));
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();

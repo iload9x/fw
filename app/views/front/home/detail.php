@@ -34,7 +34,6 @@
             <div data-color="{{# $color}}" style="background-color:{{# $color}};" data-price="{{# $price}}" class="colo clearfix"></div>
             {{endforeach}}
           {{endif}}
-            
           </div>
           <p class="pro_instock_status"><i class="fa fa-check-square-o"></i>{{# isset($infoProduct['status']) && $infoProduct['status'] == 1 ? 'Còn hàng' : 'Hết hàng' }}</p>
         </div>
@@ -56,7 +55,7 @@
           </div>
         </div>
         <div class="box_sale clearfix">
-          <p class="title_box_sale">5 khuyến mãi</p>
+          <p class="title_box_sale">Khuyến mãi</p>
           <ul>
           {{if(isset($infoProduct['counpons'])):}}
             {{foreach($infoProduct['counpons'] as $counpon):}}
@@ -70,14 +69,18 @@
           <li>Giao hàng {{# isset($infoProduct['delivery']) ? $infoProduct['delivery']: '' }} <a target="_blank" href="#">Tìm hiểu thêm</a></li>
         </ul>
         <div class="clearfix">
+        {{if(isset($infoProduct['status']) && $infoProduct['status'] == 1):}}
           <a href="javascript:;" class="btn-order-phone btn_pro_mua btn1 clearfix">
             <p>Mua ngay
               <br/><span>Giao hàng tận nơi miễn phí</span></p>
           </a>
+        {{endif}}
+        {{if(isset($infoProduct['tra_gop']) && $infoProduct['tra_gop'] == 1):}}
           <a href="http://mobilecity.vn/mua-tra-gop/iphone-5c-cu-prd1064.html" class="btn_pro_mua btn2 clearfix">
             <p>MUA TRẢ GÓP
               <br/> <span>Lãi suất thấp</span></p>
           </a>
+        {{endif}}
         </div>
         <div class="all_icon icon_phone clearfix"></div>
         <p class="hlmua mobile_none clearfix">Đặt mua: <span class="chudam">0969.120.120</span> (HN) - <span class="chudam">0965.123.123</span> (HCM): 7:00 - 22:00</p>
@@ -162,7 +165,7 @@
       </div>
       <div class="detail_pro_right clearfix">
         <div class="clearfix title_main_content">
-          <p>Video iPhone 5C Cũ - Fullbox</p>
+          <p>Video {{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
         </div>
         <ul id="slider_video">
           <li id="video" data-iframe="https://www.youtube.com/watch?v=isF8YHZNhZc">
@@ -224,10 +227,10 @@
     <section id="box_detail" class="clearfix">
       <section class="left_pro">
         <div class="title_main_content">
-          <h2 class="title_sp">Thông tin chi tiết iPhone 5C Cũ - Fullbox</h2></div>
+          <h2 class="title_sp">Thông tin chi tiết {{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</h2></div>
         <section id="content" class="clearfix css_content detail_pk">
           <div class="box">
-            ##detail
+            {{# isset($infoProduct['detail']) ? $infoProduct['detail'] : "Không có thông tin!"}}
           </div>
         </section>
         <div class="btn_show clearfix">
@@ -236,10 +239,10 @@
         <section class="plus_pro clearfix">
           <div class="thongtin_plus clearfix">
             <div class="anh_thongtin_plus clearfix">
-              <img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-iPhone-5C-cu-gia-re-nhat-Ha-Noi-TP-HCM-MobileCity-001.jpg" alt="iPhone 5C Cũ - Fullbox" />
+              <img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-iPhone-5C-cu-gia-re-nhat-Ha-Noi-TP-HCM-MobileCity-001.jpg" alt="{{# isset($infoProduct['name']) ? $infoProduct['name'] : "---"}}" />
             </div>
-            <p>iPhone 5C Cũ - Fullbox</p>
-            <p class="price_plus">Liên hệ</p>
+            <p>{{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
+            <p class="price_plus">{{# isset($infoProduct['price']) ? number_format($infoProduct['price']) . '₫': "Liên hệ"}}</p>
           </div>
           <div class="clearfix btn_plus">
             <a href="javascript:;" class="btn-order-phone btn_pro_mua btn1 clearfix">
@@ -255,7 +258,7 @@
         <!-- all box coment website -->
         <div class="coment_web clearfix">
           <aside class="clearfix">
-            <h4 class="clearfix" style="font-size: 20px;color: #424242;margin: 5px 0 20px 0;float: left;font-weight: normal;max-width: 658px;display: block;">Đánh giá về iPhone 5C Cũ - Fullbox</h4>
+            <h4 class="clearfix" style="font-size: 20px;color: #424242;margin: 5px 0 20px 0;float: left;font-weight: normal;max-width: 658px;display: block;">Đánh giá về {{# isset($infoProduct['name']) ? $infoProduct['name'] : "---"}}</h4>
             <p class="btn_coment clearfix"><i class="fa fa-comment-o" aria-hidden="true"></i>Gửi đánh giá của bạn</p>
             <p class="end clearfix"><i class="fa fa-times" aria-hidden="true"></i>Hủy</p>
             <p style="clear: both;"></p>
@@ -533,16 +536,17 @@
       </section>
       <section class="right_pro clearfix">
         <aside class="tomtat_pro clearfix">
-          <p>iPhone 5C Cũ - Fullbox</p>
-          <p class="price_left">Liên hệ</p>
+          <p>{{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
+          <p class="price_left">{{# isset($infoProduct['price']) ? number_format($infoProduct['price']) . '₫' : "Liên hệ"}}</p>
           <div class="box_sale clearfix">
-            <p class="title_box_sale">5 khuyến mãi</p>
+            <p class="title_box_sale">Khuyến mãi</p>
             <ul>
-              <li class="clearfix">Trợ giá PDP chính hãng Xiaomi 10000 mAh chỉ còn 350.000 đ</li>
-              <li class="clearfix">Trợ giá Tai nghe Bluetooth chính hãng Jellico chỉ từ 100.000 đ</li>
-              <li class="clearfix">Hỗ trợ cài đặt, nâng cấp phần mềm miễn phí trọn đời</li>
-              <li class="clearfix">Tặng Dán màn hình chống xước 3 lớp cao cấp</li>
-              <li class="clearfix">Tặng phiếu giảm giá mua máy & sửa chữa trị giá 50.000 đ</li>
+          {{if(isset($infoProduct['counpons'])):}}
+            {{foreach($infoProduct['counpons'] as $counpon):}}
+              <li class="clearfix">{{# $counpon}}</li>
+            {{endforeach}}
+          {{endif}}
+            </ul>
           </div>
           <div class="clearfix">
             <a href="javascript:;" class="btn-order-phone btn_pro_mua right_mua btn1 clearfix">

@@ -34,6 +34,14 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputName">Tiêu đề:</label>
+                  <div class="input-group">
+                    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-pencil"></i></div>
+                    <input type="text" id="" name="title" value="{{# isset($infoProduct['title'])  ? $infoProduct['title'] : null }}" class="form-control" id="" placeholder="">
+                    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputName">URL:</label>
                   <div class="input-group">
                     <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-link"></i></div>

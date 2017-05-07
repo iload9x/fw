@@ -29,7 +29,7 @@
                     <li class=" profil-link">
                         <a href="{{# URL::base_path('/admin/profile'); }}">
                             <span class="profile-address">{{# $globals['infoUser']['nickname'] }}</span>
-                            <img src="{{# URL::base_path($globals['infoUser']['avatar']); }}" class="img-circle" alt="">
+                            <img src="{{# URL::base_path(); }}/{{# $globals['infoUser']['avatar']}}" class="img-circle" alt="">
                         </a>
                     </li>
                 </ul>
