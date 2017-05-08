@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-07 22:03:23
+Date: 2017-05-08 23:06:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -195,6 +195,34 @@ INSERT INTO `ngoan_cms_blogs` VALUES ('8', '6', 'Ronaldo bị tố hiếp dâm: 
 INSERT INTO `ngoan_cms_blogs` VALUES ('9', '6', 'Âm mưu cúp C1: Trót thiên vị Real nên không thể cứu Barca', 'Trong 10 năm qua, Barca là đội bóng dính đến nhiều trận đấu có “mùi” nhất ở Champions League. Vì hưởng nhiều ưu ái từ trọng tài nên đội chủ sân Nou Camp còn được người hâm mộ các đội bóng khác gán cho tên gọi “UEFAlona” (ám chỉ người của UEFA).', 'Âm mưu cúp C1: Trót thiên vị Real nên không thể cứu Barca', 'châu Âu (UEFA), chau a', 'LĐBĐ châu Âu (UEFA) muốn cả Real và Barca tiến sâu nhưng tình hình thực tế khiến họ chỉ được chọn 1 đội vào bán kết: Real được cứu còn Barca phải dừng cuộc chơi.', 'post', '1', '56', '0', '2017-03-20 17:25:00', '2017-04-22 09:02:34', '3');
 INSERT INTO `ngoan_cms_blogs` VALUES ('10', '6', '456456456', '6456456456', '45', '', '', 'post', '1', '44', '0', '2017-04-25 16:29:24', null, '3');
 INSERT INTO `ngoan_cms_blogs` VALUES ('11', '6', '657567567', '65756756756', '45654645645', '', '', 'post', '1', '0', '0', '2017-04-25 04:06:26', null, '1');
+
+-- ----------------------------
+-- Table structure for ngoan_cms_configs
+-- ----------------------------
+DROP TABLE IF EXISTS `ngoan_cms_configs`;
+CREATE TABLE `ngoan_cms_configs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(50) DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `group` varchar(50) DEFAULT NULL,
+  `value` text CHARACTER SET utf8,
+  `type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of ngoan_cms_configs
+-- ----------------------------
+INSERT INTO `ngoan_cms_configs` VALUES ('1', 'shortcut-icon', 'Icon Website', 'site', 'favicon.ico', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('2', 'title', 'Tiêu đề', 'seo', 'Tác độc', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('3', 'suffix-title', 'Hậu tố của tiêu đề', 'seo', '| Điện thoại tốt nhất Hà Nội', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('4', 'description', 'Mô tả', 'seo', 'Mô tả điện thoại', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('5', 'keywords', 'Từ khóa', 'seo', 'dien thoai hot, dien thoai', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('6', 'hotline', 'Hotline', 'contact', '01636693996', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('7', 'address', 'Địa chỉ', 'contact', 'Hà nội', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('8', 'linkFacebook', 'Link fanpage FB', 'link', 'http://facebook.com/chau996', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('9', 'linkYoutube', 'Link kênh Youtube', 'link', 'https://www.youtube.com/channel/UCsFilrMH2u0mjbu0Cw2HTkQ', 'input');
+INSERT INTO `ngoan_cms_configs` VALUES ('10', 'linkGoogle', 'Link Google', 'link', 'https://plus.google.com/u/0/+MobileCityvn', 'input');
 
 -- ----------------------------
 -- Table structure for ngoan_cms_users

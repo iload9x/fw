@@ -7,10 +7,10 @@
   <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="Index,Follow" />
-  <title>MobileCity điện thoại xách tay iPhone, Sony, LG, HTC, SamSung</title>
-  <meta content="Điện thoại xách tay giá rẻ nhất Hà Nội, chuyên hàng xách tay và chính hãng iPhone, Sony, LG, HTC, SamSung, Lenovo, Oppo, Xiaomi, Asus, Sky... bảo hành 12 tháng" name="description" />
-  <meta content="Mobilecity, điện thoại xách, điện thoại giá rẻ, điện thoại" name="keywords" />
-  <link rel="canonical" href="index.html" />
+  <title>{{# isset($seo['title'])?$seo['title']:'---'}}</title>
+  <meta content="{{# isset($seo['description'])?$seo['description']:'---'}}" name="description" />
+  <meta content="{{# isset($seo['keywords'])?$seo['keywords']:'---'}}" name="keywords" />
+  <link rel="canonical" href="{{# URL::thisUrl()}}" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/main.css" />
   {{if(isset($styles)):}}

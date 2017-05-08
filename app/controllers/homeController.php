@@ -21,7 +21,7 @@ class homeController extends InitController
 
 	public function homeGet($req, $res) {
 		$this->data['seo'] = array(
-			'title' => 'Trang chủ | Điện thoại HOT',
+			'title' => 'Trang chủ | TaoDoc',
 			'description' => 'Mo ta dien thoai| ban dien thoai | Điện thoại HOT',
 		);
 		$this->data['styles'] = array(
@@ -57,7 +57,7 @@ class homeController extends InitController
 			'url' => URL::thisUrl(),
 		));
 		$this->data['seo'] = array(
-			'title' => 'Trang chủ | Điện thoại HOT',
+			'title' => $this->categoryModel->name . ' | TaoDoc',
 			'description' => 'Mo ta dien thoai| ban dien thoai | Điện thoại HOT',
 		);
 		$this->data['styles'] = array(
@@ -131,21 +131,22 @@ class homeController extends InitController
 		if ($this->productModel->select()->whereAnd(array('categoryId' => $categoryId, 'companyId' => $companyId, 'id' => $id))->get()->countAll() <= 0) {
 			return $res->redirect('/');
 		}
-		$this->data['seo'] = array(
-			'title' => "{$this->companyModel->name} | {$this->categoryModel->name}",
-			'description' => '{$this->companyModel->name} | {$this->categoryModel->name}',
-		);
-		$this->data['styles'] = array(
-			'public/templates/front/themes/css/products.css',
-			'public/templates/front/themes/css/lightslider.css',
-			'public/templates/front/themes/css/lightgallery.min.css',
-		);
 		$this->data['infoProduct'] = $this->productModel->select()->whereAnd(array('categoryId' => $categoryId, 'companyId' => $companyId, 'id' => $id))->get()->rowArray();
 		$this->data['infoProduct']['avatar'] = (array)json_decode($this->data['infoProduct']['avatar']);
 		$this->data['infoProduct']['color'] = (array)json_decode($this->data['infoProduct']['color']);
 		$this->data['infoProduct']['storage'] = (array)json_decode($this->data['infoProduct']['storage']);
 		$this->data['infoProduct']['counpons'] = (array)json_decode($this->data['infoProduct']['counpons']);
 		$this->data['infoProduct']['typeId'] = (array)json_decode($this->data['infoProduct']['typeId']);
+
+		$this->data['seo'] = array(
+			'title' => "{$this->data['infoProduct']['name']} | {$this->companyModel->name} | {$this->categoryModel->name}",
+			'description' => "{$this->data['infoProduct']['name']} | {$this->companyModel->name} | {$this->categoryModel->name}",
+		);
+		$this->data['styles'] = array(
+			'public/templates/front/themes/css/products.css',
+			'public/templates/front/themes/css/lightslider.css',
+			'public/templates/front/themes/css/lightgallery.min.css',
+		);
 		
 		array_push($this->data['breadCrumbs'], array(
 			'name' => $this->categoryModel->name,

@@ -7,8 +7,8 @@
   <link href="http://mobilecity.vn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index,follow" />
-  <title>iPhone 5C Fullbox: Sạc, Cáp, Tai nghe, BH 12 tháng chính hãng.</title>
-  <meta content="iPhone 5C cũ xách tay hình thức đẹp như mới, Fullbox đầy đủ phụ kiện. Điện thoại iPhone 5C cũ rơi vỡ vẫn bảo hành. BH 12 tháng chính hãng." name="description" />
+  <title>{{# isset($seo['title'])?$seo['title']:'---'}}</title>
+  <meta content="{{# isset($seo['description'])?$seo['description']:'---'}}" name="description" />
   <link rel="canonical" href="http://mobilecity.vn/apple/iphone-5c-cu-prd1064.html" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/main.css" />
@@ -16,84 +16,6 @@
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/lightslider.css" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/lightgallery.min.css" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/responsive.css" />
-  <script type="application/ld+json">
-  {
-    "@graph": [{
-      "@context": "http://schema.org/",
-      "@type": "Product",
-      "name": "iPhone 5C Cũ - Fullbox",
-      "image": "http://images.mobilecity.vn/media/images/2016/11/iPhone-5C-cu-gia-re-nhat-Ha-Noi-TP-HCM-MobileCity-001.jpg",
-      "brand": "Apple (iPhone)",
-      "description": "  iPhone 5C  cũ xách tay hình thức đẹp như mới, Fullbox đầy đủ phụ kiện. Điện thoại iPhone 5C cũ rơi vỡ vẫn bảo hành. BH 12 tháng chính hãng. Các sản phẩm của Apple với thiết kế kim loại cùng cấu hình ...",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "1",
-        "reviewCount": "0"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "VNĐ",
-        "price": "68000000",
-        "itemCondition": "http://schema.org/UsedCondition",
-        "availability": "http://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Mobile City"
-        }
-      }
-    }, {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": "MobileCity",
-      "url": "http://mobilecity.vn"
-    }, {
-      "@context": "https://schema.org/",
-      "@type": "SaleEvent",
-      "name": "Top 5 phụ kiện chính hãng giá rẻ đáng mua nhất hiện nay ở MobileCity",
-      "location": {
-        "@type": "Place",
-        "address": "120 Thái Hà, Q. Đống Đa, Hà Nội",
-        "url": "https://www.google.com/maps/place/C%C6%B0%CC%89a+ha%CC%80ng+%C4%91i%C3%AA%CC%A3n+thoa%CC%A3i+MobileCity/@21.011889,105.821306,20z/data=!4m5!3m4!1s0x0:0x67ad89a2aa290186!8m2!3d21.0119076!4d105.8212959?hl=vi",
-        "name": "Tại Hà Nội, HCM"
-      },
-      "startDate": "2017/04/29",
-      "url": "http://mobilecity.vn/tin-tuc/top-5-phu-kien-chinh-hang-gia-re-dang-mua-nhat-hien-nay-o-mobilecity.html",
-      "description": " Bài viết tổng hợp các mẫu phụ kiện đang có giá tốt tại MobileCity, rất phù hợp với điện thoại của bạn đang sử dụng như: ...",
-      "endDate": "2017/07/28",
-      "image": "http://images.mobilecity.vn/media/images/2017/04/bo-sac-cap-iphone-7-chinh-hang-apple.JPG"
-    }, {
-      "@context": "https://schema.org/",
-      "@type": "SaleEvent",
-      "name": "Thu mua iPhone Lock cũ - Lên đời iPhone Quốc tế Full Box",
-      "location": {
-        "@type": "Place",
-        "address": "120 Thái Hà, Q. Đống Đa, Hà Nội",
-        "url": "https://www.google.com/maps/place/C%C6%B0%CC%89a+ha%CC%80ng+%C4%91i%C3%AA%CC%A3n+thoa%CC%A3i+MobileCity/@21.011889,105.821306,20z/data=!4m5!3m4!1s0x0:0x67ad89a2aa290186!8m2!3d21.0119076!4d105.8212959?hl=vi",
-        "name": "Tại Hà Nội, HCM"
-      },
-      "startDate": "2017/02/16",
-      "url": "http://mobilecity.vn/tin-tuc/thu-mua-iphone-lock-cu-len-doi-iphone-quoc-te-full-box.html",
-      "description": " Với tốc độ thay đổi không ngừng và ngày càng nhanh chóng của các sản phẩm di động, việc đổi những chiếc máy cũ để lên ...",
-      "endDate": "2017/05/17",
-      "image": "http://images.mobilecity.vn/media/images/2017/02/post-3.jpg"
-    }, {
-      "@context": "https://schema.org/",
-      "@type": "SaleEvent",
-      "name": "ĐỔI XIAOMI CŨ - LẤY XIAOMI MỚI",
-      "location": {
-        "@type": "Place",
-        "address": "120 Thái Hà, Q. Đống Đa, Hà Nội",
-        "url": "https://www.google.com/maps/place/C%C6%B0%CC%89a+ha%CC%80ng+%C4%91i%C3%AA%CC%A3n+thoa%CC%A3i+MobileCity/@21.011889,105.821306,20z/data=!4m5!3m4!1s0x0:0x67ad89a2aa290186!8m2!3d21.0119076!4d105.8212959?hl=vi",
-        "name": "Tại Hà Nội, HCM"
-      },
-      "startDate": "2016/12/05",
-      "url": "http://mobilecity.vn/tin-tuc/thu-xiaomi-cu-doi-xiaomi-moi-tai-mobilecity.html",
-      "description": " Tiếp nối định hướng cũng như hướng tới những gì tốt nhất cho khách hàng, Mobilecity sẽ triển khai chương trình “ Thu ...",
-      "endDate": "2017/03/05",
-      "image": "http://images.mobilecity.vn/media/images/2016/12/avata-new-1.jpg"
-    }]
-  }
-  </script>
 </head>
 
 <body>
@@ -141,7 +63,6 @@
                   <dd>
                     <ul>
                       <li><a href="#"><span class="value_selec">1</span>Hà Nội</a></li>
-                      <li><a href="#"><span class="value_selec">2</span>Hồ Chí Minh</a></li>
                     </ul>
                   </dd>
                 </dl>
@@ -165,7 +86,7 @@
           <section class="footer_bottom clearfix">
             <div class="bocnoidung clearfix">
               <div class="footer_bottom_left clearfix">
-                <p>© 2016. MobileCity hệ thống bán lẻ điện thoại di động.</p>
+                <p>© 2016. TaoDoc hệ thống bán lẻ điện thoại di động.</p>
               </div>
               <div class="footer_bottom_center clearfix">
                 <p>Bạn có thể thanh toán với</p>
@@ -184,7 +105,7 @@
               <div class="popup-form popup-form-login">
                 <div class="popup-message-box"></div>
                 <div class="popup-form-wrap">
-                  <div class="popup-form-wrap-title">Tài khoản MobileCity</div>
+                  <div class="popup-form-wrap-title">Tài khoản TaoDoc</div>
                   <form id="ajaxlogin" action="javascript:;" method="post">
                     <div class="form-inline">
                       <label>Email</label>

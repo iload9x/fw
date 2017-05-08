@@ -60,23 +60,8 @@
         {{endfor}}
       </select>
       {{endif}}
-      
-      <!--<select>
-                    <option>Tính năng</option>
-                    <option>Việt teo</option>
-                </select>-->
     </div>
     {{endif}}
-    <div class="top_pro_right clearfix">
-      <select style="float: left;" id="order_phone">
-        <option data-link="/dien-thoai/?sx=gia-thap-den-cao">Giá từ cao đến thấp</option>
-        <option data-link="/dien-thoai/?sx=gia-cao-den-thap">Giá từ thấp đến cao</option>
-      </select>
-      <!--<p class="text">Mức giá:</p>
-                <a href="#">1 - 3 triệu</a>
-                <a href="#">3 - 7 triệu</a>
-                <a href="#">7 - 10 triệu</a>-->
-    </div>
   </div>
   <!-- bat dau san pham -->
   <div class="product clearfix">
