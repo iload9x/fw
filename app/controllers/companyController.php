@@ -45,6 +45,8 @@ class companyController extends InitController
 				return $res->redirect('/admin/cart/companies/add')->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->companyModel->name = Input::post('name');
+				$this->companyModel->description = Input::post('description');
+				$this->companyModel->keywords = Input::post('keywords');
 				$this->companyModel->uid = $req->globals['infoUser']['id'];
 				$this->companyModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->companyModel->time_created = Dtime::format("Y-m-d H:i:s", time());
@@ -64,6 +66,8 @@ class companyController extends InitController
 			return $res->redirect('/admin/cart/companies')->with(array('errors' => array('Chuyên mục không tồn tại!')));
 		}
 		$data['infoCategory']['name'] = $this->companyModel->name;
+		$data['infoCategory']['description'] = $this->companyModel->description;
+		$data['infoCategory']['keywords'] = $this->companyModel->keywords;
 		$data['seo']['title'] = 'Chỉnh sửa chuyên mục sản phẩm';
 		$data['globals'] = $req->globals;
 		$data['name'] = "Chỉnh sửa chuyên mục sản phẩm";
@@ -90,6 +94,8 @@ class companyController extends InitController
 				return $res->redirect('/admin/cart/companies/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->companyModel->name = Input::post('name');
+				$this->companyModel->description = Input::post('description');
+				$this->companyModel->keywords = Input::post('keywords');
 				$this->companyModel->uid_updated = $req->globals['infoUser']['id'];
 				$this->companyModel->slug = StringLib::convertUrl(Input::post('name'));
 				$this->companyModel->time_updated = Dtime::format("Y-m-d H:i:s", time());

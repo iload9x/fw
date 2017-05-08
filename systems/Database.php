@@ -113,10 +113,42 @@ class Database
 			$this->query['update'] = substr($this->query['update'], 0, strlen($this->query['update']) - 1);
 		}
 		return $this;
-		
 	}
 
-	public function findAll() {
+	public function update_bath($data, $field) {
+		if (isset($data) && is_array($data)) {
+			$this->query['update'] = "";
+			$fieldArray = array();
+			$keywordArray = array();
+			$filedIn = '(';
+			foreach ($data as $k => $v) {
+				foreach ($v as $kValue => $vValue) {
+					if ($kValue == $field) {
+						$filedIn .= "'{$vValue}',";
+					}
+
+					if (!isset($fieldArray[$kValue])) {
+						$fieldArray[$kValue] = array();
+					}
+					array_push($fieldArray[$kValue], $vValue);
+					
+				}
+			}
+			$filedIn = substr($filedIn, 0, strlen($filedIn) - 1);
+			$filedIn .= ')';
+			foreach ($fieldArray as $k => $v) {
+				if ($k != $field) {
+					$this->query['update'] = "{$k} = CASE";
+					foreach ($v as $kValue => $vValue) {
+						$this->query['update'] .= " WHEN $field = '{$fieldArray[$field][$kValue]}' THEN '{$vValue}'";
+					}
+					$this->query['update'] .= " ELSE {$k} END,";
+				}
+			}
+			$this->query['update'] = substr($this->query['update'], 0, strlen($this->query['update']) - 1);
+			$this->query['where'] = " WHERE {$field} IN {$filedIn}";
+		}
+		return $this->get()->exec();
 	}
 
 	public function find($primaryKey, $field = null) {
@@ -250,7 +282,7 @@ class Database
 		return $this;
 	}
 
-	public function order_by($field, $sort) {
+	public function order_by($field, $sort = '') {
 		$this->query['order_by'] = " ORDER BY {$field} {$sort}";
 		return $this;
 	}

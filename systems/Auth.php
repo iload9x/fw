@@ -10,7 +10,6 @@ class Auth
 		$table =  self::$table;
 		if (is_array($data)) {
 			$database = new Database();
-			$session = new Session();
 			$result = $database->select()->from($table)->whereAnd($data)->get()->exec();
 			if ($result) {
 				$arrayData = $data;
@@ -24,22 +23,23 @@ class Auth
 					$data['ss_code'] = md5(time());
 					$database->update(array('ss_code' => $data['ss_code']))->whereAnd($data)->get()->exec();
 				}
-				
-				$session->set('Authentication', $data);
+				Cookie::set('Authentication', $data, 60 * 60 * 24 * 30);
 				return true;
 			}
 		}
 		return false;
 	}
+
 	public static function isAuth() {
-		if (isset(Session::get('Authentication')['isAuth'])) {
+		
+		if (isset(Cookie::get('Authentication')['isAuth'])) {
 			return true;
 		}
 		return false;
 	}
 	public static function logout() {
-		if (isset(Session::get('Authentication')['isAuth'])) {
-			Session::destroy();
+		if (isset(Cookie::get('Authentication')['isAuth'])) {
+			Cookie::delete('Authentication');
 		}
 		return true;
 	}
@@ -59,7 +59,7 @@ class Auth
 	}
 	public static function store() {
 		if (self::isAuth()) {
-			return Session::get('Authentication');
+			return Cookie::get('Authentication');
 		}
 		return null;
 	}

@@ -7,6 +7,7 @@ class adminController extends InitController
 		$this->blogModel = new blogModel();
 		$this->userModel = new userModel();
 		$this->validate = new ValidateLib();
+		$this->configModel = new configModel();
 	}
 
 	public function index($req, $res) {
@@ -102,6 +103,37 @@ class adminController extends InitController
 		$data['globals'] = $req->globals;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
 		return $res->render("admin-flat/profile", "admin-flat/layout/admin.layout", $data);
+	}
+
+	public function config($req, $res) {
+		$data['seo']['title'] = "Quản lý cấu hình";
+		$data['name'] = "Quản lý cấu hình";
+		$data['csrf_token'] = $req->csrfToken;
+		$data['scripts'] = array(
+			//'public/templates/admin-flat/scripts/admin.js'
+		);
+		$data['globals'] = $req->globals;
+		$data['configList'] = $this->configModel->find_all();
+		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
+		$data['validate']['success'] = isset($req->success) ? $req->success : null;
+		return $res->render("admin-flat/config", "admin-flat/layout/admin.layout", $data);
+	}
+
+	public function configPost($req, $res) {
+		if ($req->csrf) {
+			$arrayData = array();
+			foreach (Input::post('config') as $kConfig => $vConfig) {
+				array_push($arrayData, array(
+					'keyword' => $kConfig,
+					'value' => $vConfig
+				));
+			}
+
+			$this->configModel->update_bath($arrayData, 'keyword');
+			return $res->redirect('/admin/config')->with(array('success' => 'Cập nhật thành công!'));
+		} else {
+			echo "Sai Token!!";
+		}
 	}
 
 }

@@ -29,7 +29,7 @@ class homeController extends InitController
 			'public/templates/front/themes/css/lightslider.css',
 			'public/templates/front/themes/css/owl.carousel.css'
 		);
-		$this->data['diDongList'] = $this->productModel->select()->whereAnd(array('categoryId' => 5))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
+		$this->data['diDongList'] = $this->productModel->didongList();
 		foreach ($this->data['diDongList'] as $k => $v) {
 			$this->companyModel->find($v['companyId']);
 			$this->categoryModel->find($v['categoryId']);
@@ -58,7 +58,8 @@ class homeController extends InitController
 		));
 		$this->data['seo'] = array(
 			'title' => $this->categoryModel->name . ' | TaoDoc',
-			'description' => 'Mo ta dien thoai| ban dien thoai | Điện thoại HOT',
+			'description' => $this->categoryModel->description,
+			'keywords' => $this->categoryModel->keywords,
 		);
 		$this->data['styles'] = array(
 			'public/templates/front/themes/css/cate_pro.css',
@@ -99,7 +100,8 @@ class homeController extends InitController
 
 		$this->data['seo'] = array(
 			'title' => "{$this->companyModel->name} | {$this->categoryModel->name}",
-			'description' => '{$this->companyModel->name} | {$this->categoryModel->name}',
+			'description' => $this->companyModel->description,
+			'keywords' => $this->companyModel->keywords,
 		);
 		$this->data['styles'] = array(
 			'public/templates/front/themes/css/cate_pro.css',
@@ -140,7 +142,7 @@ class homeController extends InitController
 
 		$this->data['seo'] = array(
 			'title' => "{$this->data['infoProduct']['name']} | {$this->companyModel->name} | {$this->categoryModel->name}",
-			'description' => "{$this->data['infoProduct']['name']} | {$this->companyModel->name} | {$this->categoryModel->name}",
+			'description' => $this->data['infoProduct']['description'],
 		);
 		$this->data['styles'] = array(
 			'public/templates/front/themes/css/products.css',

@@ -4,9 +4,7 @@
 	{
 		public $requestUrl;
 		function __construct() {
-			$this->req = new Input();
 			$this->url = new URL();
-			$this->session = new Session();
 			$this->Router = new Router();
 			require APP_PATH . 'Routes.php';
 			$this->processUrl();

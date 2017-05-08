@@ -26,7 +26,6 @@ class Response
 	public function render($template, $layout, $data = null) {
 		$templatePath = APP_PATH . 'views/' . $template . '.php';
 		$layoutPath = APP_PATH . 'views/' . $layout . '.php';
-		
 		if (!file_exists($templatePath)) {
 			die("Không tồn tại :" . $templatePath);
 		} else {
@@ -46,7 +45,6 @@ class Response
 					$postionSuffix = strpos($layoutContent, $suffix);
 					$str = substr($layoutContent,  $postionPrefix + strlen($prefix) ,  $postionSuffix - ($postionPrefix + strlen($prefix)));
 					$line = $prefix . $str . $suffix;
-
 					$partialPath = APP_PATH . 'views/' . trim($str) . '.php';
 					$partialContent = @file_get_contents($partialPath);
 					$layoutContent = str_replace($line, $partialContent , $layoutContent);
@@ -78,11 +76,12 @@ class Response
 				);
 				$layoutContent = str_replace($math, $replace , $layoutContent);
 				$enginePath = SYSTEM_PATH . '/Engine.php';
-				file_put_contents($enginePath, $layoutContent);
 				if (is_array($data)) {
 					extract($data);
 				}
+				file_put_contents($enginePath, $layoutContent);
 				require_once $enginePath;
+				die;
 				//file_put_contents($enginePath, "");
 			}
 		}

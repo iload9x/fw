@@ -87,4 +87,8 @@ class productModel extends InitModel
 	public function count_all() {
 		return $this->select('id')->get()->countAll();
 	}
+
+	public function didongList() {
+		return $this->select()->whereAnd(array('categoryId' => 5))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
+	}
 }

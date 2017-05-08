@@ -24,6 +24,22 @@
 			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
 			  </div>
 			</div>
+			<div class="form-group">
+			  <label for="exampleInputName">Mô tả (Description):</label>
+			  <div class="input-group">
+			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>
+			    <input type="text" value="{{# isset($infoCategory['description'])?$infoCategory['description']: null }}" name="description" class="form-control" placeholder="">
+			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputName">Từ khóa (Keywords):</label>
+			  <div class="input-group">
+			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>
+			    <input type="text" value="{{# isset($infoCategory['keywords'])?$infoCategory['keywords']: null }}" name="keywords" class="form-control" placeholder="">
+			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
+			  </div>
+			</div>
 	    </div>
 	    <div class="panel-footer">
 			<div class="form-group">

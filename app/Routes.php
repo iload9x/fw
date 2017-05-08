@@ -24,7 +24,7 @@ Router::getUse(array('route' => array('/admin/login', 'admin/register')), functi
 		Redirect::to('/admin');
 	}
 });
-Router::getUse(array('route' => array('/admin')), function($req) {
+Router::getUse(array('route' => array('/admin', '/admin/profile', '/admin/config',)), function($req) {
 	if (!Auth::isAuth()) {
 		Redirect::to('/admin/login?backtourl=' . URL::thisRoute());
 	}
@@ -39,7 +39,7 @@ Router::get('/404', function($req, $res) {
 	$data['seo']['title'] = "Error: 404";
 	return $res->render('404','admin-flat/layout/register.layout', $data);
 });
-Router::post('404', function() {
+Router::post('/404', function() {
 	echo '404';
 });
 
@@ -59,6 +59,8 @@ Router::group('/admin', function() {
 		Auth::logout();
 		Redirect::to('/admin/login');
 	});
+	Router::get("config", "admin@config");
+	Router::post("config", "admin@configPost");
 	Router::get("profile", "admin@profile");
 	Router::get("blog", "blog@manager");
 	Router::get("blog/create", "blog@create");

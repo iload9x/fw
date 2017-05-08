@@ -182,7 +182,7 @@ class Router
 			$this->setReq($containRouteTrue[0]['params']);
 			$this->processRoute($containRouteTrue[0]['route']);
 		} else {
-			$this->processRoute('404');
+			$this->processRoute('/404');
 			return;
 		}
 		
@@ -223,7 +223,7 @@ class Router
 		} else {
 			$this->processRouteHasParam($route);
 			if (!isset($this->hasRoute)) {
-				$this->processRoute('404');
+				$this->processRoute('/404');
 			}
 		}
 	}

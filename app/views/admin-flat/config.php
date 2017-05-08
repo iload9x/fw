@@ -15,31 +15,20 @@
 	    {{endif}}
 	    <form action="" method="POST" enctype="multipart/form-data">
 	    	<input type="hidden" name="_csrfToken" value="{{# $csrf_token }}">
-	    	<input type="hidden" name="id" value="{{# Input::get('id') }}">
+	    	{{if(isset($configList)):}}
+	    	{{foreach($configList as $kConfig => $vConfig):}}
+	    	{{if($vConfig['type'] == 'input'):}}
 			<div class="form-group">
-			  <label for="exampleInputName">Tên chuyên mục:</label>
+			  <label for="exampleInputName">{{# isset($vConfig['description']) ? $vConfig['description'] : '---'}}:</label>
 			  <div class="input-group">
 			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>
-			    <input type="text" value="{{# isset($infoCategory['name'])?$infoCategory['name']: null }}" name="name" class="form-control" placeholder="">
+			    <input type="text" value="{{# isset($vConfig['value'])?$vConfig['value']: null }}" name="config[{{# isset($vConfig['keyword'])?$vConfig['keyword']: null }}]" class="form-control" placeholder="">
 			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
 			  </div>
 			</div>
-			<div class="form-group">
-			  <label for="exampleInputName">Mô tả (Description):</label>
-			  <div class="input-group">
-			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>
-			    <input type="text" value="{{# isset($infoCategory['description'])?$infoCategory['description']: null }}" name="description" class="form-control" placeholder="">
-			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
-			  </div>
-			</div>
-			<div class="form-group">
-			  <label for="exampleInputName">Từ khóa (Keywords):</label>
-			  <div class="input-group">
-			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>
-			    <input type="text" value="{{# isset($infoCategory['keywords'])?$infoCategory['keywords']: null }}" name="keywords" class="form-control" placeholder="">
-			    <div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
-			  </div>
-			</div>
+			{{endif}}
+			{{endforeach}}
+			{{endif}}
 	    </div>
 	    <div class="panel-footer">
 			<div class="form-group">
