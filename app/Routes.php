@@ -17,30 +17,39 @@ Router::globalVariables(function() {
 		'infoUser' => $infoUser,
 	);
 });
+
 Router::globalLibraries(function() {
+
 });
+
 Router::getUse(array('route' => array('/admin/login', 'admin/register')), function($req) {
 	if (Auth::isAuth()) {
 		Redirect::to('/admin');
 	}
 });
+
 Router::getUse(array('route' => array('/admin', '/admin/profile', '/admin/config',)), function($req) {
 	if (!Auth::isAuth()) {
 		Redirect::to('/admin/login?backtourl=' . URL::thisRoute());
 	}
 });
+
 Router::getUse(array('group' => array('/admin/blog','/admin/cart','/admin/member',)), function($req) {
 	if (!Auth::isAuth()) {
 		Redirect::to('/admin/login?backtourl=' . URL::thisRoute());
 	}
 });
+
 Router::get('/', 'home@homeGet');
+
 Router::get('/404', function($req, $res) {
 	$data['seo']['title'] = "Error: 404";
 	return $res->render('404','admin-flat/layout/register.layout', $data);
 });
+
 Router::post('/404', function() {
-	echo '404';
+	$data['seo']['title'] = "Error: 404";
+	return $res->render('404','admin-flat/layout/register.layout', $data);
 });
 
 
@@ -48,6 +57,7 @@ Router::post('/404', function() {
 Router::get('/{category}/{company}/{name}-prd{id}.html', 'home@detailGet');
 Router::get('/{category}/{company}.html', 'home@companyGet');
 Router::get('/{category}.html', 'home@categoryGet');
+Router::get('/tim-kiem.html', 'home@searchGet');
 
 Router::get("/admin", "admin@index");
 Router::group('/admin', function() {

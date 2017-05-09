@@ -9,21 +9,8 @@
         <div class="title">Hà Nội</div>
         <div class="main">
           <div class="address_item">
-            <address>120 Thái Hà, Q. Đống Đa | <a class="fot_map_1" href="lien-he/index9be8.html?cs=1">Xem bản đồ</a></address>
-            <p>Điện thoại: <a href="tel:0971206688">097.120.6688</a> - <a href="tel:0969120120">0969.120.120</a></p>
-          </div>
-          <div class="address_item">
-            <address>398 Cầu Giấy, Q. Cầu Giấy | <a class="fot_map_2" href="lien-he/index04e8.html?cs=2">Xem bản đồ</a></address>
-            <p>Điện thoại: <a href="tel:0961111398">096.1111.398</a> - <a href="tel:0962222398">096.2222.398</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="address_group">
-        <div class="title">TP.Hồ Chí Minh</div>
-        <div class="main">
-          <div class="address_item">
-            <address>123 Trần Quang Khải, Q.1 | <a class="fot_map_3" href="lien-he/index83e0.html?cs=3">Xem bản đồ</a></address>
-            <p>Điện thoại: <a href="tel:0965123123">0965.123.123</a> - <a href="tel:0822300600">0822.300.600</a></p>
+            <address>{{# isset($configs['address']) ? $configs['address'] : null}}</address>
+            <p>Điện thoại: {{# isset($configs['hotline']) ? $configs['hotline'] : null}}</p>
           </div>
         </div>
       </div>
@@ -59,26 +46,20 @@
         </div>
         <div class="lienket_con clearfix">
           <div class="all_icon clearfix icon_face"></div>
-          <a target="_blank" href="https://www.facebook.com/MobileCity.vn">
+          <a target="_blank" href="{{# isset($configs['linkFacebook']) ? $configs['linkFacebook'] : null}}">
             <p>Facebook</p>
           </a>
         </div>
         <div class="lienket_con clearfix">
           <div class="all_icon clearfix icon_you"></div>
-          <a target="_blank" href="https://www.youtube.com/channel/UCsFilrMH2u0mjbu0Cw2HTkQ">
+          <a target="_blank" href="{{# isset($configs['linkYoutube']) ? $configs['linkYoutube'] : null}}">
             <p>Youtube</p>
           </a>
         </div>
         <div class="lienket_con clearfix">
           <div class="all_icon clearfix icon_ins"></div>
-          <a target="_blank" href="https://plus.google.com/u/0/+MobileCityvn">
+          <a target="_blank" href="{{# isset($configs['linkGoogle']) ? $configs['linkGoogle'] : null}}">
             <p>Google +</p>
-          </a>
-        </div>
-        <div class="lienket_con clearfix">
-          <div class="all_icon clearfix icon_forum"></div>
-          <a target="_blank" href="http://forum.mobilecity.vn/">
-            <p>Diễn đàn hỗ trợ</p>
           </a>
         </div>
       </div>

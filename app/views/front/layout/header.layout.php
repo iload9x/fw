@@ -2,11 +2,11 @@
   <div class="bocnoidung clearfix">
     <div class="logo clearfix">
       <a href="index.html">
-        <div class="all_icon icon_logo clearfix"></div>
+        <div class="icon_logo clearfix" style="background-image: url({{# isset($configs['logo']) ? $configs['logo'] : null}});background-repeat: no-repeat;"></div>
       </a>
     </div>
     <div class="input_search clearfix">
-      <form method="GET" action="http://mobilecity.vn/tim-kiem/">
+      <form method="GET" action="{{# URL::base_path()}}/tim-kiem.html">
         <input type="text" name="keyword" id="keyword" autocomplete="off" placeholder="Tìm kiếm sản phẩm . . ." />
         <button class="btn_search">
           <div class="all_icon icon_search"></div>
@@ -39,13 +39,13 @@
                 <p>Mức giá</p>
               </div>
               <ul>
-                <li><a href="dien-thoai/indexaf01.html?gia=duoi-1-trieu">Dưới 1 triệu</a></li>
-                <li><a href="dien-thoai/index9457.html?gia=duoi-2-trieu">Dưới 2 triệu</a></li>
-                <li><a href="dien-thoai/index284d.html?gia=duoi-3-trieu">Dưới 3 triệu</a></li>
-                <li><a href="dien-thoai/indexb466.html?gia=duoi-5-trieu">Dưới 5 triệu</a></li>
-                <li><a href="dien-thoai/indexb912.html?gia=duoi-8-trieu">Dưới 8 triệu</a></li>
-                <li><a href="dien-thoai/index2af1.html?gia=duoi-10-trieu">Dưới 10 triệu</a></li>
-                <li><a href="dien-thoai/indexe36f.html?gia=tren-10-trieu">Trên 10 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=duoi-1-trieu">Dưới 1 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=duoi-2-trieu">Dưới 2 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=duoi-3-trieu">Dưới 3 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=duoi-5-trieu">Dưới 5 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=duoi-8-trieu">Dưới 8 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=duoi-10-trieu">Dưới 10 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/dien-thoai.html?gia=tren-10-trieu">Trên 10 triệu</a></li>
               </ul>
             </div>
             <div class="bottom_menu clearfix">
@@ -57,7 +57,7 @@
           </div>
         </li>
         <li>
-          <a href="may-tinh-bang/index.html">
+          <a href="{{# URL::base_path()}}/may-tinh-bang.html">
             <div class="all_icon icon_tablet"></div>
             <p>Tablet</p>
           </a>
@@ -67,22 +67,24 @@
                 <p>Hãng sản xuất</p>
               </div>
               <ul>
-                <li><a href="may-tinh-bang-ipad/index.html">iPad</a></li>
-                <li><a href="may-tinh-bang-samsung-galaxy-tab/index.html">Samsung Galaxy Tab</a></li>
-              </ul>
+                {{if(isset($dsCompanyTablet)):}}
+                  {{foreach($dsCompanyTablet as $company):}}
+                    <li><a href="{{# URL::base_path()}}/may-tinh-bang/{{# $company['slug']}}.html">{{# $company['name']}}</a></li>
+                  {{endforeach}}
+                {{endif}}              </ul>
             </div>
             <div class="right_menu clearfix">
               <div class="title_menu clearfix">
                 <p>Mức giá</p>
               </div>
               <ul>
-                <li><a href="may-tinh-bang/indexaf01.html?gia=duoi-1-trieu">Dưới 1 triệu</a></li>
-                <li><a href="may-tinh-bang/index9457.html?gia=duoi-2-trieu">Dưới 2 triệu</a></li>
-                <li><a href="may-tinh-bang/index284d.html?gia=duoi-3-trieu">Dưới 3 triệu</a></li>
-                <li><a href="may-tinh-bang/indexb466.html?gia=duoi-5-trieu">Dưới 5 triệu</a></li>
-                <li><a href="may-tinh-bang/indexb912.html?gia=duoi-8-trieu">Dưới 8 triệu</a></li>
-                <li><a href="may-tinh-bang/index2af1.html?gia=duoi-10-trieu">Dưới 10 triệu</a></li>
-                <li><a href="may-tinh-bang/indexe36f.html?gia=tren-10-trieu">Trên 10 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=duoi-1-trieu">Dưới 1 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=duoi-2-trieu">Dưới 2 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=duoi-3-trieu">Dưới 3 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=duoi-5-trieu">Dưới 5 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=duoi-8-trieu">Dưới 8 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=duoi-10-trieu">Dưới 10 triệu</a></li>
+                <li><a href="{{# URL::base_path()}}/may-tinh-bang.html?gia=tren-10-trieu">Trên 10 triệu</a></li>
               </ul>
             </div>
             <div class="bottom_menu clearfix">
@@ -94,7 +96,7 @@
           </div>
         </li>
         <li>
-          <a href="phu-kien/index.html">
+          <a href="{{# URL::base_path()}}/phu-kien.html">
             <div class="all_icon icon_phukien"></div>
             <p>Phụ kiện</p>
           </a>
@@ -104,11 +106,11 @@
                 <p>Danh mục phụ kiện</p>
               </div>
               <ul>
-                <li><a href="phu-kien-phu-kien-jellico/index.html">Phụ kiện Jellico</a></li>
-                <li><a href="phu-kien-phu-kien-w-mobile/index.html">Phụ kiện W-mobile</a></li>
-                <li><a href="phu-kien-iphone/index.html">Phụ kiện iPhone</a></li>
-                <li><a href="phu-kien-ipad/index.html">Phụ kiện iPad</a></li>
-                <li><a href="phu-kien-samsung/index.html">Phụ kiện Samsung</a></li>
+                {{if(isset($dsCompanyPhuKien)):}}
+                  {{foreach($dsCompanyPhuKien as $company):}}
+                    <li><a href="{{# URL::base_path()}}/phu-kien/{{# $company['slug']}}.html">{{# $company['name']}}</a></li>
+                  {{endforeach}}
+                {{endif}}
               </ul>
             </div>
           </div>

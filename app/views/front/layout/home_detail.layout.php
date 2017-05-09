@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi" lang="vi" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="http://mobilecity.vn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+  <link href="{{# isset($configs['shortcut-icon']) ? $configs['shortcut-icon'] : null}}" type="image/x-icon" rel="shortcut icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index,follow" />
-  <title>{{# isset($seo['title'])?$seo['title']:'---'}}</title>
+  <meta name="robots" content="Index,Follow" />
+  <title>{{# isset($seo['title'])?$seo['title']:'---'}}{{# isset($configs['suffix-title']) ? $configs['suffix-title'] : null}}</title>
   <meta content="{{# isset($seo['description'])?$seo['description']:'---'}}" name="description" />
-  <link rel="canonical" href="http://mobilecity.vn/apple/iphone-5c-cu-prd1064.html" />
+  <meta content="{{# isset($seo['keywords'])?$seo['keywords']:'---'}}" name="keywords" />
+  <link rel="canonical" href="{{# URL::thisUrl()}}" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/main.css" />
   <link rel="stylesheet" type="text/css" href="{{# URL::base_path('/public/templates/front/')}}themes/css/products.css" />
@@ -59,7 +60,7 @@
               <div class="top_web_left clearfix">
                 <p>Bạn đang xem tại: </p>
                 <dl class="dropdown">
-                  <dt><a href="#"><span>Hồ Chí Minh</span><div class="icon_selec all_icon"></div></a></dt>
+                  <dt><a href="#"><span>Hà Nội</span><div class="icon_selec all_icon"></div></a></dt>
                   <dd>
                     <ul>
                       <li><a href="#"><span class="value_selec">1</span>Hà Nội</a></li>
@@ -68,7 +69,7 @@
                 </dl>
               </div>
               <div class="top_web_center clearfix">
-                <p>Hotline <span class="chucam">097.120.6688 - 0965.123.123 - 096.1111.398</span></p>
+                <p>Hotline <span class="chucam">{{# isset($configs['hotline']) ? $configs['hotline'] : null}}</span></p>
               </div>
               <div class="top_web_right clearfix">
                 <p>

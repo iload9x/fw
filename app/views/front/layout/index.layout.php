@@ -4,10 +4,10 @@
 <head>
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
+  <link href="{{# isset($configs['shortcut-icon']) ? $configs['shortcut-icon'] : null}}" type="image/x-icon" rel="shortcut icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="Index,Follow" />
-  <title>{{# isset($seo['title'])?$seo['title']:'---'}}</title>
+  <title>{{# isset($seo['title'])?$seo['title']:'---'}}{{# isset($configs['suffix-title']) ? $configs['suffix-title'] : null}}</title>
   <meta content="{{# isset($seo['description'])?$seo['description']:'---'}}" name="description" />
   <meta content="{{# isset($seo['keywords'])?$seo['keywords']:'---'}}" name="keywords" />
   <link rel="canonical" href="{{# URL::thisUrl()}}" />
@@ -70,7 +70,7 @@
                 </dl>
               </div>
               <div class="top_web_center clearfix">
-                <p>Hotline <span class="chucam">097.120.6688 - 0965.123.123 - 096.1111.398</span></p>
+                <p>Hotline <span class="chucam">{{# isset($configs['hotline']) ? $configs['hotline'] : null}}</span></p>
               </div>
               <div class="top_web_right clearfix">
                 <p>
@@ -185,36 +185,6 @@
               </div>
             </div>
           </div>
-          <div id="popup-location" style="padding: 20px 0px;">
-            <div class="popup-location-close" onclick="closebPopup('popup-location')">
-              <i class="fa fa-close"></i>
-            </div>
-            <div class="popup-location-title">Bạn gần MobileCity</div>
-            <p class="popup-location-des" style="font-size: 16px; color: #222;">Hãy chọn tỉnh thành của bạn. Bạn có thể thay đổi tỉnh thành tại đầu trang.</p>
-            <!--<div class="popup-location-select">
-        <a class="pl-item" href="http://mobilecity.vn/1"><i class="fa fa-map-marker"></i> Hà Nội</a>
-        <a class="pl-item" href="http://mobilecity.vn/2"><i class="fa fa-map-marker"></i> TP. Hồ Chí Minh</a>
-    </div>-->
-            <div class="form-group form-group-lg">
-              <a style="width: 80%; margin: 10px 10%; padding: 15px 0px; font-size: 24px;" class="btn btn-success btn-lg btn-block" href="indexbcb4.html?setlocation=1">Hà Nội</a>
-              <a style="width: 80%; margin: 10px 10%; padding: 10px 0px; font-size: 24px;" class="btn btn-success btn-lg btn-block" href="index01b2.html?setlocation=2">TP Hồ Chí Minh</a>
-            </div>
-            <!--<div class="popup-location-ads">
-            <img src="http://images.mobilecity.vn/media/images/2016/11/8.jpg"/>
-            </div>-->
-          </div>
-          <script>
-          $(document).ready(function() {
-            //$('#popup-location').bPopup({
-            //  speed: 450,
-            //  transition: 'slideDown',
-            //  zIndex:99999,
-            // onClose: function() { 
-            //     window.location.href = "indexbcb4.html?setlocation=1"
-            // }
-            //});
-          });
-          </script>
           <style>
           .cd-container {
             width: 90%;

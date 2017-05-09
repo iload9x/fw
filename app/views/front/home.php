@@ -117,14 +117,15 @@
   <div class="phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" alt="icon loading video" /></div>
   <div class="btn_them clearfix"><a data-type="phone" data-execute="318,658,485,716,717,600,610,701,710,693,697,606,688,714,193" class="more_pro" href="javascript:;">Xem thêm điện thoại</a></div>
 </section>
-<section class="banner_ngang clearfix">
+<!-- <section class="banner_ngang clearfix">
   <div class="banner_ngang_left clearfix">
     <a href="samsung/index.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/01/samsung.gif" alt="MobileCity Banner Hot 1" /></a>
   </div>
   <div class="banner_ngang_right clearfix">
     <a href="tin-tuc/tuyen-nhan-vien-ban-hang-dien-thoai-ki-thuat-sua-chua-dtdd.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/tuyen-dung.jpg" alt="MobileCity Banner Hot 2" /></a>
   </div>
-</section>
+</section> -->
+{{if(isset($phukienList)):}}
 <section class="pro clearfix">
   <div class="top_pro clearfix">
     <div class="top_pro_left clearfix" style="width: 100%;">
@@ -138,12 +139,7 @@
       <a href="phu-kien-lg/index.html">Phụ kiện LG</a>
       <a href="phu-kien-htc/index.html">Phụ kiện HTC</a>
     </div>
-    <!--<div class="top_pro_right clearfix">
-                <select style="float: right;">
-                    <option>Giá từ cao đến thấp</option>
-                    <option>Giá từ thấp đến cao</option>
-                </select>
-            </div>-->
+
   </div>
   <!-- phu kien -->
   <div class="phukien clearfix">
@@ -344,15 +340,17 @@
   <div class="fittings"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" /></div>
   <div class="btn_them clearfix"><a data-type="fittings" class="more_pro" href="javascript:;">Xem thêm phụ kiện</a></div>
 </section>
-<section class="banner_ngang clearfix">
+{{endif}}
+<!-- <section class="banner_ngang clearfix">
   <div class="banner_ngang_left clearfix">
     <a href="samsung/samsung-galaxy-s7-cu-prd1031.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/slide-2.jpg" alt="MobileCity Banner Hot 3" /></a>
   </div>
   <div class="banner_ngang_right clearfix">
     <a href="dien-thoai-xiaomi/index.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/ship-COD.jpg" alt="MobileCity Banner Hot 4" /></a>
   </div>
-</section>
+</section> -->
 <!-- dich vu -->
+{{if(isset($suachuaList)):}}
 <section class="clearfix">
   <div class="ser clearfix ">
     <div class="ser_title clearfix top_pro" style="width: 100%;">
@@ -662,6 +660,7 @@
   <div class="fix_phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" /></div>
   <div class="btn_them clearfix"><a data-type="fix_phone" class="more_pro" href="javascript:;">Xem thêm dịch vụ sửa chữa</a></div>
 </section>
+{{endif}}
 <!-- tin tuc -->
 <section class="clearfix">
   <div class="news clearfix">

@@ -85,9 +85,8 @@
         {{endif}}
         </div>
         <div class="all_icon icon_phone clearfix"></div>
-        <p class="hlmua mobile_none clearfix">Đặt mua: <span class="chudam">0969.120.120</span> (HN) - <span class="chudam">0965.123.123</span> (HCM): 7:00 - 22:00</p>
-        <p class="hlmua_mobile mobile_block clearfix">Đặt mua Hà Nội: <a href="tel:0969120120" class="chudam">0969.120.120</a>
-          <br />Hồ Chí Minh: <a href="tel:0965123123" class="chudam">0965.123.123</a></p>
+        <p class="hlmua mobile_none clearfix">Đặt mua: <span class="chudam">{{# isset($configs['hotline']) ? $configs['hotline'] : 'N/A'}}</span> (HN) : 7:00 - 22:00</p>
+        <p class="hlmua_mobile mobile_block clearfix">Đặt mua Hà Nội: <a href="#" class="chudam">{{# isset($configs['hotline']) ? $configs['hotline'] : 'N/A'}}</a>
       </div>
     </section>
     <aside class="right_content_top clearfix">
@@ -124,40 +123,48 @@
     </aside>
   </section>
   <section class="clearfix content_main">
+  {{if(isset($infoProduct['specs']) || !empty($infoProduct['videoLinks'][0])):}}
     <section class="content_main_top clearfix">
+      {{if(isset($infoProduct['specs']) && is_array($infoProduct['specs'])):}}
       <div class="detail_pro_left detail_pro_left_phone clearfix">
         <div class="title_main_content clearfix">
           <p>Thông số kỹ thuật</p>
         </div>
         <div class="clearfix text_tt"><span>Màn hình:</span>
-          <p>HD, 4", 640 x 1136 pixels, mật độ điểm ảnh ~320 ppi</p>
+          <p>{{# isset($infoProduct['specs']['display']) ? $infoProduct['specs']['display'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>Hệ điều hành:</span>
-          <p>iOS 7</p>
+          <p>{{# isset($infoProduct['specs']['operatingSystem']) ? $infoProduct['specs']['operatingSystem'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>Camera sau:</span>
-          <p>8 MP, 1080p-30fps</p>
+          <p>{{# isset($infoProduct['specs']['rear_camera']) ? $infoProduct['specs']['rear_camera'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>Camera trước:</span>
-          <p>1.2 MP</p>
+          <p>{{# isset($infoProduct['specs']['front_camera']) ? $infoProduct['specs']['front_camera'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>CPU:</span>
-          <p>Apple A6, 2 nhân, 1.3 GHz</p>
+          <p>{{# isset($infoProduct['specs']['processor']) ? $infoProduct['specs']['processor'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>RAM:</span>
-          <p>1 GB</p>
+          <p>{{# isset($infoProduct['specs']['RAM']) ? $infoProduct['specs']['RAM'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>Bộ nhớ trong:</span>
-          <p>8GB-16GB-32GB</p>
+          <p>{{# isset($infoProduct['specs']['storage']) ? $infoProduct['specs']['storage'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>Thẻ SIM:</span>
-          <p>1 SIM, Nano SIM</p>
+          <p>{{# isset($infoProduct['specs']['sim']) ? $infoProduct['specs']['sim'] : 'N/A'}}</p>
         </div>
         <div class="clearfix text_tt"><span>Dung lượng pin:</span>
-          <p>1510 mAh</p>
+          <p>{{# isset($infoProduct['specs']['battery']) ? $infoProduct['specs']['battery'] : 'N/A'}}</p>
         </div>
-        <div class="clearfix text_tt"><span>Thiết kế:</span>
-          <p>Cảm ứng</p>
+        <div class="clearfix text_tt"><span>Bảo mật:</span>
+          <p>{{# isset($infoProduct['specs']['security']) ? $infoProduct['specs']['security'] : 'N/A'}}</p>
+        </div>
+        <div class="clearfix text_tt"><span>Chống nước:</span>
+          <p>{{# isset($infoProduct['specs']['water_resistance']) ? $infoProduct['specs']['water_resistance'] : 'N/A'}}</p>
+        </div>
+        <div class="clearfix text_tt"><span>Trọng lượng:</span>
+          <p>{{# isset($infoProduct['specs']['weight']) ? $infoProduct['specs']['weight'] : 'N/A'}}</p>
         </div>
         <div class="detail_pro_more css-content clearfix"></div>
         <p style="clear: both;"></p>
@@ -165,7 +172,8 @@
           <p>Xem thêm cấu hình chi tiết</p>
         </div>
       </div>
-      {{if(isset($infoProduct['videoLinks']) && is_array($infoProduct['videoLinks'])):}}
+      {{endif}}
+      {{if(isset($infoProduct['videoLinks']) && is_array($infoProduct['videoLinks']) && !empty($infoProduct['videoLinks'][0])):}}
       <div class="detail_pro_right clearfix">
         <div class="clearfix title_main_content">
           <p>Video {{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
@@ -224,6 +232,7 @@
         </div>
       </aside>
     </section>
+    {{endif}}
     <section id="box_detail" class="clearfix">
       <section class="left_pro">
         <div class="title_main_content">
@@ -245,14 +254,18 @@
             <p class="price_plus">{{# isset($infoProduct['price']) ? number_format($infoProduct['price']) . '₫': "Liên hệ"}}</p>
           </div>
           <div class="clearfix btn_plus">
+          {{if(isset($infoProduct['status']) && $infoProduct['status'] == 1):}}
             <a href="javascript:;" class="btn-order-phone btn_pro_mua btn1 clearfix">
               <p>Mua ngay
                 <br/><span>Giao hàng tận nơi miễn phí</span></p>
             </a>
+          {{endif}}
+          {{if(isset($infoProduct['tra_gop']) && $infoProduct['tra_gop'] == 1):}}
             <a href="http://mobilecity.vn/mua-tra-gop/iphone-5c-cu-prd1064.html" class="btn_pro_mua btn2 clearfix">
               <p>MUA TRẢ GÓP
                 <br/> <span>Lãi suất thấp</span></p>
             </a>
+          {{endif}}
           </div>
         </section>
         <!-- all box coment website -->
@@ -549,17 +562,21 @@
             </ul>
           </div>
           <div class="clearfix">
-            <a href="javascript:;" class="btn-order-phone btn_pro_mua right_mua btn1 clearfix">
-              <p>Mua ngay
-                <br/><span>Giao hàng tận nơi miễn phí</span></p>
-            </a>
-            <a href="http://mobilecity.vn/mua-tra-gop/iphone-5c-cu-prd1064.html" class="btn_pro_mua btn2 right_mua clearfix">
-              <p>MUA TRẢ GÓP
-                <br/> <span>Lãi suất thấp</span></p>
-            </a>
+          {{if(isset($infoProduct['status']) && $infoProduct['status'] == 1):}}
+              <a href="javascript:;" class="btn-order-phone btn_pro_mua right_mua btn1 clearfix">
+                <p>Mua ngay
+                  <br/><span>Giao hàng tận nơi miễn phí</span></p>
+              </a>
+          {{endif}}
+          {{if(isset($infoProduct['tra_gop']) && $infoProduct['tra_gop'] == 1):}}
+              <a href="http://mobilecity.vn/mua-tra-gop/iphone-5c-cu-prd1064.html" class="btn_pro_mua btn2 right_mua clearfix">
+                <p>MUA TRẢ GÓP
+                  <br/> <span>Lãi suất thấp</span></p>
+              </a>
+          {{endif}}
           </div>
           <div class="icon icon_phone clearfix"></div>
-          <p class="clearfix"><span class="chudam">0969.120.120</span> (HN) <span class="chudam">0965.123.123</span> (HCM)</p>
+          <p class="clearfix"><span class="chudam">{{# isset($configs['hotline'])?$configs['hotline']:'N/A'}}</span> (HN)</p>
         </aside>
       </section>
     </section>

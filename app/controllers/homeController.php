@@ -10,19 +10,26 @@ class homeController extends InitController
 		$this->categoryModel =  new categoryModel();
 		$this->companyModel =  new companyModel();
 		$this->typeModel = new typeModel();
+		$this->configModel = new configModel();
+		$this->specsModel = new specsModel();
 		$this->data['dsCompanyDienThoai'] = $this->companyModel->select('name, slug')->whereAnd(array('categoryId' => 5))->limit(0,20)->get()->toArray();
+		$this->data['dsCompanyTablet'] = $this->companyModel->select('name, slug')->whereAnd(array('categoryId' => 6))->limit(0,20)->get()->toArray();
+		$this->data['dsCompanyPhuKien'] = $this->companyModel->select('name, slug')->whereAnd(array('categoryId' => 7))->limit(0,20)->get()->toArray();
+		$this->data['configs'] = $this->configModel->splitByKeywords();
 		$this->data['breadCrumbs'] = array(
 			array(
 				"name" => "Trang chủ",
 				"url" => URL::base_url()
 			)
 		);
+
 	}
 
 	public function homeGet($req, $res) {
 		$this->data['seo'] = array(
-			'title' => 'Trang chủ | TaoDoc',
-			'description' => 'Mo ta dien thoai| ban dien thoai | Điện thoại HOT',
+			'title' => isset($this->data['configs']['title']) ? $this->data['configs']['title'] : 'Home',
+			'description' => isset($this->data['configs']['description']) ? $this->data['configs']['description'] : 'Home',
+			'keywords' => isset($this->data['configs']['keywords']) ? $this->data['configs']['keywords'] : 'Home',
 		);
 		$this->data['styles'] = array(
 			'public/templates/front/themes/css/home.css',
@@ -139,7 +146,10 @@ class homeController extends InitController
 		$this->data['infoProduct']['storage'] = (array)json_decode($this->data['infoProduct']['storage']);
 		$this->data['infoProduct']['counpons'] = (array)json_decode($this->data['infoProduct']['counpons']);
 		$this->data['infoProduct']['typeId'] = (array)json_decode($this->data['infoProduct']['typeId']);
-
+		$this->data['infoProduct']['videoLinks'] = (array)json_decode($this->data['infoProduct']['videoLinks']);
+		if (!empty($this->data['infoProduct']['specsId'])) {
+			$this->data['infoProduct']['specs'] = $this->specsModel->getInfo($this->data['infoProduct']['specsId']);
+		}
 		$this->data['seo'] = array(
 			'title' => "{$this->data['infoProduct']['name']} | {$this->companyModel->name} | {$this->categoryModel->name}",
 			'description' => $this->data['infoProduct']['description'],
@@ -163,6 +173,10 @@ class homeController extends InitController
 			'url' => URL::thisUrl(),
 		));
 		return $res->render('front/home/detail', 'front/layout/home_detail.layout', $this->data);
+
+	}
+
+	public function searchGet($req, $res) {
 
 	}
 }
