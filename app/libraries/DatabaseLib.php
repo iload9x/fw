@@ -5,9 +5,9 @@ class DatabaseLib
 {
 	function __construct() {
 		$this->config = array(
-			'hostname' 	=> 'mysql://mysql:3306/',
-			'username'	=> 'iload9x',
-			'password' 	=> '74213798',
+			'hostname' 	=> '127.0.0.1:3306',
+			'username'	=> 'root',
+			'password' 	=> '',
 			'dbname'	=> 'ngoancms'
 		);
 	}
