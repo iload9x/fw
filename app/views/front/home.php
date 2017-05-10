@@ -1,42 +1,23 @@
 <section class="banner clearfix">
   <div class="banner_left clearfix">
     <div id="slider_home" class="owl-carousel">
+      {{if(isset($banner['home'])):}}
+      {{foreach((array)json_decode($banner['home']['image_src']) as $img):}}
+
       <div class="item"><span class="centery"></span>
-        <a href="tin-tuc/thu-mua-iphone-lock-cu-len-doi-iphone-quoc-te-full-box.html"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2017/02/web-3.jpg" alt="Đổi iPhone Lock - Lên đời iPhone Quốc tế" /></a>
+        <a href="{{# $img->link}}"><img class="lazyOwl" data-src="{{# URL::base_url('/public/uploads/')}}{{# $img->src}}" alt="" /></a>
       </div>
-      <div class="item"><span class="centery"></span>
-        <a href="kashi/kashi-i7.html"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2017/02/web.jpg" alt="Kashi i7" /></a>
-      </div>
-      <div class="item"><span class="centery"></span>
-        <a href="dien-thoai-meizu/index.html"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2017/04/123.gif" alt="iphone 6 lock" /></a>
-      </div>
-      <div class="item"><span class="centery"></span>
-        <a href="tin-tuc/tuyen-nhan-vien-ban-hang-dien-thoai-ki-thuat-sua-chua-dtdd.html"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2017/02/mobilecity-tuyen-dung-nhan-su.jpg" alt="MobileCity tuyển dụng nhân sự" /></a>
-      </div>
-      <div class="item"><span class="centery"></span>
-        <a href="http://mcforum.vn/"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2017/02/dien-dan-mcforum.vn-slide-web.jpg" alt="MCForum.vn - Chuyên trang hỗ trợ người dùng Mobile" /></a>
-      </div>
-      <div class="item"><span class="centery"></span>
-        <a href="samsung/samsung-galaxy-s7-cu-prd1031.html"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2017/03/17218398_1264910930264205_8276486367668877654_o.jpg" alt="Xiaomi Redmi 4A" /></a>
-      </div>
-      <div class="item"><span class="centery"></span>
-        <a href="https://goo.gl/lTc6NX"><img class="lazyOwl" data-src="http://images.mobilecity.vn/media/images/2016/12/website.jpg" alt="Galaxy On5/ on7" /></a>
-      </div>
+      {{endforeach}}
+      {{endif}}
     </div>
   </div>
   <div class="banner_right clearfix">
     <ul id="slider_video_home">
-      <li title="1" id="video" data-iframe="https://www.youtube.com/watch?v=T3OAl7u1pNs">
+      <li title="1" id="video" data-iframe="https://www.youtube.com/watch?v=TXpGtTCXZ00">
         <iframe src="https://www.youtube.com/embed/$1?autoplay=1" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
       </li>
-      <li data-iframe="https://www.youtube.com/watch?v=T3OAl7u1pNs">
-        <img title="1" src="../img.youtube.com/vi/T3OAl7u1pNs/0.jpg" alt="1" />
-      </li>
-      <li data-iframe="https://www.youtube.com/watch?v=XweQLrBd4iM">
-        <img title="2" src="../img.youtube.com/vi/XweQLrBd4iM/0.jpg" alt="2" />
-      </li>
-      <li data-iframe="https://www.youtube.com/watch?v=1yHLSBNR2Q8">
-        <img title="3" src="../img.youtube.com/vi/1yHLSBNR2Q8/0.jpg" alt="3" />
+      <li data-iframe="https://www.youtube.com/watch?v=TXpGtTCXZ00">
+        <img title="1" src="../img.youtube.com/vi/TXpGtTCXZ00/0.jpg" alt="1" />
       </li>
     </ul>
   </div>

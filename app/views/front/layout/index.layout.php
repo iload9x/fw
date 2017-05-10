@@ -37,7 +37,7 @@
       <div class="fl"><em></em></div>
       <div class="search_warp">
         <div class="search">
-          <form method="GET" action="http://mobilecity.vn/tim-kiem/">
+          <form method="GET" action="{{# URL::base_url('/tim-kiem.html')}}">
             <em style="display: none">x</em>
             <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm . . ." autocomplete="off" value="">
             <i class="search_btn"><i></i></i>
@@ -88,7 +88,7 @@
           <section class="footer_bottom clearfix">
             <div class="bocnoidung clearfix">
               <div class="footer_bottom_left clearfix">
-                <p>© 2016. MobileCity hệ thống bán lẻ điện thoại di động.</p>
+                <p>© 2016. TaoDoc hệ thống bán lẻ điện thoại di động.</p>
               </div>
               <div class="footer_bottom_center clearfix">
                 <p>Bạn có thể thanh toán với</p>
@@ -107,7 +107,7 @@
               <div class="popup-form popup-form-login">
                 <div class="popup-message-box"></div>
                 <div class="popup-form-wrap">
-                  <div class="popup-form-wrap-title">Tài khoản MobileCity</div>
+                  <div class="popup-form-wrap-title">Tài khoản TaoDoc</div>
                   <form id="ajaxlogin" action="javascript:;" method="post">
                     <div class="form-inline">
                       <label>Email</label>
@@ -153,7 +153,7 @@
               <div class="popup-form popup-form-login">
                 <div class="popup-message-box"></div>
                 <div class="popup-form-wrap">
-                  <div class="popup-form-wrap-title">Đăng ký tài khoản với MobileCity</div>
+                  <div class="popup-form-wrap-title">Đăng ký tài khoản với TaoDoc</div>
                   <form id="ajaxsignup" action="javascript:;" method="post">
                     <div class="form-inline">
                       <label>Email</label>
@@ -395,6 +395,5 @@ Main components
   go_link_on_select("#order_phone");
   </script>
 </body>
-<!-- Mirrored from mobilecity.vn/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 May 2017 02:27:29 GMT -->
 
 </html>

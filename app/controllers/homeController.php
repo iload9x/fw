@@ -50,6 +50,8 @@ class homeController extends InitController
 			}
 			$this->data['diDongList'][$k]['type'] = $typeIds;
 		}
+		$bannerModel = new bannerModel();
+		$this->data['banner']['home'] = $bannerModel->find_by_position('home');
 		$res->render('front/home', 'front/layout/index.layout',$this->data);
 	}
 
@@ -73,6 +75,7 @@ class homeController extends InitController
 		);
 
 		$this->data['categorySlug'] = $req->category;
+		$this->data['companyList'] = $this->companyModel->findByCategory($categoryId);
 		$this->data['productList'] = $this->productModel->select()->whereAnd(array('categoryId' => $categoryId))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
 		foreach ($this->data['productList'] as $k => $v) {
 			$this->companyModel->find($v['companyId']);
@@ -116,6 +119,7 @@ class homeController extends InitController
 		$this->data['categorySlug'] = $req->category;
 		$this->data['companySlug'] = $req->company;
 		$this->data['productList'] = $this->productModel->select()->whereAnd(array('categoryId' => $categoryId, 'companyId' => $companyId))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
+		$this->data['companyList'] = $this->companyModel->findByCategory($categoryId);
 		foreach ($this->data['productList'] as $k => $v) {
 			$this->companyModel->find($v['companyId']);
 			$this->data['productList'][$k]['avatar'] = (array)json_decode($this->data['productList'][$k]['avatar']);

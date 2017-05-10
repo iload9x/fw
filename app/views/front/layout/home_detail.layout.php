@@ -36,7 +36,7 @@
       <div class="fl"><em></em></div>
       <div class="search_warp">
         <div class="search">
-          <form method="GET" action="http://mobilecity.vn/tim-kiem/">
+          <form method="GET" action="{{# URL::base_url('/tim-kiem.html')}}">
             <em style="display: none">x</em>
             <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm . . ." autocomplete="off" value="">
             <i class="search_btn"><i></i></i>
@@ -73,7 +73,7 @@
               </div>
               <div class="top_web_right clearfix">
                 <p>
-                  <a style="font-weight: bold;" href="http://mobilecity.vn/tin-tuc-tuyen-dung/">Tuyển dụng</a>&nbsp;|&nbsp;
+                  <a style="font-weight: bold;" href="#">Tuyển dụng</a>&nbsp;|&nbsp;
                   <a id="btn-login" href="javascript:;" rel="nofollow">Đăng nhập</a> | <a id="btn-signup" href="javascript:;" rel="nofollow">Đăng ký</a>
                 </p>
               </div>
@@ -94,7 +94,7 @@
                 <div class="all_icon icon_bank"></div>
               </div>
               <div class="footer_bottom_right clearfix">
-                <p>Tư vấn và phát triển bởi: <a href="https://sudo.vn/" target="_blank" rel="nofollow">SUDO</a></p>
+                <p>Tư vấn và phát triển bởi: <a href="#" target="_blank" rel="nofollow">SUDO</a></p>
               </div>
             </div>
           </section>
@@ -135,8 +135,8 @@
                 </div>
                 <div class="popup-social-wrap">
                   <div class="popup-social-wrap-title">Tài khoản khác</div>
-                  <a class="popup-social-fb" href="http://mobilecity.vn/login-with-facebook/"><span class="iconsd"><i class="fa fa-facebook"></i></span><span class="text">Đăng nhập qua Facebook</span></a>
-                  <a class="popup-social-gg" href="http://mobilecity.vn/login-with-google/"><span class="iconsd"><i class="fa fa-google"></i></span><span class="text">Đăng nhập qua Google</span></a>
+                  <a class="popup-social-fb" href="/login-with-facebook/"><span class="iconsd"><i class="fa fa-facebook"></i></span><span class="text">Đăng nhập qua Facebook</span></a>
+                  <a class="popup-social-gg" href="/login-with-google/"><span class="iconsd"><i class="fa fa-google"></i></span><span class="text">Đăng nhập qua Google</span></a>
                 </div>
                 <div class="clear"></div>
                 <div class="popup-footer">
@@ -152,7 +152,7 @@
               <div class="popup-form popup-form-login">
                 <div class="popup-message-box"></div>
                 <div class="popup-form-wrap">
-                  <div class="popup-form-wrap-title">Đăng ký tài khoản với MobileCity</div>
+                  <div class="popup-form-wrap-title">Đăng ký tài khoản với TaoDoc</div>
                   <form id="ajaxsignup" action="javascript:;" method="post">
                     <div class="form-inline">
                       <label>Email</label>
@@ -174,8 +174,8 @@
                 </div>
                 <div class="popup-social-wrap">
                   <div class="popup-social-wrap-title">Tài khoản khác</div>
-                  <a class="popup-social-fb" href="http://mobilecity.vn/login-with-facebook/"><span class="iconsd"><i class="fa fa-facebook"></i></span><span class="text">Đăng ký qua Facebook</span></a>
-                  <a class="popup-social-gg" href="http://mobilecity.vn/login-with-google/"><span class="iconsd"><i class="fa fa-google"></i></span><span class="text">Đăng ký qua Google</span></a>
+                  <a class="popup-social-fb" href="/login-with-facebook/"><span class="iconsd"><i class="fa fa-facebook"></i></span><span class="text">Đăng ký qua Facebook</span></a>
+                  <a class="popup-social-gg" href="/login-with-google/"><span class="iconsd"><i class="fa fa-google"></i></span><span class="text">Đăng ký qua Google</span></a>
                 </div>
                 <div class="clear"></div>
                 <div class="popup-footer">
@@ -367,7 +367,7 @@ Main components
     $('.popup-order-btn').click(function() {
       var btnOrder = $(this);
       var proId = btnOrder.attr('data-id');
-      var proLink = 'http://mobilecity.vn/apple/iphone-5c-cu-prd1064.html';
+      var proLink = '{{# URL::thisUrl()}}';
       var proName = $('.popup-product-name').html();
       var proColor = $('.popup-product-color-item.active').attr('data-name');
       if (typeof proColor == 'undefined') {

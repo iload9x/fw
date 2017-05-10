@@ -28,7 +28,7 @@ Router::getUse(array('route' => array('/admin/login', 'admin/register')), functi
 	}
 });
 
-Router::getUse(array('route' => array('/admin', '/admin/profile', '/admin/config',)), function($req) {
+Router::getUse(array('route' => array('/admin', '/admin/profile', '/admin/config','/admin/banner')), function($req) {
 	if (!Auth::isAuth()) {
 		Redirect::to('/admin/login?backtourl=' . URL::thisRoute());
 	}
@@ -71,6 +71,8 @@ Router::group('/admin', function() {
 	});
 	Router::get("config", "admin@config");
 	Router::post("config", "admin@configPost");
+	Router::get("banner", "admin@banner");
+	Router::post("banner", "admin@bannerPost");
 	Router::get("profile", "admin@profile");
 	Router::get("blog", "blog@manager");
 	Router::get("blog/create", "blog@create");

@@ -136,4 +136,74 @@ class adminController extends InitController
 		}
 	}
 
+	public function banner($req, $res) {
+		$data['seo']['title'] = "Quản lý Banner quảng cáo";
+		$data['name'] = "Quản lý Banner";
+		$data['csrf_token'] = $req->csrfToken;
+		$data['scripts'] = array(
+			'public/templates/admin-flat/scripts/banner.js'
+		);
+		$data['styles'] = array(
+			'public/templates/admin-flat/styles/product.css'
+		);
+		$data['globals'] = $req->globals;
+		$bannerModel = new bannerModel();
+		$data['bannerList'] = $bannerModel->find_all();
+		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
+		$data['validate']['success'] = isset($req->success) ? $req->success : null;
+		return $res->render("admin-flat/banner", "admin-flat/layout/admin.layout", $data);
+	}
+
+	public function bannerPost($req, $res) {
+		$bannerModel = new bannerModel();
+		$id = Input::post('id');
+		$errors = array();
+		if (!$id || !is_numeric($id)) {
+			array_push($errors, 'Id banner không chính xác!');
+		}
+		if (!$bannerModel->find($id)) {
+			array_push($errors, 'Banner không tồn tại!');
+		}
+		if (count($errors) > 0) {
+			return $res->redirect('/admin/banner')->with(array('errors' => $errors));
+		}
+
+		$FileUploader = new FileUploaderLib('files', array(
+			'limit' => null,
+			'maxSize' => null,
+			'fileMaxSize' => null,
+			'extensions' => null,
+			'required' => false,
+			'uploadDir' => BASE_PATH . '/public/uploads/',
+			'title' => 'name',
+			'replace' => false,
+			'listInput' => true,
+			'files' => null
+		));
+
+		$files = $FileUploader->upload();
+		if ($files['hasWarnings']) {
+			$warnings = $files['warnings'];
+			return $res->redirect('/admin/banner')->with(array(
+				'errors' => $warnings,
+				'callback' => Input::post()
+				));
+		}
+		$fileList    = $FileUploader->getFileList();
+		$imagesArray = array();
+		foreach (Input::post('image_src_old') as $k => $v) {
+			$imagesArray[$k]['src'] = $v;
+			$imagesArray[$k]['link'] = Input::post('link')[$k];
+		}
+
+		foreach ($fileList as $v) {
+			array_push($imagesArray, array('src' => $v['name'], 'link' => null));
+		}
+
+		$bannerModel->image_src = json_encode($imagesArray);
+		$bannerModel->save();
+		return $res->redirect('/admin/banner')->with(array('success' => 'Cập nhật thành công!'));
+	}
+
+
 }
