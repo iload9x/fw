@@ -19,7 +19,7 @@
     {{if(isset($validate['success'])):}}
 	<div class="alert alert-success" role="alert" style="border-color:#3d6f5f;background:#3d6f5f">{{# $validate['success']; }}</div>
     {{endif}}
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
     	<input type="hidden" name="_csrfToken" value="{{# $csrf_token}}">
     	<input type="hidden" name="type" value="{{# $type}}">
     	<input type="hidden" name="id" value="{{# isset($infoBlog['id'])?$infoBlog['id']:0}}">
@@ -47,11 +47,33 @@
 						<input type="text" value="{{# isset($infoBlog['title'])?$infoBlog['title']:null}}" name="title" class="form-control" id="exampleInputAmount" placeholder="">
 					<div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin"></i></div>
 				</div>
-	      	</div>
+	      	</div> 
 	      	<div class="form-group">
 		      	<label for="exampleInputName">Nội dung:</label>
 		      	<textarea class="form-control txtContent" name="content">{{# isset($infoBlog['content'])?$infoBlog['content']:null}}</textarea>
 	      	</div>
+            {{if(isset($infoBlog['images']) && count($infoBlog['images'])):}}
+            <div class="col-md-12 css2">
+              <div class="col-md-12 css1">
+                <div class="rowItem col-md-12">
+                {{foreach($infoBlog['images'] as $image):}}
+                  <div class="col-md-3" style="position: relative; margin-bottom:5px;text-align: center;">
+                    <input type="hidden" name="images_old[]" value="{{# $image}}">
+                    <img src="{{# URL::base_path('/public/uploads/')}}{{# $image}}" style="max-width:100%;height:128px">
+                    <div class="lg-image">
+                      <button class="btn btn-default btn-xs btnXem">Xem</button>
+                      <button class="btn btn-danger btn-xs btnDelete">Xóa</button>
+                    </div>
+                  </div>
+                {{endforeach}}
+                </div>
+              </div>
+            </div>
+            {{endif}}
+            <div class="form-group">
+              <label for="">Avatar:</label>
+              <input type="file" name="files">
+            </div>
       	</div>
       	<div class="col-md-4">
 			<div class="form-group">

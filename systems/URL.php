@@ -3,7 +3,7 @@
 */
 class URL 
 {
-	public static function directory() {
+	public function directory() {
 		$requestUri = $_SERVER['REQUEST_URI'];
 
 		if (Session::get('directorys_system')) {
@@ -41,7 +41,7 @@ class URL
 		return str_replace(self::base_path(), '', self::thisUrl());
 	}
 
-	public static function http_host() {
+	public function http_host() {
 		return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 	}
 

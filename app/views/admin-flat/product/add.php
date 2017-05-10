@@ -217,7 +217,7 @@
                   <textarea class="form-control txtContent summernote" name="detail">{{# isset($callback['detail']) ? $callback['detail'] : null }}</textarea>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputName">Avatar:</label>
+                  <label for="">Avatar:</label>
                   <input type="file" name="files">
                 </div>
               </div>

@@ -74,6 +74,7 @@ class blogController extends InitController
 		$data['csrf_token'] = $req->csrfToken;
 		$data['globals'] = $req->globals;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
+		$data['callback'] = isset($req->callback) ? $req->callback : null;
 		$data['validate']['success'] = isset($req->success) ? $req->success : null;
 		//=============================
 		$data['dsCatParentRoot'] = $this->blogModel->select('id, name, parent')->whereAnd(array('type' => 'cat','parent' => 0))->get()->toArray();
@@ -82,14 +83,42 @@ class blogController extends InitController
 
 	public function createPost($req, $res) {
 		if ($req->csrf) {
-			$this->validate->checkBody('name','Tên không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('title','Tiêu đề không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('content','Nội dung không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('parent','Vui lòng chọn thư mục!')->notEmpty();
-			$this->validate->checkBody('parent','Thư mục phải là số!')->notNumeric();
+			$this->validate->checkBody('name','Tên')->notEmpty();
+			$this->validate->checkBody('title','Tiêu đề')->notEmpty();
+			$this->validate->checkBody('content','Nội dung')->notEmpty();
+			$this->validate->checkBody('parent','Thư mục')->notEmpty()->notNumeric();
 			if ($this->validate->errors) {
-				return $res->redirect('/admin/blog/create?type=' . Input::post('type'))->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/blog/create?type=' . Input::post('type'))->with(array('errors' => $this->validate->errors, 'callback' => Input::post()));
 			} else {
+				$FileUploader = new FileUploaderLib('files', array(
+					'limit' => null,
+					'maxSize' => null,
+					'fileMaxSize' => null,
+					'extensions' => null,
+					'required' => false,
+					'uploadDir' => BASE_PATH . '/public/uploads/',
+					'title' => 'name',
+					'replace' => false,
+					'listInput' => true,
+					'files' => null
+				));
+
+				$files = $FileUploader->upload();
+				if ($files['hasWarnings']) {
+					$warnings = $files['warnings'];
+					return $res->redirect('/admin/blog/create?type=' . Input::post('type'))->with(array(
+						'errors' => $warnings,
+						'callback' => Input::post()
+					));
+				}
+				$fileList    = $FileUploader->getFileList();
+				$imagesArray = array();
+
+				foreach ($fileList as $v) {
+					array_push($imagesArray, $v['name']);
+				}
+				$this->blogModel->images = json_encode($imagesArray);
+
 				$this->blogModel->name = Input::post('name');
 				$this->blogModel->title = Input::post('title');
 				$this->blogModel->content = Input::post('content');
@@ -127,6 +156,7 @@ class blogController extends InitController
 			return $res->redirect('/admin/blog');
 		}
 		$data['infoBlog'] = $this->blogModel->whereAnd(array('type' => Input::get('type'), 'id' => Input::get('id')))->get()->rowArray();
+		$data['infoBlog']['images'] = json_decode($data['infoBlog']['images']);
 		$data['type'] = Input::get('type');
 		$data['seo']['title'] = "Chỉnh sửa blogs";
 		if ($data['type'] == 'cat') {
@@ -134,11 +164,17 @@ class blogController extends InitController
 		} else {
 			$data['name'] = "Chỉnh sửa bài viết";
 		}
-		
+		$data['scripts'] = array(
+			'public/templates/admin-flat/scripts/blog.js'
+		);
+		$data['styles'] = array(
+			'public/templates/admin-flat/styles/product.css'
+		);
 		$data['csrf_token'] = $req->csrfToken;
 		$data['globals'] = $req->globals;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
 		$data['validate']['success'] = isset($req->success) ? $req->success : null;
+
 		//=============================
 		$data['dsCatParentRoot'] = $this->blogModel->select('id, name, parent')->whereAnd(array('type' => 'cat','parent' => 0))->get()->toArray();
 		return $res->render("admin-flat/blog/edit", "admin-flat/layout/admin.layout", $data);
@@ -146,14 +182,13 @@ class blogController extends InitController
 	}
 
 	public function editPost($req, $res) {
+
 		if ($req->csrf) {
-			$this->validate->checkBody('name','Tên không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('title','Tiêu đề không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('content','Nội dung không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('parent','Vui lòng chọn thư mục!')->notEmpty();
-			$this->validate->checkBody('parent','Thư mục phải là số!')->notNumeric();
-			$this->validate->checkBody('id','Id phải là số!')->notNumeric();
-			$this->validate->checkBody('id','Id không được bỏ trống!')->notEmpty();
+			$this->validate->checkBody('name','Tên')->notEmpty();
+			$this->validate->checkBody('title','Tiêu đề')->notEmpty();
+			$this->validate->checkBody('content','Nội dung')->notEmpty();
+			$this->validate->checkBody('parent','Thư mục')->notEmpty()->notNumeric();
+			$this->validate->checkBody('id','Id')->notNumeric()->notEmpty();
 			if (!Input::post('id') || !Input::post('type')) {
 				array_push($this->validate->errors, "Không tại ID hoặc Type");
 			}
@@ -162,8 +197,41 @@ class blogController extends InitController
 				array_push($this->validate->errors, "ID không tại trong hệ thống!");
 			}
 			if ($this->validate->errors) {
-				return $res->redirect('/admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('errors' => $this->validate->errors));
+				return $res->redirect('/admin/blog/edit?type=' . Input::post('type') . '&id=' . Input::post('id'))->with(array('errors' => $this->validate->errors,'callback' => Input::post()));
 			} else {
+				$FileUploader = new FileUploaderLib('files', array(
+					'limit' => null,
+					'maxSize' => null,
+					'fileMaxSize' => null,
+					'extensions' => null,
+					'required' => false,
+					'uploadDir' => BASE_PATH . '/public/uploads/',
+					'title' => 'name',
+					'replace' => false,
+					'listInput' => true,
+					'files' => null
+				));
+
+				$files = $FileUploader->upload();
+				if ($files['hasWarnings']) {
+					$warnings = $files['warnings'];
+					return $res->redirect('/admin/blog/edit?type=' . Input::post('type'))->with(array(
+						'errors' => $warnings,
+						'callback' => Input::post()
+					));
+				}
+				$fileList    = $FileUploader->getFileList();
+				$imagesArray = array();
+
+				if (Input::post('images_old') && count(Input::post('images_old'))) {
+					$imagesArray = Input::post('images_old');
+				}
+
+				foreach ($fileList as $v) {
+					array_push($imagesArray, $v['name']);
+				}
+
+				$this->blogModel->images = json_encode($imagesArray);
 				$this->blogModel->name = Input::post('name');
 				$this->blogModel->title = Input::post('title');
 				$this->blogModel->content = Input::post('content');
@@ -191,7 +259,7 @@ class blogController extends InitController
 				
 			}
 		} else {
-			die("Sai ToKen!");
+			die("Sai ToKen #1!");
 		}
 	}
 

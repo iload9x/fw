@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50528
 File Encoding         : 65001
 
-Date: 2017-05-09 14:40:55
+Date: 2017-05-10 19:09:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -163,6 +163,25 @@ INSERT INTO `ngoan_cart_types` VALUES ('2', 'Mới', '#c69a39', '', '6', '6', '0
 INSERT INTO `ngoan_cart_types` VALUES ('3', 'Cũ', '', '', '6', '6', '0000-00-00 00:00:00', '2017-05-06 06:46:44');
 
 -- ----------------------------
+-- Table structure for `ngoan_cms_banners`
+-- ----------------------------
+DROP TABLE IF EXISTS `ngoan_cms_banners`;
+CREATE TABLE `ngoan_cms_banners` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `image_src` varchar(255) DEFAULT NULL,
+  `position` varchar(50) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `width` int(10) unsigned DEFAULT '0' COMMENT '0',
+  `height` int(10) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ngoan_cms_banners
+-- ----------------------------
+INSERT INTO `ngoan_cms_banners` VALUES ('1', '[{\"src\":\"149439458768123d51792bb8307839c6a90c89d0cb.jpg\",\"link\":\"\"},{\"src\":\"149439461597d54aa6f66c0474d6c297856ed87e1e.jpg\",\"link\":\"\"},{\"src\":\"1494394631c540c0ea45d104e844a7b29150204779.jpg\",\"link\":\"\"}]', 'home', 'Banner trang chủ:', '800', '300');
+
+-- ----------------------------
 -- Table structure for `ngoan_cms_blogs`
 -- ----------------------------
 DROP TABLE IF EXISTS `ngoan_cms_blogs`;
@@ -176,28 +195,30 @@ CREATE TABLE `ngoan_cms_blogs` (
   `des` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `type` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
+  `images` text CHARACTER SET utf8,
   `view` int(10) DEFAULT NULL,
   `attach` int(10) DEFAULT NULL,
   `time_created` datetime DEFAULT NULL,
   `time_updated` datetime DEFAULT NULL,
   `parent` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of ngoan_cms_blogs
 -- ----------------------------
-INSERT INTO `ngoan_cms_blogs` VALUES ('1', '6', 'root', 'Thư mục gốc', 'Thư mục gốc', 'root', 'Root', 'cat', '1', '65', '0', '2017-04-20 13:20:03', '2017-04-20 13:20:06', '0');
-INSERT INTO `ngoan_cms_blogs` VALUES ('2', '6', 'Tin tức', 'Tin tức', 'Tin Tức', '', '', 'cat', '1', '5', '0', '2017-04-20 14:04:12', null, '1');
-INSERT INTO `ngoan_cms_blogs` VALUES ('3', '6', 'Thể thao(Mới)', 'Thể Thao', 'Thể thao', '', '', 'cat', '1', '2', '0', '2017-04-20 09:26:30', '2017-04-20 17:31:16', '2');
-INSERT INTO `ngoan_cms_blogs` VALUES ('4', '6', 'Hướng dẫn', 'Hướng dẫn', 'Hướng dẫn', '', '', 'cat', '1', '0', '0', '2017-04-20 09:27:07', null, '1');
-INSERT INTO `ngoan_cms_blogs` VALUES ('5', '6', 'Bóng đá', 'Bóng đá', 'Bóng đá', '', '', 'cat', '1', '65', '0', '2017-04-20 10:07:26', null, '3');
-INSERT INTO `ngoan_cms_blogs` VALUES ('6', '6', 'Đội Tuyển', 'Đội Tuyển', 'Đội Tuyển', '', '', 'cat', '1', '456', '0', '2017-04-20 10:07:42', null, '5');
-INSERT INTO `ngoan_cms_blogs` VALUES ('7', '6', 'Làm đẹp', 'Làm đẹp', 'Làm đẹp', '', '', 'cat', '1', '5', '0', '2017-04-20 10:07:52', null, '4');
-INSERT INTO `ngoan_cms_blogs` VALUES ('8', '6', 'Ronaldo bị tố hiếp dâm: Tâm thư đẫm nước mắt của nạn nhân', 'CR7 bị tố cáo hãm hiếp 1 cô gái xinh đẹp tại một khách sạn tại Las Vegas (Mỹ). Hai bên sau đó đã thỏa thuận và Ronaldo phải chi ra 375 nghìn USD để mua lấy sự im lặng của nạn nhân.\r\n\r\nNgoài ra, có rất nhiều điều khoản theo kèm, trong đó có việc nạn nhân sẽ phải trả lại toàn bộ số tiền nếu như không biết giữ mồm.\r\n\r\nLá thư 6 trang đẫm nước mắt của nạn nhân\r\n\r\nRonaldo rất giỏi và nhiều tiền, nhưng điều đó không có nghĩa nếu anh làm sai sẽ được bỏ qua. Nạn nhân trong nghi án hiếp dâm 8 năm trước của siêu sao người Bồ dù đã nhận tiền để đổi lấy sự im lặng, nhưng sau đó cảm thấy phẫn uất nên hơn 1 năm sau vụ việc, cô đã gửi một bức thư dài gần 6 trang đẫm nước mắt gửi tới Ronaldo.', 'Ronaldo bị tố hiếp dâm: Tâm thư đẫm nước mắt của nạn nhân', '', '', 'post', '1', '0', '0', '2017-03-20 11:04:40', null, '5');
-INSERT INTO `ngoan_cms_blogs` VALUES ('9', '6', 'Âm mưu cúp C1: Trót thiên vị Real nên không thể cứu Barca', 'Trong 10 năm qua, Barca là đội bóng dính đến nhiều trận đấu có “mùi” nhất ở Champions League. Vì hưởng nhiều ưu ái từ trọng tài nên đội chủ sân Nou Camp còn được người hâm mộ các đội bóng khác gán cho tên gọi “UEFAlona” (ám chỉ người của UEFA).', 'Âm mưu cúp C1: Trót thiên vị Real nên không thể cứu Barca', 'châu Âu (UEFA), chau a', 'LĐBĐ châu Âu (UEFA) muốn cả Real và Barca tiến sâu nhưng tình hình thực tế khiến họ chỉ được chọn 1 đội vào bán kết: Real được cứu còn Barca phải dừng cuộc chơi.', 'post', '1', '56', '0', '2017-03-20 17:25:00', '2017-04-22 09:02:34', '3');
-INSERT INTO `ngoan_cms_blogs` VALUES ('10', '6', '456456456', '6456456456', '45', '', '', 'post', '1', '44', '0', '2017-04-25 16:29:24', null, '3');
-INSERT INTO `ngoan_cms_blogs` VALUES ('11', '6', '657567567', '65756756756', '45654645645', '', '', 'post', '1', '0', '0', '2017-04-25 04:06:26', null, '1');
+INSERT INTO `ngoan_cms_blogs` VALUES ('1', '6', 'root', 'Thư mục gốc', 'Thư mục gốc', 'root', 'Root', 'cat', '1', null, '65', '0', '2017-04-20 13:20:03', '2017-04-20 13:20:06', '0');
+INSERT INTO `ngoan_cms_blogs` VALUES ('2', '6', 'Tin tức', 'Tin tức', 'Tin Tức', '', '', 'cat', '1', null, '5', '0', '2017-04-20 14:04:12', null, '1');
+INSERT INTO `ngoan_cms_blogs` VALUES ('3', '6', 'Thể thao(Mới)', 'Thể Thao', 'Thể thao', '', '', 'cat', '1', null, '2', '0', '2017-04-20 09:26:30', '2017-04-20 17:31:16', '2');
+INSERT INTO `ngoan_cms_blogs` VALUES ('4', '6', 'Hướng dẫn', 'Hướng dẫn', 'Hướng dẫn', '', '', 'cat', '1', null, '0', '0', '2017-04-20 09:27:07', null, '1');
+INSERT INTO `ngoan_cms_blogs` VALUES ('5', '6', 'Bóng đá', 'Bóng đá', 'Bóng đá', '', '', 'cat', '1', null, '65', '0', '2017-04-20 10:07:26', null, '3');
+INSERT INTO `ngoan_cms_blogs` VALUES ('6', '6', 'Đội Tuyển', 'Đội Tuyển', 'Đội Tuyển', '', '', 'cat', '1', null, '456', '0', '2017-04-20 10:07:42', null, '5');
+INSERT INTO `ngoan_cms_blogs` VALUES ('7', '6', 'Làm đẹp', 'Làm đẹp', 'Làm đẹp', '', '', 'cat', '1', null, '5', '0', '2017-04-20 10:07:52', null, '4');
+INSERT INTO `ngoan_cms_blogs` VALUES ('8', '6', 'Ronaldo bị tố hiếp dâm: Tâm thư đẫm nước mắt của nạn nhân', 'CR7 bị tố cáo hãm hiếp 1 cô gái xinh đẹp tại một khách sạn tại Las Vegas (Mỹ). Hai bên sau đó đã thỏa thuận và Ronaldo phải chi ra 375 nghìn USD để mua lấy sự im lặng của nạn nhân.\r\n\r\nNgoài ra, có rất nhiều điều khoản theo kèm, trong đó có việc nạn nhân sẽ phải trả lại toàn bộ số tiền nếu như không biết giữ mồm.\r\n\r\nLá thư 6 trang đẫm nước mắt của nạn nhân\r\n\r\nRonaldo rất giỏi và nhiều tiền, nhưng điều đó không có nghĩa nếu anh làm sai sẽ được bỏ qua. Nạn nhân trong nghi án hiếp dâm 8 năm trước của siêu sao người Bồ dù đã nhận tiền để đổi lấy sự im lặng, nhưng sau đó cảm thấy phẫn uất nên hơn 1 năm sau vụ việc, cô đã gửi một bức thư dài gần 6 trang đẫm nước mắt gửi tới Ronaldo.', 'Ronaldo bị tố hiếp dâm: Tâm thư đẫm nước mắt của nạn nhân', '', '', 'post', '1', null, '0', '0', '2017-03-20 11:04:40', null, '5');
+INSERT INTO `ngoan_cms_blogs` VALUES ('9', '6', 'Âm mưu cúp C1: Trót thiên vị Real nên không thể cứu Barca', 'Trong 10 năm qua, Barca là đội bóng dính đến nhiều trận đấu có “mùi” nhất ở Champions League. Vì hưởng nhiều ưu ái từ trọng tài nên đội chủ sân Nou Camp còn được người hâm mộ các đội bóng khác gán cho tên gọi “UEFAlona” (ám chỉ người của UEFA).', 'Âm mưu cúp C1: Trót thiên vị Real nên không thể cứu Barca', 'châu Âu (UEFA), chau a', 'LĐBĐ châu Âu (UEFA) muốn cả Real và Barca tiến sâu nhưng tình hình thực tế khiến họ chỉ được chọn 1 đội vào bán kết: Real được cứu còn Barca phải dừng cuộc chơi.', 'post', '1', null, '56', '0', '2017-03-20 17:25:00', '2017-04-22 09:02:34', '3');
+INSERT INTO `ngoan_cms_blogs` VALUES ('10', '6', '456456456', '6456456456', '45', '', '', 'post', '1', null, '44', '0', '2017-04-25 16:29:24', null, '3');
+INSERT INTO `ngoan_cms_blogs` VALUES ('11', '6', '657567567', '65756756756', '45654645645', '', '', 'post', '1', null, '0', '0', '2017-04-25 04:06:26', null, '1');
+INSERT INTO `ngoan_cms_blogs` VALUES ('12', '6', '7687687', '5674543534534', '6456456', '34', '534', 'post', '1', '[\"14944101585f88e6f0a22a6cc48b63f7e5072b7d73.jpg\"]', '0', '0', '2017-05-10 11:28:02', '2017-05-10 11:55:58', '2');
 
 -- ----------------------------
 -- Table structure for `ngoan_cms_configs`

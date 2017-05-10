@@ -27,7 +27,7 @@
 				<label for="exampleInputName">Tên:</label>
 				<div class="input-group">
 					<div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-pencil"></i></div>
-						<input type="text" id="txtName" name="name" class="form-control" id="exampleInputAmount" placeholder="">
+						<input type="text" value="{{# isset($callback['name']) ? $callback['name'] : null}}" id="txtName" name="name" class="form-control" id="exampleInputAmount" placeholder="">
 					<div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
 				</div>
 		    </div>
@@ -35,7 +35,7 @@
 		      	<label for="exampleInputName">URL:</label>
 		      	<div class="input-group">
 					<div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-link"></i></div>
-					<input type="text" id="txtUrl" name="url" class="form-control" id="exampleInputAmount" placeholder="">
+					<input type="text" value="{{# isset($callback['url']) ? $callback['url'] : null}}" id="txtUrl" name="url" class="form-control" id="exampleInputAmount" placeholder="">
 					<div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
 				</div>
 	      	</div>
@@ -43,14 +43,18 @@
 		      	<label for="exampleInputName">Tiêu đề:</label>
 		      	<div class="input-group">
 					<div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-pencil"></i></div>
-						<input type="text" name="title" class="form-control" id="exampleInputAmount" placeholder="">
+						<input type="text" value="{{# isset($callback['title']) ? $callback['title'] : null}}" name="title" class="form-control" id="exampleInputAmount" placeholder="">
 					<div class="input-group-addon" style="color:#fff"><i class="fa fa-spinner fa-spin" style="display:none"></i></div>
 				</div>
 	      	</div>
 	      	<div class="form-group">
 		      	<label for="exampleInputName">Nội dung:</label>
-		      	<textarea class="form-control txtContent" name="content"></textarea>
+		      	<textarea class="form-control txtContent" name="content">{{# isset($callback['content']) ? $callback['content'] : null}}</textarea>
 	      	</div>
+            <div class="form-group">
+              <label for="">Avatar:</label>
+              <input type="file" name="files">
+            </div>
       	</div>
       	<div class="col-md-4">
 			<div class="form-group">
@@ -62,17 +66,17 @@
 	      	</div>
 	      	<div class="form-group">
 		      	<label for="exampleInputName">Keyword:</label>
-		      	<textarea class="form-control" name="keyword"></textarea>
+		      	<textarea class="form-control" name="keyword">{{# isset($callback['keyword']) ? $callback['keyword'] : null}}</textarea>
 	      		<span class="pull-right">Keyword:0</span>
 	      	</div>
 	      	<div class="form-group">
 		      	<label for="exampleInputName">Mô tả:</label>
-		      	<textarea class="form-control" name="des"></textarea>
+		      	<textarea class="form-control" name="des">{{# isset($callback['des']) ? $callback['des'] : null}}</textarea>
 	      		<span class="pull-right">0: ký tự</span>
 	      	</div>
 	      	<div class="form-group">
 		      	<label for="exampleInputName">Tag:</label>
-		      	<textarea class="form-control" name="tag"></textarea>
+		      	<textarea class="form-control" name="tag">{{# isset($callback['tag']) ? $callback['tag'] : null}}</textarea>
 	      		<span class="pull-right">Tags:0</span>
 	      	</div>
       	</div>
