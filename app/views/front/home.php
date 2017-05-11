@@ -59,7 +59,7 @@
           </div>
         {{endif}}
           <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_path('/public/uploads/')}}{{# isset($vProduct['avatar'][0]) ? $vProduct['avatar'][0] :''}}" alt="iPhone 6 Cũ - Fullbox" />
-          <div class="mask">
+<!--           <div class="mask">
             <div class="mask-title">
               <div class="icon"></div>
               <div class="text">TáoĐộc Care</div>
@@ -71,21 +71,29 @@
               <li>Hỗ trợ phần mềm trọn đời máy</li>
             </ul>
             <a class="mask-link" target="_blank" title="Xem chi tiết chính sách bảo hành tại MobileCity" href="#">Bảo hành vàng</a>
-          </div>
+          </div> -->
         </div>
       </a>
       <div class="thongtin_pro clearfix">
         <div class="thongtin_pro_left clearfix">
           <p class="name_pro"><a href="{{# isset($vProduct['categorySlug']) ? $vProduct['categorySlug'] : null }}/{{# isset($vProduct['companySlug']) ? $vProduct['companySlug'] : null }}/{{# isset($vProduct['name']) ? StringLib::convertUrl($vProduct['name']) : null }}-prd{{# $vProduct['id'] }}.html">{{# isset($vProduct['name']) ? $vProduct['name'] : 'N/A'}}</a></p>
           <p class="gia_pro">{{# isset($vProduct['price']) && is_numeric($vProduct['price']) ? number_format($vProduct['price']) : 0}} ₫</p>
+          {{if(isset($vProduct['counpons'])):}}
           <ul>
+          {{$id = 0;}}
+          {{foreach($vProduct['counpons'] as $counpon):}}
+          {{if(!empty($counpon)):}}
             <li class='clearfix'>
-              <p>Bảo hành {{# $vProduct['guarantee']}} tháng phần cứng</p>
+              <p>{{# $counpon}}</p>
             </li>
-            <li class='clearfix'>
-              <p>Ship COD Toàn quốc</p>
-            </li>
+          {{$id ++ ;}}
+          {{if($id == 2):}}
+          {{break;}}
+          {{endif}}
+          {{endif}}
+          {{endforeach}}
           </ul>
+          {{endif}}
         </div>
         <div class="thongtin_pro_right clearfix">
           <div class="all_icon icon_khuyenmai"></div>
@@ -95,9 +103,9 @@
     </div>
     {{endforeach}} {{endif}}
   </div>
-  <div class="phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" alt="icon loading video" /></div>
+<!--   <div class="phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" alt="icon loading video" /></div>
   <div class="btn_them clearfix"><a data-type="phone" data-execute="318,658,485,716,717,600,610,701,710,693,697,606,688,714,193" class="more_pro" href="javascript:;">Xem thêm điện thoại</a></div>
-</section>
+ --></section>
 <!-- <section class="banner_ngang clearfix">
   <div class="banner_ngang_left clearfix">
     <a href="samsung/index.html"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/01/samsung.gif" alt="MobileCity Banner Hot 1" /></a>
@@ -109,217 +117,45 @@
 {{if(isset($phukienList)):}}
 <section class="pro clearfix">
   <div class="top_pro clearfix">
-    <div class="top_pro_left clearfix" style="width: 100%;">
-      <p class="text">Phụ kiện: </p>
-      <a href="phu-kien-phu-kien-jellico/index.html">Phụ kiện Jellico</a>
-      <a href="phu-kien-phu-kien-w-mobile/index.html">Phụ kiện W-mobile</a>
-      <a href="phu-kien-iphone/index.html">Phụ kiện iPhone</a>
-      <a href="phu-kien-ipad/index.html">Phụ kiện iPad</a>
-      <a href="phu-kien-samsung/index.html">Phụ kiện Samsung</a>
-      <a href="phu-kien-sony/index.html">Phụ kiện Sony</a>
-      <a href="phu-kien-lg/index.html">Phụ kiện LG</a>
-      <a href="phu-kien-htc/index.html">Phụ kiện HTC</a>
+    {{if(isset($dsCompanyPhuKien)):}}
+    <div class="top_pro_left clearfix">
+      <p class="text">Hãng: </p>
+      {{for($i = 0; $i < count($dsCompanyPhuKien); $i++):}}
+        <a href="{{# URL::base_url("/phu-kien/{$dsCompanyPhuKien[$i]['slug']}")}}.html">{{# $dsCompanyPhuKien[$i]['name']}}</a>
+        {{if($i == 5):}}
+        {{break;}}
+        {{endif}}
+      {{endfor}}
+      {{if(count($dsCompanyPhuKien) > 6):}}
+      <select id="go_phone_made">
+        <option>Khác</option>
+        {{for($i = 5; $i < count($dsCompanyPhuKien); $i++):}}
+          <option data-link='{{# URL::base_url("/phu-kien/{$dsCompanyPhuKien[$i]['slug']}")}}.html'>{{# $dsCompanyPhuKien[$i]['name']}}</option>
+        {{endfor}}
+      </select>
+      {{endif}}
     </div>
+    {{endif}}
 
   </div>
   <!-- phu kien -->
   <div class="phukien clearfix">
     <!-- phu kien con -->
+    {{foreach($phukienList as $phukien):}}
     <div class="phukien_con clearfix">
-      <a href="phu-kien/tai-nghe-xiaomi-in-ear-headphones-basic-2016-2148.html">
+      <a href="{{# URL::base_url()}}/{{# $phukien['categorySlug']}}/{{# $phukien['companySlug']}}/{{# isset($phukien['name']) ? StringLib::convertUrl($phukien['name']) : null }}-prd{{# $phukien['id'] }}.html">
         <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Xiaomi-In-Ear-headphones-Basic-2016.jpg" alt="Tai nghe Xiaomi In-Ear headphones Basic 2016" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_url('/public/uploads/')}}{{# isset($phukien['avatar'][0]) ? $phukien['avatar'][0] : null}}" alt="{{# $phukien['name']}}" />
         </div>
       </a>
-      <p class="name_pk clearfix"><a href="phu-kien/tai-nghe-xiaomi-in-ear-headphones-basic-2016-2148.html">Tai nghe Xiaomi In-Ear headphones Basic 2016</a></p>
+      <p class="name_pk clearfix"><a href="{{# URL::base_url()}}/{{# $phukien['categorySlug']}}/{{# $phukien['companySlug']}}/{{# isset($phukien['name']) ? StringLib::convertUrl($phukien['name']) : null }}-prd{{# $phukien['id'] }}.html">{{# $phukien['name']}}</a></p>
       <div class="left_pk clearfix">
-        <p>180.000 ₫</p>
+        <p>{{# isset($phukien['price']) ? number_format($phukien['price']) : 0 }} ₫</p>
       </div>
-      <div class="right_pk clearfix"><a href="phu-kien/tai-nghe-xiaomi-in-ear-headphones-basic-2016-2148.html" class="btn_pk">Mua</a></div>
+      <div class="right_pk clearfix"><a href="{{# URL::base_url()}}/{{# $phukien['categorySlug']}}/{{# $phukien['companySlug']}}/{{# isset($phukien['name']) ? StringLib::convertUrl($phukien['name']) : null }}-prd{{# $phukien['id'] }}.html" class="btn_pk">Mua</a></div>
     </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/dan-cuong-luc-xiaomi-redmi-3s-plus-2140.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-xiaomi-redmi-3s-Plus-chinh-hang.jpg" alt="Dán cường lực Xiaomi Redmi 3S Plus" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-redmi-3s-plus-2140.html">Dán cường lực Xiaomi Redmi 3S Plus</a></p>
-      <div class="left_pk clearfix">
-        <p>120.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-redmi-3s-plus-2140.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/op-lung-xiaomi-redmi-3s-plus-2139.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-redmi-3-plus-chinh-hang-001.jpg" alt="Ốp lưng Xiaomi Redmi 3S Plus" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/op-lung-xiaomi-redmi-3s-plus-2139.html">Ốp lưng Xiaomi Redmi 3S Plus</a></p>
-      <div class="left_pk clearfix">
-        <p>80.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/op-lung-xiaomi-redmi-3s-plus-2139.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/dan-cuong-luc-xiaomi-mi5s-plus-2138.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Dan-cuong-luc-Xiaomi-Mi5S-Plus.jpg" alt="Dán cường lực Xiaomi Mi5S Plus" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-mi5s-plus-2138.html">Dán cường lực Xiaomi Mi5S Plus</a></p>
-      <div class="left_pk clearfix">
-        <p>120.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-mi5s-plus-2138.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/op-lung-blackberry-passport-2135.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-black-berry-passport-trong-suo-imak-phu-nano-.jpg" alt="Ốp lưng BlackBerry Passport" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/op-lung-blackberry-passport-2135.html">Ốp lưng BlackBerry Passport</a></p>
-      <div class="left_pk clearfix">
-        <p>80.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/op-lung-blackberry-passport-2135.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/op-lung-xiaomi-mi5s-plus-2134.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-xiaomi-mi5s-plus-xach-tay-gia-re-Mobilecity.jpg" alt="Ốp lưng Xiaomi Mi5S Plus" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/op-lung-xiaomi-mi5s-plus-2134.html">Ốp lưng Xiaomi Mi5S Plus</a></p>
-      <div class="left_pk clearfix">
-        <p>80.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/op-lung-xiaomi-mi5s-plus-2134.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/op-lung-xiaomi-mi5s-2132.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-op-lung-xiaomi-mi5s-mobilecity-001.jpg" alt="Ốp lưng Xiaomi Mi5S" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/op-lung-xiaomi-mi5s-2132.html">Ốp lưng Xiaomi Mi5S</a></p>
-      <div class="left_pk clearfix">
-        <p>80.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/op-lung-xiaomi-mi5s-2132.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/dan-cuong-luc-blackberry-passport-2130.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-blackberry-passsport-mobilecity.jpg" alt="Dán cường lực BlackBerry Passport" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-blackberry-passport-2130.html">Dán cường lực BlackBerry Passport</a></p>
-      <div class="left_pk clearfix">
-        <p>120.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/dan-cuong-luc-blackberry-passport-2130.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/dan-cuong-luc-xiaomi-redmi-note-4-2081.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dan-cuong-luc-xiaomi-redmi-note-4.jpg" alt="Dán cường lực Xiaomi Redmi Note 4" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-redmi-note-4-2081.html">Dán cường lực Xiaomi Redmi Note 4</a></p>
-      <div class="left_pk clearfix">
-        <p>120.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/dan-cuong-luc-xiaomi-redmi-note-4-2081.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/vidonn-a6-2076.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dong-ho-Vidonn-A6.jpg" alt="Vidonn A6" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/vidonn-a6-2076.html">Vidonn A6</a></p>
-      <div class="left_pk clearfix">
-        <p>670.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/vidonn-a6-2076.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/miband-1s-pulse-2075.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-dong-ho-MiBand-1s-Pulse.jpg" alt="MiBand 1s Pulse" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/miband-1s-pulse-2075.html">MiBand 1s Pulse</a></p>
-      <div class="left_pk clearfix">
-        <p>370.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/miband-1s-pulse-2075.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/tat-mo-khong-day-chuong-cua-xiaomi-2074.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Tat-mo-khong-day-chuong-cua-Xiaomi.jpg" alt="Tắt mở không dây (Chuông cửa) Xiaomi" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/tat-mo-khong-day-chuong-cua-xiaomi-2074.html">Tắt mở không dây (Chuông cửa) Xiaomi</a></p>
-      <div class="left_pk clearfix">
-        <p>130.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/tat-mo-khong-day-chuong-cua-xiaomi-2074.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/xiaomi-router-2-with-1tb-2073.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Xiaomi-Router-2-with-1TB.jpg" alt="Xiaomi Router 2 with 1TB" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/xiaomi-router-2-with-1tb-2073.html">Xiaomi Router 2 with 1TB</a></p>
-      <div class="left_pk clearfix">
-        <p>2.690.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/xiaomi-router-2-with-1tb-2073.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/o-cam-thong-minh-xiaomi-zigbee-2072.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-O-cam-thong-minh-Xiaomi-ZigBee.jpg" alt="Ổ cắm thông minh Xiaomi ZigBee" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/o-cam-thong-minh-xiaomi-zigbee-2072.html">Ổ cắm thông minh Xiaomi ZigBee</a></p>
-      <div class="left_pk clearfix">
-        <p>320.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/o-cam-thong-minh-xiaomi-zigbee-2072.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/phim-chuot-ukb-500-2071.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Phim-chuot-UKB-500.jpg" alt="Phím chuột UKB 500" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/phim-chuot-ukb-500-2071.html">Phím chuột UKB 500</a></p>
-      <div class="left_pk clearfix">
-        <p>190.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/phim-chuot-ukb-500-2071.html" class="btn_pk">Mua</a></div>
-    </div>
-    <div class="phukien_con clearfix">
-      <a href="phu-kien/bo-phat-wifi-kiem-pin-sac-du-phong-zmi-mf855-2070.html">
-        <div class="img_phukien clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/tiny-Bo-phat-wifi-kiem-pin-sac-du-phong-ZMI-MF855.jpg" alt="Bộ phát wifi kiêm pin sạc dự phòng ZMI MF855" />
-        </div>
-      </a>
-      <p class="name_pk clearfix"><a href="phu-kien/bo-phat-wifi-kiem-pin-sac-du-phong-zmi-mf855-2070.html">Bộ phát wifi kiêm pin sạc dự phòng ZMI MF855</a></p>
-      <div class="left_pk clearfix">
-        <p>1.290.000 ₫</p>
-      </div>
-      <div class="right_pk clearfix"><a href="phu-kien/bo-phat-wifi-kiem-pin-sac-du-phong-zmi-mf855-2070.html" class="btn_pk">Mua</a></div>
-    </div>
+    {{endforeach}}
   </div>
-  <div class="fittings"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" /></div>
-  <div class="btn_them clearfix"><a data-type="fittings" class="more_pro" href="javascript:;">Xem thêm phụ kiện</a></div>
 </section>
 {{endif}}
 <!-- <section class="banner_ngang clearfix">

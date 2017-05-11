@@ -30,7 +30,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     font-size: 17px;
     color: white;
     cursor: pointer;
-    background: #c69a39;
+    background: #ce344f;
     border-radius: 3px;
     display: inline-block;
     padding: 8px 15px;
@@ -55,7 +55,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     color: #fff;
     font-size: 15px;
     font-weight: bold;
-    background: #c69a39;
+    background: #ce344f;
 }
 .forum_box ul {
     list-style: none;
@@ -70,7 +70,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     font-weight: bold;
 }
 .forum_box ul li a i {
-    color: #c69a39;
+    color: #ce344f;
     float: left;
     margin: 2px 5px 10px 0px;
 }
@@ -127,7 +127,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 .top_thongtin_pro p i{
 	font-size: 20px;
-    color: #c69a39;
+    color: #ce344f;
     position: absolute;
     margin: -2px 5px 0 -25px;
     text-align: right;
@@ -165,7 +165,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	cursor: pointer;
 }
 .active_colo{
-	border: 1px solid #c69a39;
+	border: 1px solid #ce344f;
     position: relative;
 }
 .active_colo:before {
@@ -178,7 +178,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     width: 15px;
     height: 15px;
     font-size: 15px;
-    color: #c69a39;
+    color: #ce344f;
     animation: dropdownel 1s steps(5, start) infinite;
     -webkit-animation: dropdownel 1s steps(5, start) infinite;
 }
@@ -382,7 +382,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 .title_main_content p:nth-child(1),.title_main_content p:nth-child(2){
 	width: 100%;
 	float: left;
-	color: #c69a39;
+	color: #ce344f;
 	font-size: 14px;
 	font-weight: bold;
     margin:0;
@@ -432,12 +432,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 	position: relative;
 }
 .btn_more p{
-	border: 1px solid #c69a39;
+	border: 1px solid #ce344f;
 	border-radius: 5px;
 	width: 280px;
 	text-align: center;
 	padding: 7px 0;
-	color: #c69a39;
+	color: #ce344f;
 	cursor: pointer;
 	margin: 0 10px 0 15px;
 }
@@ -739,7 +739,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
-	background:#c69a39;
+	background:#ce344f;
 	border: none;
 	color: white;
 	font-size: 17px;
@@ -830,7 +830,7 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     font-size: 17px !important;
     margin: 0 !important;
     padding:0;
-    color:#c69a39;
+    color:#ce344f;
 }
 .start {
     font-size: 25px;
@@ -857,7 +857,7 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     padding: 10px 0;
     margin: 15px 0px 10px 0px;
     font-size: 17px;
-    color: #c69a39;
+    color: #ce344f;
     font-weight: bold;
 }
 .news-relate-main {
@@ -929,11 +929,11 @@ box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     margin:0 0 0 10px;
 }
 .baohanh a{
-    color:#c69a39;
+    color:#ce344f;
 }
 #text_hover{
     position: absolute;
-    background: #c69a39;
+    background: #ce344f;
     color:white;
     margin:-55px 0 0 -120px;
     z-index: 9999;
@@ -949,7 +949,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.36);
   height: 0px;
   position: absolute;
   background: transparent;
-  border: 10px solid #c69a39;
+  border: 10px solid #ce344f;
   bottom: -20px;
   left: 117px;
   border-right-color: transparent;
@@ -968,9 +968,9 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.36);
 .service-fittings-title {
     width: 100%;
     font-size: 20px;
-    color: #c69a39;
+    color: #ce344f;
     display: block;
-    border-bottom: 2px solid #c69a39;
+    border-bottom: 2px solid #ce344f;
     box-sizing: border-box;
     width: auto;
     padding: 0 0 5px 0;

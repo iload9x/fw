@@ -54,18 +54,19 @@
             </select>
           </div>
         </div>
+        {{if(isset($infoProduct['counpons']) && !empty($infoProduct['counpons'][0]) ):}}
         <div class="box_sale clearfix">
           <p class="title_box_sale">Khuyến mãi</p>
           <ul>
-          {{if(isset($infoProduct['counpons'])):}}
             {{foreach($infoProduct['counpons'] as $counpon):}}
               {{if(!empty($counpon)):}}
                 <li class="clearfix">{{# $counpon}}</li>
               {{endif}}
             {{endforeach}}
-          {{endif}}
           </ul>
         </div>
+        {{endif}}
+
         <ul class="bust clearfix">
           <li class="clearfix">Trong hộp có: {{# isset($infoProduct['inbox']) ? $infoProduct['inbox']: '' }}</li>
           <li>Giao hàng {{# isset($infoProduct['delivery']) ? $infoProduct['delivery']: '' }} <a target="_blank" href="#">Tìm hiểu thêm</a></li>
@@ -89,38 +90,22 @@
         <p class="hlmua_mobile mobile_block clearfix">Đặt mua Hà Nội: <a href="#" class="chudam">{{# isset($configs['hotline']) ? $configs['hotline'] : 'N/A'}}</a>
       </div>
     </section>
+    {{if(isset($random_phukien)):}}
     <aside class="right_content_top clearfix">
+      {{foreach($random_phukien as $phukien):}}
       <div class="pk_con clearfix">
-        <a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-4-4s-424.html">
-          <div class="img_pk_con clearfix"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-dan-cuong-luc-iphone-4-4s.jpg" alt="Dán cường lực iPhone 4, 4s" /></div>
+        <a href="{{# URL::base_url()}}/{{# $phukien['categorySlug']}}/{{# $phukien['companySlug']}}/{{# isset($phukien['name']) ? StringLib::convertUrl($phukien['name']) : null }}-prd{{# $phukien['id']}}.html">
+          <div class="img_pk_con clearfix"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_url('/public/uploads/')}}{{# isset($phukien['avatar'][0]) ? $phukien['avatar'][0] : null }}" alt="{{# isset($phukien['name']) ? $phukien['name'] : null }}" /></div>
         </a>
         <div class="title_pk_con clearfix">
-          <p><a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-4-4s-424.html">Dán cường lực iPhone 4, 4s</a></p>
-          <p class="gia_pk_sing clearfix">120.000 ₫</p>
-          <a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-4-4s-424.html" class="btn_mua_pk clearfix">mua</a>
+          <p><a href="{{# URL::base_url()}}/{{# $phukien['categorySlug']}}/{{# $phukien['companySlug']}}/{{# isset($phukien['name']) ? StringLib::convertUrl($phukien['name']) : null }}-prd{{# $phukien['id']}}.html">{{# isset($phukien['name']) ? $phukien['name'] : 0 }}</a></p>
+          <p class="gia_pk_sing clearfix">{{# isset($phukien['price']) ? number_format($phukien['price']) : 0 }} ₫</p>
+          <a href="{{# URL::base_url()}}/{{# $phukien['categorySlug']}}/{{# $phukien['companySlug']}}/{{# isset($phukien['name']) ? StringLib::convertUrl($phukien['name']) : null }}-prd{{# $phukien['id']}}.html" class="btn_mua_pk clearfix">mua</a>
         </div>
       </div>
-      <div class="pk_con clearfix">
-        <a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-5-5s-425.html">
-          <div class="img_pk_con clearfix"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-dan-cuong-luc-iphone-5-s.jpg" alt="Dán cường lực iPhone 5, 5s" /></div>
-        </a>
-        <div class="title_pk_con clearfix">
-          <p><a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-5-5s-425.html">Dán cường lực iPhone 5, 5s</a></p>
-          <p class="gia_pk_sing clearfix">120.000 ₫</p>
-          <a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-5-5s-425.html" class="btn_mua_pk clearfix">mua</a>
-        </div>
-      </div>
-      <div class="pk_con clearfix">
-        <a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-6-6-plus-426.html">
-          <div class="img_pk_con clearfix"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-dan-cuong-luc-iphone-6-6-Plus.jpg" alt="Dán cường lực iPhone 6,  6 Plus" /></div>
-        </a>
-        <div class="title_pk_con clearfix">
-          <p><a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-6-6-plus-426.html">Dán cường lực iPhone 6,  6 Plus</a></p>
-          <p class="gia_pk_sing clearfix">120.000 ₫</p>
-          <a href="http://mobilecity.vn/phu-kien/tam-dan-cuong-luc-iphone-6-6-plus-426.html" class="btn_mua_pk clearfix">mua</a>
-        </div>
-      </div>
+      {{endforeach}}
     </aside>
+    {{endif}}
   </section>
   <section class="clearfix content_main">
   {{if(isset($infoProduct['specs']) || !empty($infoProduct['videoLinks'][0])):}}
@@ -190,47 +175,23 @@
         </ul>
       </div>
       {{endif}}
+    {{if(isset($random_phukien)):}}
       <aside class="pro_cungloai clearfix">
         <div class="clearfix title_main_content">
           <p>Sản phẩm cùng phân khúc</p>
         </div>
+      {{foreach($random_dienthoai as $dienthoai):}}
         <div class="pro_cungloai_con clearfix">
           <div class="img_cungloai clearfix">
-            <a href="http://mobilecity.vn/apple/bo-sac-cap-iphone-7-chinh-hang-apple-boc-may.html"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/04/small-bo-sac-cap-iphone-7-chinh-hang-apple.jpg" alt="Bộ sạc cáp iPhone 7 chính hãng Apple (bóc máy)" /></a>
+            <a href="{{# URL::base_url()}}/{{# $dienthoai['categorySlug']}}/{{# $dienthoai['companySlug']}}/{{# isset($dienthoai['name']) ? StringLib::convertUrl($dienthoai['name']) : null }}-prd{{# $dienthoai['id']}}.html"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_url('/public/uploads/')}}{{# isset($dienthoai['avatar'][0]) ? $dienthoai['avatar'][0] : null }}" alt="{{# isset($dienthoai['name']) ? $dienthoai['name'] : 0 }}" /></a>
           </div>
           <div class="detail_cungloai clearfix">
-            <p><a href="http://mobilecity.vn/apple/bo-sac-cap-iphone-7-chinh-hang-apple-boc-may.html">Bộ sạc cáp iPhone 7 chính hãng Apple (bóc máy)</a></p>
-            <p>290.000 ₫</p>
-            <p>Màn hình 5</p>
-            <p>Camera sau </p>
-            <p>Pin </p>
+            <p><a href="{{# URL::base_url()}}/{{# $dienthoai['categorySlug']}}/{{# $dienthoai['companySlug']}}/{{# isset($dienthoai['name']) ? StringLib::convertUrl($dienthoai['name']) : null }}-prd{{# $dienthoai['id']}}.html">{{# isset($dienthoai['name']) ? $dienthoai['name'] : 0 }}</a></p>
           </div>
         </div>
-        <div class="pro_cungloai_con clearfix">
-          <div class="img_cungloai clearfix">
-            <a href="http://mobilecity.vn/apple/iphone-7-plus-mau-do-red.html"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/04/small-iphone-7-plus-do-red.jpg" alt="iPhone 7 Plus đỏ (PRODUCT) RED" /></a>
-          </div>
-          <div class="detail_cungloai clearfix">
-            <p><a href="http://mobilecity.vn/apple/iphone-7-plus-mau-do-red.html">iPhone 7 Plus đỏ (PRODUCT) RED</a></p>
-            <p>22.100.000 ₫</p>
-            <p>Màn hình 5.5</p>
-            <p>Camera sau Dual 12 MP</p>
-            <p>Pin 2900 mAh</p>
-          </div>
-        </div>
-        <div class="pro_cungloai_con clearfix">
-          <div class="img_cungloai clearfix">
-            <a href="http://mobilecity.vn/apple/iphone-6s-32gb-chua-active.html"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-iPhone-6s-Gray-cu-xach-tay-quoc-te-gia-re-nhat-MobileCity-7.jpg" alt="iPhone 6S - 32GB Chưa Active" /></a>
-          </div>
-          <div class="detail_cungloai clearfix">
-            <p><a href="http://mobilecity.vn/apple/iphone-6s-32gb-chua-active.html">iPhone 6S - 32GB Chưa Active</a></p>
-            <p>Liên hệ</p>
-            <p>Màn hình 4.7</p>
-            <p>Camera sau 12 MP</p>
-            <p>Pin 1715 mAh</p>
-          </div>
-        </div>
-      </aside>
+      {{endforeach}}
+    </aside>
+    {{endif}}
     </section>
     {{endif}}
     <section id="box_detail" class="clearfix">
@@ -523,26 +484,10 @@
           <p style="font-size: 16px; font-weight: bold; padding: 10px 0px 5px 0px;">Sản phẩm cùng phân khúc</p>
           <div class="cungpk_mobile_item pro_cungloai_con clearfix">
             <div class="img_cungloai clearfix">
-              <a href="http://mobilecity.vn/apple/bo-sac-cap-iphone-7-chinh-hang-apple-boc-may.html"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/04/small-bo-sac-cap-iphone-7-chinh-hang-apple.jpg" alt="Bộ sạc cáp iPhone 7 chính hãng Apple (bóc máy)" /></a>
-            </div>
-            <div class="detail_cungloai clearfix" style="float: left;">
-              <p><a href="http://mobilecity.vn/apple/bo-sac-cap-iphone-7-chinh-hang-apple-boc-may.html">Bộ sạc cáp iPhone 7 chính hãng Apple (bóc máy)</a></p>
-              <p>290.000 ₫</p>
-              <p>Màn hình 5</p>
-              <p>Camera sau </p>
-              <p>Pin </p>
-            </div>
-          </div>
-          <div class="cungpk_mobile_item pro_cungloai_con clearfix">
-            <div class="img_cungloai clearfix">
               <a href="http://mobilecity.vn/apple/iphone-7-plus-mau-do-red.html"><img src="http://mobilecity.vn/themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/04/small-iphone-7-plus-do-red.jpg" alt="iPhone 7 Plus đỏ (PRODUCT) RED" /></a>
             </div>
             <div class="detail_cungloai clearfix" style="float: left;">
               <p><a href="http://mobilecity.vn/apple/iphone-7-plus-mau-do-red.html">iPhone 7 Plus đỏ (PRODUCT) RED</a></p>
-              <p>22.100.000 ₫</p>
-              <p>Màn hình 5.5</p>
-              <p>Camera sau Dual 12 MP</p>
-              <p>Pin 2900 mAh</p>
             </div>
           </div>
         </div>
@@ -551,16 +496,18 @@
         <aside class="tomtat_pro clearfix">
           <p>{{# isset($infoProduct['name']) ? $infoProduct['name'] : ""}}</p>
           <p class="price_left">{{# isset($infoProduct['price']) ? number_format($infoProduct['price']) . '₫' : "Liên hệ"}}</p>
+          {{if(isset($infoProduct['counpons']) && !empty($infoProduct['counpons'][0])):}}
           <div class="box_sale clearfix">
             <p class="title_box_sale">Khuyến mãi</p>
             <ul>
-          {{if(isset($infoProduct['counpons'])):}}
             {{foreach($infoProduct['counpons'] as $counpon):}}
+              {{if(!empty($counpon)):}}
               <li class="clearfix">{{# $counpon}}</li>
+              {{endif}}
             {{endforeach}}
-          {{endif}}
             </ul>
           </div>
+          {{endif}}
           <div class="clearfix">
           {{if(isset($infoProduct['status']) && $infoProduct['status'] == 1):}}
               <a href="javascript:;" class="btn-order-phone btn_pro_mua right_mua btn1 clearfix">

@@ -118,7 +118,7 @@ class Router
 			}
 			$this->route(self::$Routes['POST'], self::$RoutesHasSet['POST'], $route);
 		} else {
-			$this->Csrf->create();
+			//$this->Csrf->create();
 			$this->setReq(array('csrfToken' => Session::get('cscfSession')));
 			if (isset(Session::get('Response')[$route])) {
 				$this->setReq(Session::get('Response')[$route]);

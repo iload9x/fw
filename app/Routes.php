@@ -111,9 +111,13 @@ Router::group('/admin', function() {
 	Router::post("cart/products/add", "product@addPost");
 	Router::get("cart/products/edit-{id}", "product@editGet");
 	Router::post("cart/products/edit", "product@editPost");
-	Router::get("cart/products/delete", "product@deleteGet");
+	Router::get("cart/products/delete-{id}", "product@deleteGet");
+	Router::get("cart/orders", "order@manager");
 });
+
 //==========AJAX============
+Router::post("/orders/send", "order@sendPost");
+
 Router::post("/ajax/convertUrl", function($req, $res) {
 	if (Input::post('input_url')) {
 		echo StringLib::convertUrl(Input::post('input_url'));

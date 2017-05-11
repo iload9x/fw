@@ -89,6 +89,71 @@ class productModel extends InitModel
 	}
 
 	public function didongList() {
-		return $this->select()->whereAnd(array('categoryId' => 5))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
+		$data = $this->whereAnd(array('categoryId' => 5))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
+		$companyModel = new companyModel();
+		$categoryModel = new categoryModel();
+		$typeModel = new typeModel();
+		foreach ($data as $k => $v) {
+			$companyModel->find($v['companyId']);
+			$categoryModel->find($v['categoryId']);
+			$data[$k]['avatar'] = (array)json_decode($data[$k]['avatar']);
+			$data[$k]['counpons'] = (array)json_decode($data[$k]['counpons']);
+			$data[$k]['companySlug'] = $companyModel->slug;
+			$data[$k]['categorySlug'] = $categoryModel->slug;
+			$typeIds = array();
+			foreach ((array)json_decode($data[$k]['typeId']) as $v) {
+				$typeModel->find($v);
+				array_push($typeIds, array('name' => $typeModel->name, 'color' => $typeModel->color));
+			}
+			$data[$k]['type'] = $typeIds;
+		}
+
+		return $data;
 	}
+
+	public function phukienList() {
+		$data = $this->select('id, name, avatar, price, companyId,categoryId')->whereAnd(array('categoryId' => 7))->limit(0, 15)->order_by('id', 'DESC')->get()->toArray();
+		$companyModel = new companyModel();
+		$categoryModel = new categoryModel();
+		foreach ($data as $k => $v) {
+			$companyModel->find($v['companyId']);
+			$categoryModel->find($v['categoryId']);
+			$data[$k]['avatar'] = (array)json_decode($data[$k]['avatar']);
+			$data[$k]['companySlug'] = $companyModel->slug;
+			$data[$k]['categorySlug'] = $categoryModel->slug;
+		}
+
+		return $data;
+	}
+
+	public function get_random_phukien($num) {
+		$data = $this->whereAnd(array('categoryId' => 7))->order_by('RAND()','DESC')->limit(0, $num)->get()->toArray();
+		$companyModel = new companyModel();
+		$categoryModel = new categoryModel();
+		foreach ($data as $k => $v) {
+			$companyModel->find($v['companyId']);
+			$categoryModel->find($v['categoryId']);
+			$data[$k]['avatar'] = (array)json_decode($data[$k]['avatar']);
+			$data[$k]['companySlug'] = $companyModel->slug;
+			$data[$k]['categorySlug'] = $categoryModel->slug;
+		}
+
+		return $data;
+	}
+
+	public function get_random_dienthoai($num) {
+		$data = $this->whereAnd(array('categoryId' => 5))->order_by('RAND()','DESC')->limit(0, $num)->get()->toArray();
+		$companyModel = new companyModel();
+		$categoryModel = new categoryModel();
+		foreach ($data as $k => $v) {
+			$companyModel->find($v['companyId']);
+			$categoryModel->find($v['categoryId']);
+			$data[$k]['avatar'] = (array)json_decode($data[$k]['avatar']);
+			$data[$k]['companySlug'] = $companyModel->slug;
+			$data[$k]['categorySlug'] = $categoryModel->slug;
+		}
+
+		return $data;
+	}
+
 }

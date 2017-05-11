@@ -105,7 +105,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 .top_con a{
 	text-decoration: none;
 	font-size: 14px;
-	color: #c69a39;
+	color: #ce344f;
 	margin: 12px 0 12px 15px;
 	display: inline-block;
 }
@@ -173,7 +173,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
     height: 40px;
     width: 40px;
     float: left;
-    background: #c69a39 url(http://mobilecity.vn/themes/img/icon-mobilecity-care.png) no-repeat center center;
+    background: #ce344f url(http://mobilecity.vn/themes/img/icon-mobilecity-care.png) no-repeat center center;
     border-radius: 2px;
 }
 .mask-title .text {
@@ -181,7 +181,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
     line-height: 40px;
     width: calc(100% - 45px);
     float: right;
-    color: #c69a39;
+    color: #ce344f;
     font-size: 16px;
     font-weight: bold;
 }
@@ -206,7 +206,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
     line-height: 26px;
     padding: 0px 5px;
     border-radius: 2px;
-    background: #c69a39;
+    background: #ce344f;
     color: #fff;
     font-size: 12px;
     text-transform: uppercase;
@@ -228,7 +228,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 	background: #f04e30;
 }
 .moi{
-	background: #c69a39;
+	background: #ce344f;
 }
 .top_con select{
 	float: right;
@@ -319,14 +319,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 	float: right;
 	padding:3px 10px;
 	box-sizing: border-box;
-	border:1px solid #c69a39;
+	border:1px solid #ce344f;
 	border-radius: 3px;
 	cursor: pointer;
 }
 .fan_app p{
 	float: left;
 	margin: 5px 0 0 0;
-	color: #c69a39;
+	color: #ce344f;
 	font-size: 15px;
 }
 .filter_wrap {
