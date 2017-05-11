@@ -5,10 +5,9 @@ class URL
 {
 	public function directory() {
 		$requestUri = $_SERVER['REQUEST_URI'];
-
-		if (Session::get('directorys_system')) {
-			return Session::get('directorys_system');
-		}
+		// if (Session::get('directorys_system')) {
+		// 	return Session::get('directorys_system');
+		// }
 		if (strpos($requestUri, '?') !== false) {
 			$requestUri = substr($_SERVER['REQUEST_URI'], 0, strpos($requestUri, '?'));
 		} else {
@@ -16,7 +15,6 @@ class URL
 		}
 		$requestUriElement = explode('/', $requestUri);
 		$strRequestUriElement = $requestUriElement[1];
-
 		$id = 1;
 		$directorys = $requestUriElement[0].'/';
 		while (@strpos(BASE_PATH, $strRequestUriElement) !== false) {
@@ -25,7 +23,10 @@ class URL
 			$strRequestUriElement = $strRequestUriElement . '\\' .$requestUriElement[$id];
 		}
 		$directorys = substr($directorys, 0, strlen($directorys) - 1);
-		Session::set('directorys_system', $directorys);
+		//Session::set('directorys_system', $directorys);
+		// if ($directorys == null) {
+		// 	return '/';
+		// }
 		return $directorys;
 	}
 
