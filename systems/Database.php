@@ -42,6 +42,12 @@ class Database
 		$this->close();
 	}
 
+	public function execute_multi($query) {
+		$this->connect();
+		return mysqli_multi_query($this->conn,$query);
+		$this->close();
+	}
+
 	public function save() {
 		$propreties = get_object_vars($this);
 		unset($propreties['config']);

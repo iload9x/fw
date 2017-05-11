@@ -1,21 +1,21 @@
 <?php
 //=================INIT=====================
 Router::globalVariables(function() {
-	$infoUser = null;
-	if (Auth::isAuth()) {
-		$userModel = new userModel();
-		$store = Auth::store();
-			$userModel->find($store['id']);
-		$infoUser = array(
-			'id' => $userModel->id,
-			'username' => $userModel->username,
-			'nickname' => $userModel->nickname,
-			'avatar' => $userModel->avatar
-		);
-	}
-	return array(
-		'infoUser' => $infoUser,
-	);
+	// $infoUser = null;
+	// if (Auth::isAuth()) {
+	// 	$userModel = new userModel();
+	// 	$store = Auth::store();
+	// 		$userModel->find($store['id']);
+	// 	$infoUser = array(
+	// 		'id' => $userModel->id,
+	// 		'username' => $userModel->username,
+	// 		'nickname' => $userModel->nickname,
+	// 		'avatar' => $userModel->avatar
+	// 	);
+	// }
+	// return array(
+	// 	'infoUser' => $infoUser,
+	// );
 });
 
 Router::globalLibraries(function() {
@@ -52,6 +52,7 @@ Router::post('/404', function() {
 	return $res->render('404','admin-flat/layout/register.layout', $data);
 });
 
+Router::get("/install", "install@index");
 
 //=================FRONT-END=====================
 Router::get('/{category}/{company}/{name}-prd{id}.html', 'home@detailGet');
