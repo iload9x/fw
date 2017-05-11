@@ -1,21 +1,21 @@
 <?php
 //=================INIT=====================
 Router::globalVariables(function() {
-	// $infoUser = null;
-	// if (Auth::isAuth()) {
-	// 	$userModel = new userModel();
-	// 	$store = Auth::store();
-	// 		$userModel->find($store['id']);
-	// 	$infoUser = array(
-	// 		'id' => $userModel->id,
-	// 		'username' => $userModel->username,
-	// 		'nickname' => $userModel->nickname,
-	// 		'avatar' => $userModel->avatar
-	// 	);
-	// }
-	// return array(
-	// 	'infoUser' => $infoUser,
-	// );
+	$infoUser = null;
+	if (Auth::isAuth()) {
+		$userModel = new userModel();
+		$store = Auth::store();
+			$userModel->find($store['id']);
+		$infoUser = array(
+			'id' => $userModel->id,
+			'username' => $userModel->username,
+			'nickname' => $userModel->nickname,
+			'avatar' => $userModel->avatar
+		);
+	}
+	return array(
+		'infoUser' => $infoUser,
+	);
 });
 
 Router::globalLibraries(function() {
