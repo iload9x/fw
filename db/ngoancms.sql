@@ -159,7 +159,7 @@ CREATE TABLE `ngoan_cart_types` (
 -- Records of ngoan_cart_types
 -- ----------------------------
 INSERT INTO `ngoan_cart_types` VALUES ('1', 'Hot', '#f04e30', '', '6', '6', '0000-00-00 00:00:00', '2017-05-06 06:46:38');
-INSERT INTO `ngoan_cart_types` VALUES ('2', 'Mới', '#c69a39', '', '6', '6', '0000-00-00 00:00:00', '2017-05-06 06:45:54');
+INSERT INTO `ngoan_cart_types` VALUES ('2', 'Mới', '#ce344f', '', '6', '6', '0000-00-00 00:00:00', '2017-05-06 06:45:54');
 INSERT INTO `ngoan_cart_types` VALUES ('3', 'Cũ', '', '', '6', '6', '0000-00-00 00:00:00', '2017-05-06 06:46:44');
 
 -- ----------------------------

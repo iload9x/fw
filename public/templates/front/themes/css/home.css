@@ -48,7 +48,7 @@
 }
 .top_pro a{
 	text-decoration: none;
-	color: #c69a39;
+	color: #ce344f;
 	display: block;
 }
 .top_pro a,.top_pro p{
@@ -154,12 +154,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 	display: block;
 	width: 300px;
 	text-align: center;
-	color: #c69a39;
+	color: #ce344f;
 	border-radius: 5px;
 	padding: 8px 0;
 	transition: 0.5s all ease;
 	margin: 15px auto 0 auto;
-	border: 1px solid #c69a39;
+	border: 1px solid #ce344f;
 	box-sizing: border-box;
 	font-size: 18px;
 	font-weight: bold;
@@ -263,7 +263,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 	background: #f04e30;
 }
 .moi{
-	background: #c69a39;
+	background: #ce344f;
 }
 /*------- css dich vu -----*/
 .ser{
@@ -425,7 +425,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
     height: 40px;
     width: 40px;
     float: left;
-    background: #c69a39 url(../img/icon-mobilecity-care.png) no-repeat center center;
+    background: #ce344f url(../img/icon-mobilecity-care.png) no-repeat center center;
     border-radius: 2px;
 }
 .mask-title .text {
@@ -433,7 +433,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
     line-height: 40px;
     width: calc(100% - 45px);
     float: right;
-    color: #c69a39;
+    color: #ce344f;
     font-size: 16px;
     font-weight: bold;
 }
@@ -458,7 +458,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
     line-height: 26px;
     padding: 0px 5px;
     border-radius: 2px;
-    background: #c69a39;
+    background: #ce344f;
     color: #fff;
     font-size: 12px;
     text-transform: uppercase;
@@ -533,7 +533,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9308', end
 }
 .btn_them a:hover{
 	color: white;
-	background: #c69a39;
+	background: #ce344f;
 }
 #slider_video_home li:not(:first-child):before{
 	content: "";

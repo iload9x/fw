@@ -54,16 +54,16 @@
     color: #fff;
     border-radius: 4px 4px 0px 0px;
     border-bottom: 1px solid #e5e5e5;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c69a39+0,c19a4b+100 */
-    background: #c69a39; /* Old browsers */
-    background: -moz-linear-gradient(top,  #c69a39 0%, #c19a4b 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #c69a39 0%,#c19a4b 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #c69a39 0%,#c19a4b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c69a39', endColorstr='#c19a4b',GradientType=0 ); /* IE6-9 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ce344f+0,c19a4b+100 */
+    background: #ce344f; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ce344f 0%, #c19a4b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #ce344f 0%,#c19a4b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #ce344f 0%,#c19a4b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce344f', endColorstr='#c19a4b',GradientType=0 ); /* IE6-9 */
 }
 .sudo-popup .popup-des {
     font-size: 13px;
-    color: #c69a39;
+    color: #ce344f;
     margin-bottom: 20px;
 }
 .sudo-popup .popup-message-box {
@@ -95,7 +95,7 @@
     font-size: 15px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #c69a39;
+    color: #ce344f;
     margin-bottom: 10px;
 }
 .sudo-popup .popup-social-wrap {
@@ -119,7 +119,7 @@
     width: 90px;
     font-size: 13px;
     font-weight: bold;
-    color: #c69a39;
+    color: #ce344f;
 }
 .sudo-popup .popup-form input{
     border:1px solid #dedede;
@@ -233,7 +233,7 @@
     font-size: 14px;
     border: none;
     cursor: pointer;
-    background: #c69a39;
+    background: #ce344f;
 }
 
 /*----------------- order ------------------*/
@@ -349,7 +349,7 @@
 .popup-customer-info-group .popup-order-btn {
     width: 100%;
     height: 36px;
-    background: #c69a39;
+    background: #ce344f;
     color: #fff;
     font-size: 16px;
     text-transform: uppercase;
@@ -383,7 +383,7 @@
     border-radius: 20px;
     text-align: center;
     font-size: 36px;
-    color: #c69a39;
+    color: #ce344f;
     position: absolute;
     top: -20px;
     right: -20px;
@@ -418,7 +418,7 @@
     float: left;
     display: block;
     background: #fff;
-    color: #c69a39;
+    color: #ce344f;
     font-size: 22px;
     text-transform: uppercase;
     position: relative;
@@ -483,8 +483,8 @@
 }
 #popup-location .btn-success {
     color: #ffffff;
-    background-color: #c69a39;
-    border-color: #c69a39;
+    background-color: #ce344f;
+    border-color: #ce344f;
 }
 #popup-location .btn {
     -webkit-border-radius: 3px;
@@ -559,7 +559,7 @@
     line-height: 20px;
     border-radius: 10px;
     font-size: 18px;
-    color: #c69a39;
+    color: #ce344f;
     top: 0px;
     right: 0px;
 }
@@ -573,7 +573,7 @@
     float: left;
     display: block;
     background: #fff;
-    color: #c69a39;
+    color: #ce344f;
     font-size: 16px;
     text-transform: uppercase;
     position: relative;

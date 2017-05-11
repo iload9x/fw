@@ -1,6 +1,6 @@
 .left_content h1{
 	font-size: 20px;
-	color: #c69a39;
+	color: #ce344f;
 	margin:0 0 10px 0;
 }
 .left_content{
@@ -25,9 +25,9 @@
 .title_lienquan{
 	width: 100%;
 	font-size: 20px;
-	color: #c69a39;
+	color: #ce344f;
 	display: block;
-	border-bottom: 2px solid #c69a39;
+	border-bottom: 2px solid #ce344f;
 	box-sizing: border-box;
 	width: 150px;
 	padding: 0 0 5px 0;
@@ -73,10 +73,10 @@
 }
 .title_coment{
 	width: 160px;
-	border-bottom: 2px solid #c69a39;
+	border-bottom: 2px solid #ce344f;
 	font-size: 20px;
 	text-transform: uppercase;
-	color: #c69a39;
+	color: #ce344f;
 }
 .title_coment i{
 	font-size: 35px;
@@ -125,10 +125,10 @@
 	width: 100%;
 	font-size: 16px;
 	text-transform: uppercase;
-	border-bottom: 2px solid #c69a39;
+	border-bottom: 2px solid #ce344f;
 	box-sizing: border-box;
 	font-weight: bold;
-	color: #c69a39;
+	color: #ce344f;
 	padding: 6px 0 6px 10px;
 }
 .sp_new{
@@ -264,5 +264,5 @@
 .tags p{
     float: left;
     line-height: 1.4em;
-    color:#c69a39;
+    color:#ce344f;
 }

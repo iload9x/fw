@@ -537,12 +537,12 @@
         display: block;
         width: 300px;
         text-align: center;
-        color: #c69a39;
+        color: #ce344f;
         border-radius: 5px;
         padding: 8px 0;
         transition: 0.5s all ease;
         margin: 15px auto 0 auto;
-        border: 1px solid #c69a39;
+        border: 1px solid #ce344f;
         box-sizing: border-box;
         font-size: 18px;
         font-weight: bold;
@@ -550,7 +550,7 @@
     }
     .btn_them a:hover {
         color: white;
-        background: #c69a39;
+        background: #ce344f;
     }
     #iment {
         padding: 0px 5px;
@@ -585,12 +585,12 @@
         display: block;
         width: 300px;
         text-align: center;
-        color: #c69a39;
+        color: #ce344f;
         border-radius: 5px;
         padding: 8px 0;
         transition: 0.5s all ease;
         margin: 15px auto 0 auto;
-        border: 1px solid #c69a39;
+        border: 1px solid #ce344f;
         box-sizing: border-box;
         font-size: 18px;
         font-weight: bold;
@@ -598,7 +598,7 @@
     }
     .btn_them a:hover {
         color: white;
-        background: #c69a39;
+        background: #ce344f;
     }
 }
 @media only screen and (max-width: 480px){
@@ -775,7 +775,7 @@
 }
 .popup-customer-info-title{
     font-size: 22px !important;
-    color: #c69a39 !important;
+    color: #ce344f !important;
         font-weight: bold;
     text-align: center;
 }
@@ -800,12 +800,12 @@
         display: block;
         width: 300px;
         text-align: center;
-        color: #c69a39;
+        color: #ce344f;
         border-radius: 5px;
         padding: 8px 0;
         transition: 0.5s all ease;
         margin: 15px auto 0 auto;
-        border: 1px solid #c69a39;
+        border: 1px solid #ce344f;
         box-sizing: border-box;
         font-size: 18px;
         font-weight: bold;
@@ -813,7 +813,7 @@
     }
     .btn_them a:hover {
         color: white;
-        background: #c69a39;
+        background: #ce344f;
     }
     #order_phone {
         display: none;
