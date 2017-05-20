@@ -3,11 +3,11 @@
 */
 class URL 
 {
-	public function directory() {
+	public static function directory() {
 		$requestUri = $_SERVER['REQUEST_URI'];
-		// if (Session::get('directorys_system')) {
-		// 	return Session::get('directorys_system');
-		// }
+		if (Session::get('directorys_system')) {
+			return Session::get('directorys_system');
+		}
 		if (strpos($requestUri, '?') !== false) {
 			$requestUri = substr($_SERVER['REQUEST_URI'], 0, strpos($requestUri, '?'));
 		} else {
@@ -23,14 +23,11 @@ class URL
 			$strRequestUriElement = $strRequestUriElement . '\\' .$requestUriElement[$id];
 		}
 		$directorys = substr($directorys, 0, strlen($directorys) - 1);
-		//Session::set('directorys_system', $directorys);
-		// if ($directorys == null) {
-		// 	return '/';
-		// }
+		Session::set('directorys_system', $directorys);
 		return $directorys;
 	}
 
-	public function requestUri() {
+	public static function requestUri() {
 		return $_SERVER['REQUEST_URI'];
 	}
 
@@ -42,7 +39,7 @@ class URL
 		return str_replace(self::base_path(), '', self::thisUrl());
 	}
 
-	public function http_host() {
+	public static function http_host() {
 		return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 	}
 

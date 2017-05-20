@@ -2,7 +2,7 @@
 /**
 * 
 */
-class paginationLib
+class PaginationLib
 {
 
 	function __construct()

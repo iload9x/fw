@@ -55,10 +55,13 @@ Router::post('/404', function() {
 Router::get("/install", "install@index");
 
 //=================FRONT-END=====================
+Router::get('/tin-tuc-{name}-art{id}.html', 'home@tintucDetailGet');
+
 Router::get('/{category}/{company}/{name}-prd{id}.html', 'home@detailGet');
 Router::get('/{category}/{company}.html', 'home@companyGet');
 Router::get('/{category}.html', 'home@categoryGet');
 Router::get('/tim-kiem.html', 'home@searchGet');
+Router::get('/tin-tuc.html', 'home@tintucGet');
 
 Router::get("/admin", "admin@index");
 Router::group('/admin', function() {

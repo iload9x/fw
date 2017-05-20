@@ -38,7 +38,8 @@ class homeController extends InitController
 		);
 		$this->data['diDongList'] = $this->productModel->didongList();
 		$this->data['phukienList'] = $this->productModel->phukienList();
-
+		$blogModel = new blogModel();
+		$this->data['dsTinTuc'] = $blogModel->select('id, name, images,content')->whereAnd(array('type' => 'post'))->limit(0, 2)->order_by('id', 'DESC')->get()->toArray();
 		$bannerModel = new bannerModel();
 		$this->data['banner']['home'] = $bannerModel->find_by_position('home');
 		$res->render('front/home', 'front/layout/index.layout',$this->data);
@@ -176,5 +177,13 @@ class homeController extends InitController
 
 	public function searchGet($req, $res) {
 
+	}
+
+	public function tintucDetailGet($req, $res) {
+		
+	}
+
+	public function tintucGet($req, $res) {
+		
 	}
 }

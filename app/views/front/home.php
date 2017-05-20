@@ -206,273 +206,7 @@
         <a href="dich-vu/thay-mat-kinh-cam-ung-iphone-5s-iphone-5-5c-679.html" class="btn_mua clearfix">Mua</a>
       </div>
     </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus-446.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus.jpg" alt="Thay mặt kính iPhone 6, 6 Plus" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus-446.html">Thay mặt kính iPhone 6, 6 Plus</a></p>
-        <p class="gia_pro clearfix">150.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-mat-kinh-cam-ung-iphone-6-6-plus-6s-6s-plus-446.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-mat-kinh-iphone-7-7-plus-1028.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-iphone-7-7-plus.jpg" alt="Thay mặt kính iPhone 7, 7 Plus" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-mat-kinh-iphone-7-7-plus-1028.html">Thay mặt kính iPhone 7, 7 Plus</a></p>
-        <p class="gia_pro clearfix">300.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-mat-kinh-iphone-7-7-plus-1028.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-man-hinh-iphone-5-5s-726.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-iphone-5-5s.jpg" alt="Thay màn hình iPhone 5, 5S, 5C" />
-          <div class="mask1 mask">
-            <p class="clearfix">Tặng tấm dán màn hình cao cấp</p>
-            <p class="clearfix">Miễn phí kiểm tra máy (không sửa không sao)</p>
-            <p class="clearfix">Hỗ trợ phần mềm</p>
-            <p class="clearfix">Tặng Giftcard khi sửa chữa đến 100.000đ</p>
-            <p class="clearfix">Voucher ưu đãi khi mua máy tại MobileCity</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-man-hinh-iphone-5-5s-726.html">Thay màn hình iPhone 5, 5S, 5C</a></p>
-        <p class="gia_pro clearfix">500.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-man-hinh-iphone-5-5s-726.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-man-hinh-iphone-6-6-plus-694.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-iphone-6-6-plus.jpg" alt="Thay màn hình iPhone 6, 6 Plus" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-man-hinh-iphone-6-6-plus-694.html">Thay màn hình iPhone 6, 6 Plus</a></p>
-        <p class="gia_pro clearfix">750.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-man-hinh-iphone-6-6-plus-694.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-mat-kinh-cam-ung-sony-xperia-z3v-1003.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-cam-ung-sony-xperia-z3v.jpg" alt="Thay mặt kính cảm ứng Sony Xperia Z3v" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-mat-kinh-cam-ung-sony-xperia-z3v-1003.html">Thay mặt kính cảm ứng Sony Xperia Z3v</a></p>
-        <p class="gia_pro clearfix">500.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-mat-kinh-cam-ung-sony-xperia-z3v-1003.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-2129.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-1.jpg" alt="Thay bàn phím Qwerty cho Blackberry Passport bản Pháp" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-2129.html">Thay bàn phím Qwerty cho Blackberry Passport bản Pháp</a></p>
-        <p class="gia_pro clearfix">350.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-ban-phim-qwerty-cho-blackberry-passport-ban-phap-2129.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-mat-kinh-man-hinh-cam-ung-sony-xperia-z3-352.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-mat-kinh-man-hinh-cam-ung-sony-xperia.jpg" alt="Thay mặt kính, màn hình cảm ứng Sony Xperia Z3" />
-          <div class="mask1 mask">
-            <p class="clearfix">Giá Mặt kính Sony Xperia Z3: 250.000 BH 03 Tháng 1 đổi 1</p>
-            <p class="clearfix">Giá cả bộ Màn hình Sony Xperia Z3: 850.000 BH 03 Tháng 1 đổi 1</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-mat-kinh-man-hinh-cam-ung-sony-xperia-z3-352.html">Thay mặt kính, màn hình cảm ứng Sony Xperia Z3</a></p>
-        <p class="gia_pro clearfix">250.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-mat-kinh-man-hinh-cam-ung-sony-xperia-z3-352.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-1035.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-cam-ung-iphone-7-chinh-hang.jpg" alt="Thay màn hình cảm ứng iPhone 7" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-1035.html">Thay màn hình cảm ứng iPhone 7</a></p>
-        <p class="gia_pro clearfix">3.400.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-1035.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-plus-2125.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/12/small-thay-man-hinh-cam-ung-iphone-7-plus-2125.jpg" alt="Thay màn hình cảm ứng iPhone 7 Plus" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-plus-2125.html">Thay màn hình cảm ứng iPhone 7 Plus</a></p>
-        <p class="gia_pro clearfix">4.200.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-man-hinh-cam-ung-iphone-7-plus-2125.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-man-hinh-xiaomi-redmi-4.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-mat-kinh-cam-ung-xiaomi-redmi-note-4-1.jpg" alt="Thay màn hình Xiaomi Redmi 4" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-man-hinh-xiaomi-redmi-4.html">Thay màn hình Xiaomi Redmi 4</a></p>
-        <p class="gia_pro clearfix">Liên hệ</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-man-hinh-xiaomi-redmi-4.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-wifi-cho-blackberry-passport-2157.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-wifi-cho-blackberry-passport.jpg" alt="Thay wifi cho Blackberry Passport" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-wifi-cho-blackberry-passport-2157.html">Thay wifi cho Blackberry Passport</a></p>
-        <p class="gia_pro clearfix">350.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-wifi-cho-blackberry-passport-2157.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/thay-man-hinh-cam-ung-xiaomi-mi5s-plus-2160.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-thay-man-hinh-cam-ung-xiaomi-mi5s-plus.jpg" alt="Thay màn hình, cảm ứng Xiaomi Mi5s Plus" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/thay-man-hinh-cam-ung-xiaomi-mi5s-plus-2160.html">Thay màn hình, cảm ứng Xiaomi Mi5s Plus</a></p>
-        <p class="gia_pro clearfix">Liên hệ</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/thay-man-hinh-cam-ung-xiaomi-mi5s-plus-2160.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/sua-blackberry-passport-mat-song-2166.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-sua-blackberry-passport-mat-song.jpg" alt="Sửa Blackberry Passport bị mất sóng" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/sua-blackberry-passport-mat-song-2166.html">Sửa Blackberry Passport bị mất sóng</a></p>
-        <p class="gia_pro clearfix">450.000 ₫</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/sua-blackberry-passport-mat-song-2166.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
-    <div class="ser_con clearfix">
-      <a href="dich-vu/sim-ghep-iphone-7-iphone-7-plus-2137.html">
-        <div class="ser_image clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2016/11/small-sim-ghep.jpg" alt="Sim ghép iPhone 7 / iPhone 7 Plus" />
-          <div class="mask1 mask">
-            <p class="clearfix">Miễn phí cài đặt phần mềm</p>
-            <p class="clearfix">Tặng tấm dán màn hình chống xước</p>
-            <p class="clearfix">Tặng Gift Cards giảm giá sửa chữa 50.000₫</p>
-          </div>
-        </div>
-      </a>
-      <div class="left_ser clearfix">
-        <p class="nam_ser clearfix"><a href="dich-vu/sim-ghep-iphone-7-iphone-7-plus-2137.html">Sim ghép iPhone 7 / iPhone 7 Plus</a></p>
-        <p class="gia_pro clearfix">Liên hệ</p>
-      </div>
-      <div class="right_ser clearfix">
-        <a href="dich-vu/sim-ghep-iphone-7-iphone-7-plus-2137.html" class="btn_mua clearfix">Mua</a>
-      </div>
-    </div>
+
   </div>
   <div class="fix_phone"><img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" /></div>
   <div class="btn_them clearfix"><a data-type="fix_phone" class="more_pro" href="javascript:;">Xem thêm dịch vụ sửa chữa</a></div>
@@ -480,29 +214,23 @@
 {{endif}}
 <!-- tin tuc -->
 <section class="clearfix">
+{{if(isset($dsTinTuc) && count($dsTinTuc)):}}
   <div class="news clearfix">
-    <!-- tin tuc con -->
+  {{foreach($dsTinTuc as $tinTuc):}}
+  {{ $tinTuc['images'] = json_decode($tinTuc['images']) }}
+  {{ $tinTuc['content'] = strip_tags($tinTuc['content']) }}
     <article class="new_con clearfix">
       <a href="tin-tuc/mobilecity-tuyen-nhan-vien-call-center-cham-soc-khach-hang.html">
         <div class="news_img clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/02/small-mobilecity-tuyen-dung.jpg" alt="MobileCity tuyển nhân viên Call Center - Chăm sóc Khách hàng" />
+          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_path('/public/uploads/')}}{{# helperLib::checkIsset($tinTuc['images'][0], $tinTuc['images'][0], null)}}" alt="{{# helperLib::checkIsset($tinTuc['name'][0], $tinTuc['name'][0], null)}}" />
         </div>
       </a>
       <div class="right_new_home clearfix">
-        <p class="title_new_home clearfix"><a title="MobileCity tuyển nhân viên Call Center - Chăm sóc Khách hàng" href="tin-tuc/mobilecity-tuyen-nhan-vien-call-center-cham-soc-khach-hang.html">MobileCity tuyển nhân viên Call Center - ...</a></p>
-        <p class="detail_new_home clearfix"> MobileCity cần tuyển 02 nhân viên Call Center - Chăm sóc Khách hàng  Những Quyền lợi mà bạn sẽ nhận được khi làm việc ở vị trí Call Center tại MobileCity:  1. Môi trường làm việc thoải mái, dễ chịu 2. Có khả năng thăng tiến, nâng cấp ...</p>
+        <p class="title_new_home clearfix"><a title="MobileCity tuyển nhân viên Call Center - Chăm sóc Khách hàng" href="tin-tuc/mobilecity-tuyen-nhan-vien-call-center-cham-soc-khach-hang.html">{{# isset($tinTuc['name']) ? ((strlen($tinTuc['name']) > 40) ? substr($tinTuc['name'], 0, 40)." ..." : $tinTuc['name']) : null ;}}</a></p>
+        <p class="detail_new_home clearfix">{{# isset($tinTuc['content']) ? ((strlen($tinTuc['content']) > 230) ? substr($tinTuc['content'], 0, 40)." ..." : $tinTuc['content']) : null ;}}</p>
       </div>
     </article>
-    <article class="new_con clearfix">
-      <a href="tin-tuc/mobilecity-tuyen-dung-vi-tri-ban-hang-full-time-part-time.html">
-        <div class="news_img clearfix">
-          <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="http://images.mobilecity.vn/media/images/2017/05/small-can-tuyen.jpg" alt="MobileCity tuyển dụng vị trí Bán hàng (Full Time, Part Time)" />
-        </div>
-      </a>
-      <div class="right_new_home clearfix">
-        <p class="title_new_home clearfix"><a title="MobileCity tuyển dụng vị trí Bán hàng (Full Time, Part Time)" href="tin-tuc/mobilecity-tuyen-dung-vi-tri-ban-hang-full-time-part-time.html">MobileCity tuyển dụng vị trí Bán hàng (Full ...</a></p>
-        <p class="detail_new_home clearfix"> MobileCity cần tìm nhân viên Bán hàng Full Time &amp; Part Time Tại vị trí bán hàng của MobileCity bạn sẽ nhận được những gì ? - Công việc nhẹ nhàng, không nặng nhọc - Môi trường sạch sẽ, yên tĩnh, trong phòng máy lạnh - Thu ...</p>
-      </div>
-    </article>
+    {{endforeach}}
   </div>
+  {{endif}}
 </section>
