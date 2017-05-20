@@ -6,6 +6,7 @@ class companyController extends InitController
 	public function __construct() {
 		$this->validate = new ValidateLib();
 		$this->companyModel = new companyModel();
+		$this->categoryModel = new categoryModel();
 	}
 
 	public function manager($req, $res) {
@@ -31,7 +32,7 @@ class companyController extends InitController
 		$data['scripts'] = array(
 			//'public/templates/admin-flat/scripts/admin.js'
 		);
-
+		$data['category_list'] = $this->categoryModel->find_all('id, name');
 		$data['validate']['success'] = isset($req->success) ? $req->success : null;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
 		return $res->render('admin-flat/company/add', 'admin-flat/layout/admin.layout', $data);
@@ -40,11 +41,13 @@ class companyController extends InitController
 
 	public function addPost($req, $res) {
 		if ($req->csrf) {
-			$this->validate->checkBody('name', 'Tên hãng không được bỏ trống!')->notEmpty();
+			$this->validate->checkBody('name', 'Tên hãng!')->notEmpty();
+			$this->validate->checkBody('categoryId', 'Chuyên mục!')->notEmpty();
 			if ($this->validate->errors) {
 				return $res->redirect('/admin/cart/companies/add')->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->companyModel->name = Input::post('name');
+				$this->companyModel->categoryId = Input::post('categoryId');
 				$this->companyModel->description = Input::post('description');
 				$this->companyModel->keywords = Input::post('keywords');
 				$this->companyModel->uid = $req->globals['infoUser']['id'];
@@ -66,6 +69,7 @@ class companyController extends InitController
 			return $res->redirect('/admin/cart/companies')->with(array('errors' => array('Chuyên mục không tồn tại!')));
 		}
 		$data['infoCategory']['name'] = $this->companyModel->name;
+		$data['infoCategory']['categoryId'] = $this->companyModel->categoryId;
 		$data['infoCategory']['description'] = $this->companyModel->description;
 		$data['infoCategory']['keywords'] = $this->companyModel->keywords;
 		$data['seo']['title'] = 'Chỉnh sửa chuyên mục sản phẩm';
@@ -75,7 +79,7 @@ class companyController extends InitController
 		$data['scripts'] = array(
 			//'public/templates/admin-flat/scripts/admin.js'
 		);
-
+		$data['category_list'] = $this->categoryModel->find_all('id, name');
 		$data['validate']['success'] = isset($req->success) ? $req->success : null;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
 		return $res->render('admin-flat/company/edit', 'admin-flat/layout/admin.layout', $data);
@@ -83,9 +87,10 @@ class companyController extends InitController
 
 	public function editPost($req, $res) {
 		if ($req->csrf) {
-			$this->validate->checkBody('name', 'Tên chuyên mục không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('id', 'ID không được bỏ trống!')->notEmpty();
-			$this->validate->checkBody('id', 'ID không được bỏ trống!')->notNumeric();
+			$this->validate->checkBody('name', 'Tên hãng')->notEmpty();
+			$this->validate->checkBody('id', 'ID')->notEmpty();
+			$this->validate->checkBody('id', 'ID')->notNumeric();
+			$this->validate->checkBody('categoryId', 'Chuyên mục!')->notEmpty();
 			$id = Input::post('id');
 			if(!$this->companyModel->find($id)) {
 				array_push($this->validate->errors, 'Chuyên mục không tồn tại!');
@@ -94,6 +99,7 @@ class companyController extends InitController
 				return $res->redirect('/admin/cart/companies/edit?id=' . $id)->with(array('errors' => $this->validate->errors));
 			} else {
 				$this->companyModel->name = Input::post('name');
+				$this->companyModel->categoryId = Input::post('categoryId');
 				$this->companyModel->description = Input::post('description');
 				$this->companyModel->keywords = Input::post('keywords');
 				$this->companyModel->uid_updated = $req->globals['infoUser']['id'];

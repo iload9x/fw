@@ -3,9 +3,8 @@
 */
 class URL 
 {
-	public function directory() {
+	public static function directory() {
 		$requestUri = $_SERVER['REQUEST_URI'];
-
 		if (Session::get('directorys_system')) {
 			return Session::get('directorys_system');
 		}
@@ -16,7 +15,6 @@ class URL
 		}
 		$requestUriElement = explode('/', $requestUri);
 		$strRequestUriElement = $requestUriElement[1];
-
 		$id = 1;
 		$directorys = $requestUriElement[0].'/';
 		while (@strpos(BASE_PATH, $strRequestUriElement) !== false) {
@@ -29,7 +27,7 @@ class URL
 		return $directorys;
 	}
 
-	public function requestUri() {
+	public static function requestUri() {
 		return $_SERVER['REQUEST_URI'];
 	}
 
@@ -41,7 +39,7 @@ class URL
 		return str_replace(self::base_path(), '', self::thisUrl());
 	}
 
-	public function http_host() {
+	public static function http_host() {
 		return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 	}
 

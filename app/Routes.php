@@ -52,12 +52,16 @@ Router::post('/404', function() {
 	return $res->render('404','admin-flat/layout/register.layout', $data);
 });
 
+Router::get("/install", "install@index");
 
 //=================FRONT-END=====================
+Router::get('/tin-tuc-{name}-art{id}.html', 'home@tintucDetailGet');
+
 Router::get('/{category}/{company}/{name}-prd{id}.html', 'home@detailGet');
 Router::get('/{category}/{company}.html', 'home@companyGet');
 Router::get('/{category}.html', 'home@categoryGet');
 Router::get('/tim-kiem.html', 'home@searchGet');
+Router::get('/tin-tuc.html', 'home@tintucGet');
 
 Router::get("/admin", "admin@index");
 Router::group('/admin', function() {
@@ -111,9 +115,13 @@ Router::group('/admin', function() {
 	Router::post("cart/products/add", "product@addPost");
 	Router::get("cart/products/edit-{id}", "product@editGet");
 	Router::post("cart/products/edit", "product@editPost");
-	Router::get("cart/products/delete", "product@deleteGet");
+	Router::get("cart/products/delete-{id}", "product@deleteGet");
+	Router::get("cart/orders", "order@manager");
 });
+
 //==========AJAX============
+Router::post("/orders/send", "order@sendPost");
+
 Router::post("/ajax/convertUrl", function($req, $res) {
 	if (Input::post('input_url')) {
 		echo StringLib::convertUrl(Input::post('input_url'));

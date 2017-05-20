@@ -738,12 +738,12 @@ box-shadow: 0px 4px 15px -5px rgba(0,0,0,0.75);
 }
 .title_menu{
 	font-size: 14px;
-	color: #e79f00;
+	color: #c31939;
 	font-weight: bold;
 	margin: 20px 0 0 0;
 }
 .title_menu p{
-	border-bottom: 1px solid #e79f00;
+	border-bottom: 1px solid #c31939;
 	box-sizing: border-box;
 	display: inline;
 	padding: 0 0 7px 0;
@@ -775,7 +775,7 @@ main{
 }
 .bottom_menu a{
 	font-size: 14px;
-	color: #e79f00 !important;
+	color: #c31939 !important;
 	font-weight: bold;
 	float: left;
 	display: block;

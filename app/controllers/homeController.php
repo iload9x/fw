@@ -37,19 +37,9 @@ class homeController extends InitController
 			'public/templates/front/themes/css/owl.carousel.css'
 		);
 		$this->data['diDongList'] = $this->productModel->didongList();
-		foreach ($this->data['diDongList'] as $k => $v) {
-			$this->companyModel->find($v['companyId']);
-			$this->categoryModel->find($v['categoryId']);
-			$this->data['diDongList'][$k]['avatar'] = (array)json_decode($this->data['diDongList'][$k]['avatar']);
-			$this->data['diDongList'][$k]['companySlug'] = $this->companyModel->slug;
-			$this->data['diDongList'][$k]['categorySlug'] = $this->categoryModel->slug;
-			$typeIds = array();
-			foreach ((array)json_decode($this->data['diDongList'][$k]['typeId']) as $v) {
-				$this->typeModel->find($v);
-				array_push($typeIds, array('name' => $this->typeModel->name, 'color' => $this->typeModel->color));
-			}
-			$this->data['diDongList'][$k]['type'] = $typeIds;
-		}
+		$this->data['phukienList'] = $this->productModel->phukienList();
+		$blogModel = new blogModel();
+		$this->data['dsTinTuc'] = $blogModel->select('id, name, images,content')->whereAnd(array('type' => 'post'))->limit(0, 2)->order_by('id', 'DESC')->get()->toArray();
 		$bannerModel = new bannerModel();
 		$this->data['banner']['home'] = $bannerModel->find_by_position('home');
 		$res->render('front/home', 'front/layout/index.layout',$this->data);
@@ -81,6 +71,7 @@ class homeController extends InitController
 			$this->companyModel->find($v['companyId']);
 			$this->data['productList'][$k]['avatar'] = (array)json_decode($this->data['productList'][$k]['avatar']);
 			$this->data['productList'][$k]['companySlug'] = $this->companyModel->slug;
+			$this->data['productList'][$k]['counpons'] = (array)json_decode($this->data['productList'][$k]['counpons']);
 			$typeIds = array();
 			foreach ((array)json_decode($this->data['productList'][$k]['typeId']) as $v) {
 				$this->typeModel->find($v);
@@ -123,6 +114,7 @@ class homeController extends InitController
 		foreach ($this->data['productList'] as $k => $v) {
 			$this->companyModel->find($v['companyId']);
 			$this->data['productList'][$k]['avatar'] = (array)json_decode($this->data['productList'][$k]['avatar']);
+			$this->data['productList'][$k]['counpons'] = (array)json_decode($this->data['productList'][$k]['counpons']);
 			$typeIds = array();
 			foreach ((array)json_decode($this->data['productList'][$k]['typeId']) as $v) {
 				$this->typeModel->find($v);
@@ -144,6 +136,9 @@ class homeController extends InitController
 		if ($this->productModel->select()->whereAnd(array('categoryId' => $categoryId, 'companyId' => $companyId, 'id' => $id))->get()->countAll() <= 0) {
 			return $res->redirect('/');
 		}
+		$this->data['random_phukien'] = $this->productModel->get_random_phukien(3);
+		$this->data['random_dienthoai'] = $this->productModel->get_random_dienthoai(3);
+
 		$this->data['infoProduct'] = $this->productModel->select()->whereAnd(array('categoryId' => $categoryId, 'companyId' => $companyId, 'id' => $id))->get()->rowArray();
 		$this->data['infoProduct']['avatar'] = (array)json_decode($this->data['infoProduct']['avatar']);
 		$this->data['infoProduct']['color'] = (array)json_decode($this->data['infoProduct']['color']);
@@ -182,5 +177,13 @@ class homeController extends InitController
 
 	public function searchGet($req, $res) {
 
+	}
+
+	public function tintucDetailGet($req, $res) {
+		
+	}
+
+	public function tintucGet($req, $res) {
+		
 	}
 }

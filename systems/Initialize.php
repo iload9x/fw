@@ -17,7 +17,7 @@
 			if (strlen($directorys) > 1) {
 				$requestUrl = str_replace($directorys, "", $requestUri);
 			} else {
-				$requestUrl = substr($requestUri, 1);
+				$requestUrl = substr($requestUri, 0);
 			}
 			$requestUrl = $this->url->clearHoiCham($requestUrl);
 			if (isset($requestUrl) && $requestUrl != null) {

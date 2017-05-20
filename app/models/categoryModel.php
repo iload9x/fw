@@ -18,4 +18,9 @@ class categoryModel extends InitModel
 		return $data;
 	}
 
+
+	public function find_all($field = '*') {
+		return $this->select($field)->order_by('id', 'DESC')->get()->toArray();
+	}
+
 }

@@ -24,6 +24,16 @@
 			  </div>
 			</div>
 			<div class="form-group">
+		      	<label for="exampleInputName">Chọn chuyên mục:</label>
+		      	<select class="form-control" name="categoryId">
+		      	{{if(isset($category_list)):}}
+		      	{{foreach($category_list as $category):}}
+		      	<option value="{{# $category['id']}}">{{# $category['name']}}</option>
+		      	{{endforeach}}
+		      	{{endif}}
+		      	</select>
+	      	</div>
+			<div class="form-group">
 			  <label for="exampleInputName">Mô tả(Description):</label>
 			  <div class="input-group">
 			    <div class="input-group-addon" style="background:#52555f; color:#fff; border:none"><i class="fa fa-user"></i></div>

@@ -326,4 +326,16 @@ class productController extends InitController
 			die('Loi Token!');
 		}
 	}
+
+	public function deleteGet($req, $res) {
+		if(!isset($req->id) || !is_numeric($req->id)) 
+			return $res->redirect('/admin/cart/products')->with(array('errors' =>array('Id sản phẩm không hợp lệ')));
+		if (!$this->productModel->find($req->id)) {
+			return $res->redirect('/admin/cart/products')->with(array('errors' =>array('Id sản phẩm không tồn tại')));
+		}
+		$this->productModel->remove();
+		return $res->redirect('/admin/cart/products')->with(array('success' => 'Xóa thành công!'));
+
+
+	}
 }

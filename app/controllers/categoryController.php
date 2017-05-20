@@ -31,7 +31,6 @@ class categoryController extends InitController
 		$data['scripts'] = array(
 			//'public/templates/admin-flat/scripts/admin.js'
 		);
-
 		$data['validate']['success'] = isset($req->success) ? $req->success : null;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
 		return $res->render('admin-flat/category/add', 'admin-flat/layout/admin.layout', $data);

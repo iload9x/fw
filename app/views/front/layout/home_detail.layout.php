@@ -373,11 +373,7 @@ Main components
       if (typeof proColor == 'undefined') {
         proColor = 'Không chọn';
       }
-      var proStorage = $('.popup-product-storage-select').val();
-      var proWarranty = $('.popup-product-warranty-select option:selected').text();
-      var proInfo = '' + proName + ' - Màu: ' + proColor + ' - DL: ' + proStorage + ' - BH: ' + proWarranty + '';
       var proPrice = $('.popup-product-price').attr('data-realprice');
-
       var cusGender = $('.customer-gender').val();
       var cusName = $('.customer-name').val();
       var cusPhone = $('.customer-phone').val();
@@ -392,40 +388,110 @@ Main components
         return false;
       } else {
         var data = {
-          name: 'orderphone',
-          id: proId,
-          link: proLink,
-          info: proInfo,
-          price: proPrice,
+          categoryId: {{# $infoProduct['categoryId']}},
+          productId: {{# $infoProduct['id']}},
+          link: '{{# URL::thisUrl()}}',
+          price: {{# $infoProduct['price']}},
           gender: cusGender,
-          cname: cusName,
+          fullname: cusName,
           phone: cusPhone,
           email: cusEmail,
           address: cusAddress,
           note: cusNote
         };
-        loadAjax(
-          data,
-          'json', {
-            beforeSend: function() {
+        $.ajax({
+            type:'post',
+            url:'{{# URL::base_url()}}/orders/send',
+            data: data,
+            dataType:'json',
+            beforeSend:function(){
               $('.popup-customer-info').append('<img class="loading" src="{{# URL::base_path('/public/templates/front/')}}themes/img/loading.gif"/>');
               btnOrder.prop('disabled', true);
             },
-            success: function(res) {
-              if (res.status == 1) {
+            success:function(result){
+              if (result.status == 1) {
                 $('.popup-customer-info').html('<div class="popup-message success">Chúc mừng quý khách đã đặt hàng thành công! Chúng tôi sẽ liên hệ với quý khách trong thời gian sớm nhất. Xin cảm ơn!<div>');
               } else {
-                alert(res.message);
+                alert(result.message);
                 btnOrder.prop('disabled', false);
                 $('.loading').remove();
               }
             }
-          }
-        )
+        })
       }
     });
   });
   </script>
 </body>
-
+<div id="popup-order-product" class="sudo-popup" style="left: 299.5px; position: absolute; top: 418px; z-index: 100001; display: none; opacity: 1;">
+  <div class="popup-close" onclick="closebPopup('popup-order-product')"><i class="fa fa-times" aria-hidden="true"></i></div>
+  <div class="popup-title">{{# helperLib::checkIsset($infoProduct['title'],$infoProduct['title'],null) }}</div>
+  <div class="popup-main">
+    <div class="popup-product-info">
+      <div class="popup-product-img"><img src="{{# URL::base_url('/public/uploads/')}}{{# helperLib::checkIsset($infoProduct['avatar'][0],$infoProduct['avatar'][0],null) }}" alt="iPhone 7 Cũ - Fullbox"></div>
+      <p class="popup-product-name">{{# helperLib::checkIsset($infoProduct['name'],$infoProduct['name'],null) }}</p>
+      <p class="popup-product-price" data-price="1190{{# helperLib::checkIsset($infoProduct['price'], $infoProduct['price'], 0) }}" data-realprice="{{# helperLib::checkIsset($infoProduct['price'], $infoProduct['price'], 0) }}">{{# helperLib::checkIsset($infoProduct['price'], number_format($infoProduct['price']),null) }} ₫</p>
+      <div class="clear"></div>
+      <div class="popup-product-color">
+        <div class="popup-product-color-title">Chọn màu:</div>
+          {{if(isset($infoProduct['color'])):}}
+            {{foreach($infoProduct['color'] as $color => $price):}}
+            <div data-color="{{# $color}}" style="background-color:{{# $color}};" data-price="{{# $price}}" data-name="Đen" class="popup-product-color-item"></div>
+            {{endforeach}}
+          {{endif}}
+      </div>
+          {{if(!empty($infoProduct['storage'])):}}
+          <div class="popup-product-storage">Chọn bộ nhớ:
+            <select class="popup-product-storage-select">
+            {{foreach($infoProduct['storage'] as $storage => $price):}}
+              <option value="{{# $price}}">{{# $storage}}GB</option>
+            {{endforeach}}
+            </select>
+          </div>
+          {{endif}}
+      <div class="popup-product-warranty">Bảo hành: 
+        <select class="popup-product-warranty-select">
+          <option value="{{# isset($infoProduct['guarantee']) ? $infoProduct['guarantee']: 0 }}">Bảo hành {{# isset($infoProduct['guarantee']) ? $infoProduct['guarantee']: 0 }} tháng</option>
+        </select>
+      </div>
+    </div>
+    <div class="popup-customer-info">
+      <div class="popup-customer-info-title">Thông tin người mua</div>
+      <div class="popup-customer-info-group">
+        <div class="popup-customer-info-item-13">
+          <select class="customer-gender">
+            <option value="1">Anh</option>
+            <option value="2">Chị</option>
+          </select>
+        </div>
+        <div class="popup-customer-info-item-23">
+          <input type="text" class="customer-name" name="customer-name" placeholder="Họ tên bạn (bắt buộc)">
+        </div>
+      </div>
+      <div class="popup-customer-info-group">
+        <div class="popup-customer-info-item-2">
+          <input type="text" class="customer-phone" name="customer-phone" placeholder="Số điện thoại (bắt buộc)">
+        </div>
+        <div class="popup-customer-info-item-2">
+          <input type="text" class="customer-email" name="customer-email" placeholder="Địa chỉ email (bắt buộc)">
+        </div>
+      </div>
+      <div class="popup-customer-info-group">
+        <div class="popup-customer-info-item-1">
+          <textarea class="customer-address" placeholder="Địa chỉ nhận hàng"></textarea>
+        </div>
+      </div>
+      <div class="popup-customer-info-group">
+        <div class="popup-customer-info-item-1">
+          <textarea class="order-note" placeholder="Ghi chú đơn hàng"></textarea>
+        </div>
+      </div>
+      <div class="popup-customer-info-group">
+        <div class="popup-customer-info-item-1">
+          <button class="popup-order-btn" data-id="485">Đặt hàng ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </html>
