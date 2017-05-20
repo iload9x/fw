@@ -42,7 +42,7 @@
           <div class="clearfix bonho">Bộ nhớ 
             <select id="dungluong">
             {{foreach($infoProduct['storage'] as $storage => $price):}}
-              <option value="{{# $price}}">{{# $storage}}GB</option>
+              <option value="{{# number_format($price)}} ₫">{{# $storage}}GB</option>
             {{endforeach}}
             </select>
           </div>

@@ -55,7 +55,7 @@ Router::post('/404', function() {
 Router::get("/install", "install@index");
 
 //=================FRONT-END=====================
-Router::get('/tin-tuc-{name}-art{id}.html', 'home@tintucDetailGet');
+Router::get('/tin-tuc/{name}-art{id}.html', 'home@tintucDetailGet');
 
 Router::get('/{category}/{company}/{name}-prd{id}.html', 'home@detailGet');
 Router::get('/{category}/{company}.html', 'home@companyGet');
@@ -83,6 +83,7 @@ Router::group('/admin', function() {
 	Router::post("blog/create", "blog@createPost");
 	Router::get("blog/edit", "blog@edit");
 	Router::post("blog/edit", "blog@editPost");
+	Router::get("blog/delete", "blog@delete");
 	Router::get("member", "member@manager");
 	Router::get("member/edit", "member@edit");
 	Router::post("member/edit", "member@editPost");

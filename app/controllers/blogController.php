@@ -39,6 +39,7 @@ class blogController extends InitController
 		$data['blog']['countAllCat']	= $this->blogModel->select()->whereAnd(array('type' => 'cat'))->get()->countAll();
 		$data['blog']['countAllPost']	= $this->blogModel->select()->whereAnd(array('type' => 'post'))->get()->countAll();
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
+		$data['validate']['success'] = isset($req->success) ? $req->success : null;
 		//=================PAGINATION====================
 	    $pagination->next_tag_html = '<button name="catPage" value="{$id}" class="pagination-btn btn btn-default"><i class="fa fa-chevron-right"></i></button>';
 	    $pagination->next_tag_disabled_html = '<button disabled name="catPage" value="{$id}" class="btn btn-default"><i class="fa fa-chevron-right"></i></button>';
@@ -70,7 +71,12 @@ class blogController extends InitController
 		} else {
 			$data['seo']['title'] = $data['name'] = "Thêm bài viết";
 		}
-		
+		$data['scripts'] = array(
+			'public/templates/admin-flat/scripts/blog.js'
+		);
+		$data['styles'] = array(
+			'public/templates/admin-flat/styles/product.css'
+		);
 		$data['csrf_token'] = $req->csrfToken;
 		$data['globals'] = $req->globals;
 		$data['validate']['errors'] = isset($req->errors) ? $req->errors : null;
@@ -261,6 +267,26 @@ class blogController extends InitController
 		} else {
 			die("Sai ToKen #1!");
 		}
+	}
+
+	public function delete($req, $res) {
+		if(!Input::get('id') || !is_numeric(Input::get('id')) || !$this->blogModel->find(Input::get('id'))) {
+			return $res->redirect('/admin/blog')->with(array('errors' => array("Id không tồn tại!")));
+		}
+		if ($this->blogModel->type == 'post') {
+			$this->blogModel->remove();
+			return $res->redirect('/admin/blog')->with(array('success' => "Xóa thành công!"));
+		} else {
+			if ($this->blogModel->find($this->blogModel->id, 'parent')) {
+				return $res->redirect('/admin/blog')->with(array('errors' => array("Không thể xóa chuyên mục này!")));
+			} else {
+				$this->blogModel->find(Input::get('id'));
+				$this->blogModel->remove();
+				return $res->redirect('/admin/blog')->with(array('success' => "Xóa thành công!"));
+			}
+		}
+
+		
 	}
 
 }

@@ -12,6 +12,7 @@ class homeController extends InitController
 		$this->typeModel = new typeModel();
 		$this->configModel = new configModel();
 		$this->specsModel = new specsModel();
+		$this->blogModel = new blogModel();
 		$this->data['dsCompanyDienThoai'] = $this->companyModel->select('name, slug')->whereAnd(array('categoryId' => 5))->limit(0,20)->get()->toArray();
 		$this->data['dsCompanyTablet'] = $this->companyModel->select('name, slug')->whereAnd(array('categoryId' => 6))->limit(0,20)->get()->toArray();
 		$this->data['dsCompanyPhuKien'] = $this->companyModel->select('name, slug')->whereAnd(array('categoryId' => 7))->limit(0,20)->get()->toArray();
@@ -176,11 +177,40 @@ class homeController extends InitController
 	}
 
 	public function searchGet($req, $res) {
-
+		echo nCrypt::encode('anhyeuem', 74213798);
+		nCrypt::decode('YdWCb5oEbcDeWVe1ZW0=', 74213798);
+		echo base64_decode('YdWCb5oEbcDeWVe1ZW0');
 	}
 
 	public function tintucDetailGet($req, $res) {
-		
+		if (!$this->blogModel->find($req->id)) {
+			return $res->redirect('/');
+		}
+
+		array_push($this->data['breadCrumbs'], array(
+			'name' => $this->categoryModel->name,
+			'url' => URL::base_url("/{$this->categoryModel->slug}.html"),
+		));
+		array_push($this->data['breadCrumbs'], array(
+			'name' => $this->companyModel->name,
+			'url' => URL::thisUrl(),
+		));
+
+		$this->data['seo'] = array(
+			'title' => "{$this->blogModel->name} | Tin tức công nghệ",
+			'description' => $this->blogModel->des,
+			'keywords' => $this->blogModel->keyword,
+		);
+
+		$this->data['styles'] = array(
+			'public/templates/front/themes/css/new_single.css',
+		);
+
+		$this->data['infoBlog']['name'] = $this->blogModel->name;
+		$this->data['infoBlog']['content'] = $this->blogModel->content;
+		$this->data['infoBlog']['time_created'] = $this->blogModel->time_created;
+		$this->data['dsLienQuan'] = $this->blogModel->getDsLienQuan($req->id);
+		return $res->render('front/home/tintucDetailGet', 'front/layout/index.layout', $this->data);
 	}
 
 	public function tintucGet($req, $res) {

@@ -13,6 +13,15 @@
       </div>
 
       <div class="panel-body">
+            {{if(isset($validate['errors']) && is_array($validate['errors'])):}}
+            <div class="alert alert-danger" role="alert" style="">
+              {{ foreach($validate['errors'] as $v):}}
+              <div>{{# $v; }}</div>
+              {{ endforeach; }}
+            </div>
+            {{endif}} {{if(isset($validate['success'])):}}
+            <div class="alert alert-success" role="alert" style="border-color:#3d6f5f;background:#3d6f5f">{{# $validate['success']; }}</div>
+            {{endif}}
         <div class="table-responsive">
 		  <table class="table table-bordered">
 		    <thead>
@@ -42,6 +51,9 @@
 			        {{if($v['status'] == 1):}}
 			        <span class="pe-7s-check" style="color:green"></span>
 			        {{endif}}
+			        <a class="btn btn-default btn-xs" href="{{# URL::base_path('/admin/blog/edit?type=post&id='.$v['id'])}}"><i class="fa fa-paste"></i> Edit</a>
+			        <a class="btn btn-default btn-xs" href="{{# URL::base_path('/admin/blog/delete?type=post&id='.$v['id'])}}"><i class="fa fa-trash-o"></i> <span class="bold">Delete</span></a>
+
 			        </td>
 			      </tr>
 			      {{ $id++; }}
@@ -93,7 +105,7 @@
 			    {{foreach($blog['dsCat'] as $v):}}
 			      <tr>
 			        <th scope="row">{{# $id}}</th>
-			        <td><a href="{{# URL::base_path('/admin/blog/edit?type=post&id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
+			        <td><a href="{{# URL::base_path('/admin/blog/edit?type=cat&id='.$v['id'])}}">{{# isset($v['name']) ? $v['name'] : 'N/A'}}</a></td>
 			        <td>{{# isset($v['parentName']) ? $v['parentName'] : 'N/A'}}</td>
 			        <td><a href="{{# URL::base_path('/admin/members/edit?id='.$v['uid'])}}">{{# $v['nickname']}}</a></td>
 			        <td>{{# $v['time_created']}}</td>
@@ -104,6 +116,8 @@
 			        {{if($v['status'] == 1):}}
 			        <span class="pe-7s-check" style="color:green"></span>
 			        {{endif}}
+			        <a class="btn btn-default btn-xs" href="{{# URL::base_path('/admin/blog/edit?type=cat&id='.$v['id'])}}"><i class="fa fa-paste"></i> Edit</a>
+			        <a class="btn btn-default btn-xs" href="{{# URL::base_path('/admin/blog/delete?type=cat&id='.$v['id'])}}"><i class="fa fa-trash-o"></i> <span class="bold">Delete</span></a>
 			        </td>
 			      </tr>
 			      {{ $id++; }}

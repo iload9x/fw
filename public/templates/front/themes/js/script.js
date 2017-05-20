@@ -3,6 +3,11 @@ new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( '
 });
 
 $(document).ready(function(){
+    $('#dungluong').change(function() {
+        $('.price').html($(this).val());
+        $('.price_left').html($(this).val());
+        $('.price_plus').html($(this).val());
+    });
     $('#mb-search').on('click',function(){
         $('.mb-search-box').show();
         $('.mb-search-box input[type=text]').focus();

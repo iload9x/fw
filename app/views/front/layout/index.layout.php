@@ -69,14 +69,8 @@
                   </dd>
                 </dl>
               </div>
-              <div class="top_web_center clearfix">
-                <p>Hotline <span class="chucam">{{# isset($configs['hotline']) ? $configs['hotline'] : null}}</span></p>
-              </div>
               <div class="top_web_right clearfix">
-                <p>
-                  <a style="font-weight: bold;" href="tin-tuc-tuyen-dung/index.html">Tuyển dụng</a>&nbsp;|&nbsp;
-                  <a id="btn-login" href="javascript:;" rel="nofollow">Đăng nhập</a> | <a id="btn-signup" href="javascript:;" rel="nofollow">Đăng ký</a>
-                </p>
+                <p>Hotline <span class="chucam">{{# isset($configs['hotline']) ? $configs['hotline'] : null}}</span></p>
               </div>
             </div>
           </section>
@@ -88,7 +82,7 @@
           <section class="footer_bottom clearfix">
             <div class="bocnoidung clearfix">
               <div class="footer_bottom_left clearfix">
-                <p>© 2016. TaoDoc hệ thống bán lẻ điện thoại di động.</p>
+                <p>© 2016. NghienTao hệ thống bán lẻ điện thoại di động.</p>
               </div>
               <div class="footer_bottom_center clearfix">
                 <p>Bạn có thể thanh toán với</p>
@@ -107,7 +101,7 @@
               <div class="popup-form popup-form-login">
                 <div class="popup-message-box"></div>
                 <div class="popup-form-wrap">
-                  <div class="popup-form-wrap-title">Tài khoản TaoDoc</div>
+                  <div class="popup-form-wrap-title">Tài khoản NghienTao</div>
                   <form id="ajaxlogin" action="javascript:;" method="post">
                     <div class="form-inline">
                       <label>Email</label>

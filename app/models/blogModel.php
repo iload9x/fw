@@ -31,4 +31,14 @@ class blogModel extends InitModel
 		$data['labelsDataThisMonth'] = substr($data['labelsDataThisMonth'], 0, strlen($data['labelsDataThisMonth']) - 1) . ']';
 		return $data;
 	}
+
+	public function getDsLienQuan($id) {
+		$this->newQuery = "SELECT * FROM ngoan_cms_blogs WHERE type = 'post' AND id NOT IN ($id) ORDER BY id LIMIT 6";
+		$data = $this->toArray();
+		foreach ($data as $kData => $vData) {
+			$data[$kData]['images'] = json_decode($data[$kData]['images']);
+		}
+
+		return $data;
+	}
 }
