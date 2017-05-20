@@ -179,7 +179,6 @@ class homeController extends InitController
 	public function searchGet($req, $res) {
 		echo nCrypt::encode('anhyeuem', 74213798);
 		nCrypt::decode('YdWCb5oEbcDeWVe1ZW0=', 74213798);
-		echo base64_decode('YdWCb5oEbcDeWVe1ZW0');
 	}
 
 	public function tintucDetailGet($req, $res) {

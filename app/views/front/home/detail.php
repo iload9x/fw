@@ -79,7 +79,7 @@
           </a>
         {{endif}}
         {{if(isset($infoProduct['tra_gop']) && $infoProduct['tra_gop'] == 1):}}
-          <a href="http://mobilecity.vn/mua-tra-gop/iphone-5c-cu-prd1064.html" class="btn_pro_mua btn2 clearfix">
+          <a href="#" class="btn_pro_mua btn2 clearfix">
             <p>MUA TRẢ GÓP
               <br/> <span>Lãi suất thấp</span></p>
           </a>

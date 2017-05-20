@@ -220,13 +220,13 @@
   {{ $tinTuc['images'] = json_decode($tinTuc['images']) }}
   {{ $tinTuc['content'] = strip_tags($tinTuc['content']) }}
     <article class="new_con clearfix">
-      <a href="{{# URL::base_path('/tin-tuc/')}}{{# helperLib::checkIsset($tinTuc['name'], $tinTuc['name'], null)}}-art{{# $tinTuc['id']}}.html">
+      <a href="{{# URL::base_path('/tin-tuc/')}}{{# helperLib::checkIsset($tinTuc['name'], StringLib::convertUrl($tinTuc['name']), null)}}-art{{# $tinTuc['id']}}.html">
         <div class="news_img clearfix">
           <img src="{{# URL::base_path('/public/templates/front/')}}themes/img/load_video.svg" class="lazy" data-original="{{# URL::base_path('/public/uploads/')}}{{# helperLib::checkIsset($tinTuc['images'][0], $tinTuc['images'][0], null)}}" alt="{{# helperLib::checkIsset($tinTuc['name'][0], $tinTuc['name'][0], null)}}" />
         </div>
       </a>
       <div class="right_new_home clearfix">
-        <p class="title_new_home clearfix"><a title="{{# helperLib::checkIsset($tinTuc['name'], $tinTuc['name'], null)}}" href="{{# URL::base_path('/tin-tuc/')}}{{# helperLib::checkIsset($tinTuc['name'], $tinTuc['name'], null)}}-art{{# $tinTuc['id']}}.html">{{# isset($tinTuc['name']) ? ((strlen($tinTuc['name']) > 40) ? substr($tinTuc['name'], 0, 40)." ..." : $tinTuc['name']) : null ;}}</a></p>
+        <p class="title_new_home clearfix"><a title="{{# helperLib::checkIsset($tinTuc['name'], StringLib::convertUrl($tinTuc['name']), null)}}" href="{{# URL::base_path('/tin-tuc/')}}{{# helperLib::checkIsset($tinTuc['name'], StringLib::convertUrl($tinTuc['name']), null)}}-art{{# $tinTuc['id']}}.html">{{# isset($tinTuc['name']) ? ((strlen($tinTuc['name']) > 40) ? substr($tinTuc['name'], 0, 40)." ..." : $tinTuc['name']) : null ;}}</a></p>
         <p class="detail_new_home clearfix">{{# isset($tinTuc['content']) ? ((strlen($tinTuc['content']) > 230) ? substr($tinTuc['content'], 0, 40)." ..." : $tinTuc['content']) : null ;}}</p>
       </div>
     </article>

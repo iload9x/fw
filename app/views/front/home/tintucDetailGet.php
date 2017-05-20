@@ -1,15 +1,15 @@
 <section class="content clearfix">
   <ul class="breadcrumb">
     <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="itemscope" class="crumb_item">
-      <a itemprop="url" rel="up" class="crumb" href="http://mobilecity.vn"><span itemprop="title">Trang chủ</span></a>
+      <a itemprop="url" rel="up" class="crumb" href="#"><span itemprop="title">Trang chủ</span></a>
       <span class="arrow"> › </span>
     </li>
     <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="itemscope" class="crumb_item">
-      <a itemprop="url" rel="up" class="crumb" href="/tin-tuc/"><span itemprop="title">Tin tức</span></a>
+      <a itemprop="url" rel="up" class="crumb" href="#"><span itemprop="title">Tin tức</span></a>
       <span class="arrow"> › </span>
     </li>
     <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="itemscope" class="crumb_item">
-      <a itemprop="url" rel="up" class="crumb" href="/tin-tuc-cong-nghe/"><span itemprop="title">Tin công nghệ</span></a>
+      <a itemprop="url" rel="up" class="crumb" href="#"><span itemprop="title">Tin công nghệ</span></a>
     </li>
   </ul>
   <section class="left_content clearfix">
@@ -17,7 +17,7 @@
       <h1>{{# helperLib::checkIsset($infoBlog['name'], $infoBlog['name'], null)}}</h1>
       <div class="top_content clearfix">
         <p>{{# helperLib::checkIsset($infoBlog['time_created'], $infoBlog['time_created'], null)}}</p>
-        <a href="/tin-tuc-cong-nghe/">
+        <a href="#">
           <p>Tin công nghệ</p>
         </a>
         <div class="box_like">
@@ -39,10 +39,10 @@
       {{if(isset($dsLienQuan)):}}
       {{foreach($dsLienQuan as $k => $v):}}
       <div class="news_con" style="height: 226px;">
-        <a href="/tin-tuc/smartphone-dep-nhu-galaxy-s7-edge-gia-chi-re-bang-1-phan-3.html">
+        <a href="{{# URL::base_path('/tin-tuc/')}}{{# helperLib::checkIsset($v['name'], StringLib::convertUrl($v['name']), null)}}-art{{# $v['id']}}.html">
           <div class="img_lienquan clearfix"><img src="{{# URL::base_url('/public/uploads/')}}{{# helperLib::checkIsset($v['images'][0], $v['time_created'][0], 'no-image.jpg')}}" alt="{{# helperLib::checkIsset($v['name'], $v['name'], null)}}"></div>
         </a>
-        <h3 style="height: 54px;"><a href="/tin-tuc/smartphone-dep-nhu-galaxy-s7-edge-gia-chi-re-bang-1-phan-3.html">{{# helperLib::checkIsset($v['name'], $v['name'], null)}}</a></h3>
+        <h3 style="height: 54px;"><a href="{{# URL::base_path('/tin-tuc/')}}{{# helperLib::checkIsset($v['name'], StringLib::convertUrl($v['name']), null)}}-art{{# $v['id']}}.html">{{# helperLib::checkIsset($v['name'], $v['name'], null)}}</a></h3>
         <p>{{# helperLib::checkIsset($v['time_created'], $v['time_created'], null)}}</p>
       </div>
       {{endforeach}}
