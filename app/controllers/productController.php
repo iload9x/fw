@@ -164,8 +164,8 @@ class productController extends InitController
 				$this->productModel->guarantee = Input::post('guarantee');
 				$this->productModel->inbox = Input::post('inbox');
 				$this->productModel->delivery = Input::post('delivery');
-				$this->productModel->counpons = mysql_real_escape_string(json_encode(Input::post('counpons')));
-				$this->productModel->videoLinks = mysql_real_escape_string(json_encode(Input::post('videoLinks')));
+				$this->productModel->counpons = (json_encode(Input::post('counpons'), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+				$this->productModel->videoLinks = (json_encode(Input::post('videoLinks')));
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_created = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();
@@ -311,10 +311,10 @@ class productController extends InitController
 				$this->productModel->storage      = json_encode($storage);
 				$this->productModel->color      = json_encode($color);
 				$this->productModel->guarantee = Input::post('guarantee');
-				$this->productModel->videoLinks = mysql_real_escape_string(json_encode(Input::post('videoLinks')));
+				$this->productModel->videoLinks = (json_encode(Input::post('videoLinks')));
 				$this->productModel->inbox = Input::post('inbox');
 				$this->productModel->delivery = Input::post('delivery');
-				$this->productModel->counpons = mysql_real_escape_string(json_encode(Input::post('counpons')));
+				$this->productModel->counpons = (json_encode(Input::post('counpons'), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 				$this->productModel->avatar       = json_encode($imagesArray);
 				$this->productModel->time_updated = Dtime::format("Y-m-d H:i:s", time());
 				$this->productModel->save();

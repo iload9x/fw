@@ -39,9 +39,16 @@ class adminController extends InitController
 			if (!$this->userModel->find(Input::post('username'),'username')) {
 				array_push($this->validate->errors, "Tài khoản chưa được đăng ký!");
 			} else {
-				if ($this->userModel->whereAnd(array('username' => Input::post('username'), 'password' => Input::post('password')))->get()->countAll() <= 0) {
+				if ($this->userModel->whereAnd(array(
+					'username' => Input::post('username'), 
+					'password' => Input::post('password'))
+				)->get()->countAll() <= 0) {
 					array_push($this->validate->errors, "Mật khẩu không chính xác!");
-				} else if($this->userModel->whereAnd(array('status' => 1, 'username' => Input::post('username'), 'password' => Input::post('password')))->get()->countAll() <= 0){
+				} else if($this->userModel->whereAnd(array(
+					'status' => 1,
+					'username' => Input::post('username'),
+					'password' => Input::post('password'))
+				)->get()->countAll() <= 0){
 					array_push($this->validate->errors, "Tài khoản hiện đang bị khóa!");
 				}
 			}
@@ -58,8 +65,6 @@ class adminController extends InitController
 				}
 				return $res->redirect("/admin");
 			}
-
-
 		}
 	}
 
